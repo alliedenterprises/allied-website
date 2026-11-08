@@ -72,6 +72,6 @@ export const company = {
   social: [
     'https://www.facebook.com/allied.electronics.engineers/',
     'https://twitter.com/infoalliedeprs1',
-    'https://www.instagram.com/alliedenterprisesqatar/',
+    'https://www.instagram.com/allied_qatar/',
   ],
 } as const
