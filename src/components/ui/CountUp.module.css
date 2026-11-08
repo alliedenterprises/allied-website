@@ -1,0 +1,83 @@
+/* Rolling (odometer-style) counter.
+   No JavaScript / reduced motion: the plain digits show (.face).
+   data-roll="ready": each digit shows a 0–9 strip parked on 0, suffix hidden.
+   data-roll="run":   strips roll to their digit, then the suffix rises in.
+   data-roll="done":  back to the plain digits (identical position). */
+.root {
+  --cell: 1.1em;
+  position: relative;
+  display: inline-block;
+}
+
+.visual {
+  /* inline (not flex) so the page text reads "15+" rather than one digit per line */
+  display: inline-block;
+  line-height: var(--cell);
+  white-space: nowrap;
+}
+
+.digit {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  height: var(--cell);
+  /* clip vertically only, so wide digits are never cut at the sides while rolling */
+  clip-path: inset(0 -0.4em);
+}
+
+.face {
+  display: inline-block;
+  height: var(--cell);
+}
+
+.affix {
+  display: inline-block;
+  vertical-align: top;
+  height: var(--cell);
+}
+
+/* the 0–9 strip: generated content, so it is not page text */
+.digit::after {
+  content: none;
+}
+
+.root[data-roll='ready'] .face,
+.root[data-roll='run'] .face {
+  visibility: hidden;
+}
+
+.root[data-roll='ready'] .digit::after,
+.root[data-roll='run'] .digit::after {
+  content: '0\A 1\A 2\A 3\A 4\A 5\A 6\A 7\A 8\A 9\A 0\A 1\A 2\A 3\A 4\A 5\A 6\A 7\A 8\A 9\A 0\A 1\A 2\A 3\A 4\A 5\A 6\A 7\A 8\A 9';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  white-space: pre;
+  text-align: center;
+  line-height: var(--cell);
+  transform: translate(-50%, 0);
+}
+
+.root[data-roll='run'] .digit {
+  /* soft fade at the top and bottom edge while the strip moves */
+  -webkit-mask-image: linear-gradient(transparent, #000 10%, #000 90%, transparent);
+  mask-image: linear-gradient(transparent, #000 10%, #000 90%, transparent);
+}
+
+.root[data-roll='run'] .digit::after {
+  transform: translate(-50%, calc(var(--pos) * var(--cell) * -1));
+  transition: transform 2s cubic-bezier(0.16, 1, 0.3, 1) var(--delay, 0ms);
+}
+
+.root[data-roll='ready'] .affix {
+  opacity: 0;
+  transform: translateY(0.3em);
+}
+
+.root[data-roll='run'] .affix {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 0.5s ease var(--affix-delay, 0ms),
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) var(--affix-delay, 0ms);
+}

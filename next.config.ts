@@ -7,10 +7,20 @@ const __filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(__filename)
 
 const nextConfig: NextConfig = {
+  // every old WordPress URL ends in a slash; they must keep their exact paths
+  trailingSlash: true,
   images: {
+    // 75 = default for normal images; 92 = high-quality homepage banners
+    // (Next 16 requires every quality used by next/image to be listed here)
+    qualities: [75, 92],
     localPatterns: [
       {
         pathname: '/api/media/file/**',
+      },
+      {
+        // site images in /public/images (logo, icons, etc.)
+        pathname: '/images/**',
+        search: '',
       },
     ],
   },

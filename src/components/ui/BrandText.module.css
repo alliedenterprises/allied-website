@@ -1,0 +1,40 @@
+/* Inline ZKTeco logo sized to the surrounding text (logo height ≈ capital-letter height) */
+.zkteco {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+  line-height: 1;
+  flex-shrink: 0; /* inside flex links (e.g. the header menu) keep the logo at full size */
+}
+
+.logo {
+  display: inline-block;
+  width: auto;
+  height: 0.76em;
+  vertical-align: baseline; /* bottom of the logo sits on the text baseline */
+}
+
+.dark {
+  display: none;
+}
+
+:global([data-theme='dark']) .light {
+  display: none;
+}
+
+:global([data-theme='dark']) .dark {
+  display: inline-block;
+}
+
+/* the real word for search engines / screen readers / copy-paste */
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}

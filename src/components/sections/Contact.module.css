@@ -1,0 +1,261 @@
+/* Contact page (/contact-us/). Tokens live in app/(frontend)/styles.css */
+
+/* ---------- Hero band: photo + navy overlay ---------- */
+.hero {
+  --edge: max(48px, calc((100% - 1440px) / 2 + 48px));
+  padding: 24px var(--edge) 0;
+}
+
+.heroInner {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  min-height: 300px;
+  padding: 56px 56px;
+  border-radius: 24px;
+}
+
+.heroImage {
+  z-index: -2;
+  object-fit: cover;
+  object-position: 70% 30%;
+}
+
+/* navy overlay, strongest behind the text so it stays readable */
+.heroInner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(90deg, rgba(8, 18, 48, 0.95) 0%, rgba(15, 38, 98, 0.85) 45%, rgba(19, 48, 122, 0.3) 100%);
+}
+
+.heroCopy {
+  max-width: 600px;
+}
+
+.breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 16px;
+  padding: 0;
+  list-style: none;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.breadcrumb li + li::before {
+  content: '/';
+  margin-right: 8px;
+  opacity: 0.5;
+}
+
+.breadcrumb a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.heading {
+  margin: 0 0 14px;
+  font-size: clamp(32px, 3.8vw, 52px);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -1px;
+  color: #fff;
+}
+
+.lead {
+  margin: 0;
+  font-size: 17.5px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+/* ---------- Split card: details + form ---------- */
+.body {
+  --edge: max(96px, calc((100% - 1440px) / 2 + 96px));
+  padding: 56px var(--edge) 88px;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  overflow: hidden;
+  background: var(--menu-bg-strong);
+  border: 1px solid var(--dropdown-border);
+  border-radius: 24px;
+  box-shadow: 0 24px 60px rgba(19, 48, 122, 0.12);
+}
+
+/* ---------- Navy details panel ---------- */
+.info {
+  position: relative;
+  isolation: isolate;
+  padding: 48px 44px;
+  color: #fff;
+  background: linear-gradient(160deg, #0b1a45 0%, #13307a 100%);
+}
+
+/* soft glow in the corner */
+.info::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(420px circle at 100% 100%, rgba(47, 91, 211, 0.45), transparent 70%);
+}
+
+.infoHeading {
+  margin: 0 0 8px;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+}
+
+.infoIntro {
+  margin: 0 0 32px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.list {
+  display: grid;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.row {
+  display: flex;
+  gap: 16px;
+}
+
+.icon {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  color: #b9cbff;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+}
+
+.icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.rowBody {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+  font-size: 15.5px;
+  line-height: 1.55;
+}
+
+.label {
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.rowBody a {
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.rowBody a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.rowBody .subLink {
+  margin-top: 2px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #b9cbff;
+}
+
+.address,
+.hoursLine {
+  font-style: normal;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+/* ---------- Form side ---------- */
+.formSide {
+  padding: 48px 48px 44px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1180px) {
+  .hero,
+  .body {
+    --edge: 32px;
+  }
+}
+
+@media (max-width: 960px) {
+  .card {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* form first on small screens: it is the main action */
+  .formSide {
+    order: -1;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    --edge: 16px;
+    padding-top: 16px;
+  }
+
+  .heroInner {
+    min-height: 0;
+    padding: 40px 22px;
+    border-radius: 18px;
+  }
+
+  .heroInner::after {
+    background: linear-gradient(180deg, rgba(8, 18, 48, 0.92) 0%, rgba(19, 48, 122, 0.84) 100%);
+  }
+
+  .lead {
+    font-size: 16px;
+  }
+
+  .body {
+    --edge: 16px;
+    padding-top: 28px;
+    padding-bottom: 56px;
+  }
+
+  .card {
+    border-radius: 18px;
+  }
+
+  .info,
+  .formSide {
+    padding: 32px 22px;
+  }
+}

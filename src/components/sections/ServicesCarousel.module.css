@@ -1,0 +1,300 @@
+.section {
+  /* same content edge as the other sections (96px inside the 1440px column) */
+  --edge: max(96px, calc((100% - 1440px) / 2 + 96px));
+  --gap: 20px;
+  /* text panel: solid dark navy in both themes, so white text always reads clearly */
+  --panel: #0b1530;
+  padding: 36px var(--edge) 84px;
+}
+
+:global([data-theme='dark']) .section {
+  --panel: #0f1a33;
+}
+
+.heading {
+  margin: 0 0 32px;
+  font-size: clamp(28px, 3vw, 44px);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.8px;
+  color: var(--text);
+}
+
+/* ---------- Grid: all seven at once ---------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  display: flex; /* cards in a row stretch to the same height */
+}
+
+.featured {
+  grid-column: span 2;
+}
+
+/* ---------- Card ---------- */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden;
+  background: var(--panel);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  box-shadow: 0 14px 34px rgba(11, 21, 48, 0.16);
+  transition:
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.3s;
+}
+
+/* image area: the full picture, nothing on top of it */
+.media {
+  position: relative;
+  flex-shrink: 0;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #0d1424; /* shows while the image loads */
+}
+
+/* short fade from the image into the dark panel */
+.media::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0;
+  height: 34%;
+  background: linear-gradient(180deg, transparent, var(--panel));
+  pointer-events: none;
+}
+
+.image {
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ---------- Text panel ---------- */
+.body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 6px 22px 18px;
+  color: #fff;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: #9bd35a; /* ZKTeco green, as used for highlights */
+}
+
+.title {
+  margin: 0 0 8px;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.2px;
+}
+
+.link {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* the link covers the whole card */
+.link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+}
+
+.text {
+  margin: 0 0 14px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+/* "Learn more" + round arrow, pinned to the bottom of the card */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: auto;
+}
+
+.more {
+  font-size: 14px;
+  font-weight: 500;
+  text-underline-offset: 4px;
+}
+
+.go {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  border: 1.5px solid rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  transition:
+    background 0.25s,
+    color 0.25s,
+    transform 0.25s;
+}
+
+.go svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* ---------- Featured card: image beside the text ---------- */
+.featured .card {
+  flex-direction: row;
+  min-height: 340px; /* keeps the image a good size when the text is short (tablets) */
+}
+
+.featured .media {
+  width: 50%;
+  aspect-ratio: auto;
+}
+
+.featured .media::after {
+  inset: 0 0 0 auto;
+  width: 34%;
+  height: auto;
+  background: linear-gradient(90deg, transparent, var(--panel));
+}
+
+.featured .body {
+  justify-content: flex-end;
+  padding: 24px 26px 20px 10px;
+}
+
+.featured .title {
+  font-size: 24px;
+}
+
+.featured .footer {
+  margin-top: 6px;
+}
+
+/* ---------- Hover / focus ---------- */
+.card:hover,
+.card:focus-within {
+  transform: translateY(-3px);
+  box-shadow: 0 22px 44px rgba(11, 21, 48, 0.26);
+}
+
+.card:hover .image,
+.card:focus-within .image {
+  transform: scale(1.05);
+}
+
+.card:hover .go,
+.card:focus-within .go {
+  color: var(--panel);
+  background: #fff;
+  transform: translateX(2px);
+}
+
+.card:hover .more {
+  text-decoration: underline;
+}
+
+.card:has(.link:focus-visible) {
+  outline: 3px solid var(--brand-2);
+  outline-offset: 3px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1180px) {
+  .section {
+    --edge: 32px;
+    padding: 32px var(--edge) 72px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .section {
+    --edge: 20px;
+    --gap: 14px;
+    padding: 24px var(--edge) 56px;
+  }
+
+  .heading {
+    margin-bottom: 22px;
+  }
+
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* featured card stacks like the others on phones */
+  .featured {
+    grid-column: auto;
+  }
+
+  .featured .card {
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .featured .media {
+    width: auto;
+    aspect-ratio: 16 / 10;
+  }
+
+  .featured .media::after {
+    inset: auto 0 0;
+    width: auto;
+    height: 34%;
+    background: linear-gradient(180deg, transparent, var(--panel));
+  }
+
+  .featured .image {
+    object-position: 50% 42%;
+  }
+
+  .featured .body {
+    padding: 6px 22px 18px;
+  }
+
+  .featured .title {
+    font-size: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .image,
+  .go {
+    transition: none;
+  }
+
+  .card:hover,
+  .card:focus-within {
+    transform: none;
+  }
+
+  .card:hover .image,
+  .card:focus-within .image {
+    transform: none;
+  }
+}

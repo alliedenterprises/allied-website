@@ -1,0 +1,580 @@
+/* Full-width HTML hero carousel with a decorative line background.
+   Colours come from the theme tokens in app/(frontend)/styles.css. */
+
+.hero {
+  /* semi-transparent veil that fades in/out at the edges, so the hero blends
+     into the page background with no visible seam */
+  --hero-veil: rgba(255, 255, 255, 0.5);
+  --hero-glow-a: rgba(47, 91, 211, 0.06);
+  --hero-glow-b: rgba(110, 190, 70, 0.1);
+  --hero-line-a: #2f5bd3;
+  --hero-line-b: #2aa7c9;
+  --hero-line-c: #6ebe46;
+  --hero-title: #101828;
+  --hero-text: #475467;
+  --hero-chip: rgba(255, 255, 255, 0.7);
+  --hero-spot: radial-gradient(closest-side, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0));
+
+  position: relative;
+  width: 100%;
+  margin-top: 8px;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Background layer (glows + veil), faded in at the top and out at the bottom
+   so the hero melts into the page background with no visible edge. */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(900px circle at 8% 40%, var(--hero-glow-a), transparent 60%),
+    radial-gradient(800px circle at 95% 70%, var(--hero-glow-b), transparent 60%),
+    var(--hero-veil);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 160px, #000 calc(100% - 140px), transparent 100%);
+  mask-image: linear-gradient(180deg, transparent 0, #000 160px, #000 calc(100% - 140px), transparent 100%);
+  pointer-events: none;
+}
+
+:global([data-theme='dark']) .hero {
+  --hero-veil: rgba(11, 18, 36, 0.55);
+  --hero-glow-a: rgba(47, 91, 211, 0.11);
+  --hero-glow-b: rgba(110, 190, 70, 0.1);
+  --hero-line-a: #5b82ff;
+  --hero-line-b: #3cc3e0;
+  --hero-line-c: #86d45c;
+  --hero-title: #f2f4f8;
+  --hero-text: #b4bdcc;
+  --hero-chip: rgba(255, 255, 255, 0.06);
+  /* soft light "stage" behind the products so light-grey hardware reads well */
+  --hero-spot: radial-gradient(closest-side, rgba(200, 215, 255, 0.22), rgba(200, 215, 255, 0));
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.55;
+  /* lines fade in/out at the top and bottom edges — no hard start */
+  -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 120px, #000 calc(100% - 90px), transparent 100%);
+  mask-image: linear-gradient(180deg, transparent 0, #000 120px, #000 calc(100% - 90px), transparent 100%);
+}
+
+:global([data-theme='dark']) .bg {
+  opacity: 0.5;
+}
+
+/* ---------- ZKTeco brand badge (top-right, static over all slides) ---------- */
+.brandBar {
+  position: absolute;
+  top: 22px;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.brandInner {
+  display: flex;
+  justify-content: flex-end;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 96px;
+}
+
+.brandBadge {
+  display: inline-flex;
+  align-items: center;
+}
+
+.brandLogo {
+  display: block;
+  width: auto;
+  height: 30px;
+}
+
+.brandDark {
+  display: none;
+}
+
+:global([data-theme='dark']) .brandLight {
+  display: none;
+}
+
+:global([data-theme='dark']) .brandDark {
+  display: block;
+}
+
+/* ---------- Slides: all share one grid cell → height = tallest slide ---------- */
+.stage {
+  position: relative;
+  display: grid;
+  touch-action: pan-y;
+}
+
+.slide {
+  grid-area: 1 / 1;
+  transition: transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+  will-change: transform;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: 48px;
+  max-width: 1440px;
+  min-height: clamp(500px, 38vw, 600px);
+  margin: 0 auto;
+  padding: 84px 96px 72px; /* top: room for the ZKTeco badge */
+}
+
+/* ---------- Copy ---------- */
+.copy {
+  max-width: 600px;
+}
+
+.eyebrow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 16px;
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--brand-accent);
+}
+
+.eyebrowBar {
+  width: 28px;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--hero-line-a), var(--hero-line-c));
+}
+
+.badge {
+  padding: 3px 10px;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  text-transform: none;
+  color: #fff;
+  background: linear-gradient(90deg, #4caf50, #6ebe46);
+  border-radius: 999px;
+}
+
+.title {
+  margin: 0 0 16px;
+  font-size: clamp(32px, 3.6vw, 54px);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -1px;
+  color: var(--hero-title);
+}
+
+/* highlighted headline words use the ZKTeco logo green */
+.highlight {
+  color: #8bc144;
+}
+
+:global([data-theme='dark']) .highlight {
+  color: #8fc94a;
+}
+
+.subtitle {
+  margin: 0 0 24px;
+  max-width: 520px;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--hero-text);
+}
+
+/* features: check list */
+.list {
+  display: grid;
+  gap: 10px;
+  margin: 0 0 30px;
+  padding: 0;
+  list-style: none;
+  font-size: 15.5px;
+  color: var(--hero-title);
+}
+
+.list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.list svg {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  padding: 3px;
+  color: #fff;
+  background: linear-gradient(135deg, #4caf50, #6ebe46);
+  border-radius: 50%;
+}
+
+/* features: icon grid */
+.iconGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 18px;
+  margin: 0 0 30px;
+  padding: 0;
+  list-style: none;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--hero-title);
+}
+
+.iconGrid li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.iconBox {
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  color: var(--brand-accent);
+  background: var(--hero-chip);
+  border: 1px solid var(--glass-border);
+  border-radius: 6px;
+}
+
+.iconBox svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* features: chips */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0 0 30px;
+  padding: 0;
+  list-style: none;
+}
+
+.chips li {
+  padding: 8px 14px;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--hero-title);
+  background: var(--hero-chip);
+  border: 1px solid var(--glass-border);
+  border-radius: 999px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* CTAs */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.primary,
+.secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: 50px;
+  padding: 0 24px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.primary {
+  color: #fff;
+  background: linear-gradient(110deg, var(--brand) 0%, var(--brand) 50%, var(--brand-2) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 20px rgba(19, 48, 122, 0.3);
+}
+
+.primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 26px rgba(19, 48, 122, 0.38);
+}
+
+.primary svg {
+  width: 16px;
+  height: 16px;
+}
+
+.secondary {
+  color: var(--hero-title);
+  background: var(--hero-chip);
+  border: 1px solid var(--glass-border);
+}
+
+.secondary:hover {
+  background: var(--hover);
+}
+
+/* ---------- Visual ---------- */
+.visual {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-width: 0;
+}
+
+.glow {
+  position: absolute;
+  inset: -6% -4%;
+  background: var(--hero-spot);
+  pointer-events: none;
+}
+
+.image {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-height: 440px;
+  object-fit: contain;
+  filter: drop-shadow(0 24px 30px rgba(15, 23, 42, 0.16));
+}
+
+:global([data-theme='dark']) .image {
+  filter: drop-shadow(0 24px 34px rgba(0, 0, 0, 0.5));
+}
+
+/* ---------- Entrance animation for the active slide ---------- */
+.slide[data-active='true'] .copy > * {
+  animation: rise 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+.slide[data-active='true'] .copy > :nth-child(2) {
+  animation-delay: 0.06s;
+}
+
+.slide[data-active='true'] .copy > :nth-child(3) {
+  animation-delay: 0.12s;
+}
+
+.slide[data-active='true'] .copy > :nth-child(4) {
+  animation-delay: 0.18s;
+}
+
+.slide[data-active='true'] .copy > :nth-child(5) {
+  animation-delay: 0.24s;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---------- Arrows ---------- */
+.arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  transform: translateY(-50%);
+  color: var(--text);
+  background: var(--menu-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 4px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.arrow:hover {
+  background: var(--menu-bg-strong);
+}
+
+.arrow svg {
+  width: 20px;
+  height: 20px;
+}
+
+.prev {
+  left: 28px;
+}
+
+.next {
+  right: 28px;
+}
+
+/* ---------- Dots + pause ---------- */
+.controls {
+  position: absolute;
+  left: 50%;
+  bottom: 22px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  transform: translateX(-50%);
+}
+
+.dots {
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background: var(--text-muted);
+  opacity: 0.35;
+  cursor: pointer;
+  transition: width 0.3s, opacity 0.3s, background 0.3s;
+}
+
+.dot[aria-current='true'] {
+  width: 28px;
+  opacity: 1;
+  background: linear-gradient(90deg, var(--hero-line-a), var(--hero-line-c));
+}
+
+.pause {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  color: var(--text-muted);
+  background: var(--hero-chip);
+  border: 1px solid var(--glass-border);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.pause:hover {
+  color: var(--text);
+}
+
+.pause svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1180px) {
+  .inner {
+    padding: 80px 72px 72px;
+    gap: 32px;
+  }
+
+  .brandInner {
+    padding: 0 72px;
+  }
+}
+
+@media (max-width: 900px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    min-height: 0;
+    padding: 64px 20px 76px; /* room for the ZKTeco badge */
+  }
+
+  .brandBar {
+    top: 16px;
+  }
+
+  .brandInner {
+    padding: 0 20px;
+  }
+
+  .brandLogo {
+    height: 20px;
+  }
+
+  /* product image first on phones, text below */
+  .visual {
+    order: -1;
+  }
+
+  .image {
+    max-height: 230px;
+  }
+
+  .title {
+    letter-spacing: -0.5px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+    margin-bottom: 18px;
+  }
+
+  .list,
+  .iconGrid,
+  .chips {
+    margin-bottom: 22px;
+  }
+
+  .list {
+    font-size: 15px;
+  }
+
+  .arrow {
+    display: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .iconGrid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .primary,
+  .secondary {
+    height: 46px;
+    padding: 0 18px;
+    font-size: 15px;
+  }
+}
+
+@media (hover: none) {
+  .arrow {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slide,
+  .dot {
+    transition: none !important;
+  }
+
+  .slide[data-active='true'] .copy > * {
+    animation: none;
+  }
+}

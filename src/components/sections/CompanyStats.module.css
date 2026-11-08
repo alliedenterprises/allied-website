@@ -1,0 +1,100 @@
+/* Stats strip attached to the bottom of the Why Allied band (it sits inside that band,
+   so it shares its glass background and full width). */
+.section {
+  --stats-line: rgba(19, 48, 122, 0.1);
+  /* figure text lines up with the Why Allied text (96px inside the 1440px column) */
+  --stats-edge: max(96px, calc((100% - 1440px) / 2 + 96px));
+  --stats-pad-x: 36px;
+  border-top: 1px solid var(--stats-line);
+  background: rgba(19, 48, 122, 0.025);
+}
+
+:global([data-theme='dark']) .section {
+  --stats-line: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 0;
+  padding: 0 calc(var(--stats-edge) - var(--stats-pad-x));
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 44px var(--stats-pad-x);
+}
+
+.item + .item {
+  border-left: 1px solid var(--stats-line);
+}
+
+/* figure above its label visually; the source order stays label → value */
+.value {
+  position: relative;
+  order: -1;
+  margin: 0;
+  font-size: clamp(34px, 3.2vw, 44px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.5px;
+  font-variant-numeric: tabular-nums;
+  color: var(--brand-accent);
+}
+
+.label {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1180px) {
+  .section {
+    --stats-edge: 32px;
+    --stats-pad-x: 32px;
+  }
+
+  .item {
+    padding-block: 36px;
+  }
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* 2 × 2: divider between the columns and between the rows */
+  .item + .item {
+    border-left: 0;
+  }
+
+  .item:nth-child(even) {
+    border-left: 1px solid var(--stats-line);
+  }
+
+  .item:nth-child(n + 3) {
+    border-top: 1px solid var(--stats-line);
+  }
+}
+
+@media (max-width: 600px) {
+  .section {
+    --stats-edge: 20px;
+    --stats-pad-x: 20px;
+  }
+
+  .item {
+    gap: 8px;
+    padding-block: 26px;
+  }
+
+  .label {
+    font-size: 15px;
+  }
+}

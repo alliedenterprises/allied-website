@@ -1,0 +1,208 @@
+.section {
+  /* same content edge as the other sections (96px inside the 1440px column) */
+  --edge: max(96px, calc((100% - 1440px) / 2 + 96px));
+  padding: 16px var(--edge) 80px;
+}
+
+/* ---------- Heading row: title left, intro right ---------- */
+.top {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: 56px;
+  align-items: end;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 14px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--brand-accent);
+}
+
+.eyebrow::before {
+  content: '';
+  width: 32px;
+  height: 2px;
+  background: var(--brand-2);
+}
+
+.heading {
+  margin: 0;
+  font-size: clamp(28px, 3vw, 44px);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.8px;
+  color: var(--text);
+}
+
+.intro {
+  margin: 0;
+  font-size: 16.5px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+/* ---------- Timeline ---------- */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 44px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.step {
+  position: relative;
+}
+
+.number {
+  display: block;
+  margin-bottom: 16px;
+  font-size: clamp(48px, 5vw, 68px);
+  font-weight: 200;
+  line-height: 1;
+  letter-spacing: -2px;
+  color: var(--brand-accent);
+}
+
+/* the dot on the line, plus the line running on to the next step */
+.node {
+  position: relative;
+  display: block;
+  height: 14px;
+  margin-bottom: 22px;
+}
+
+.node::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 14px;
+  height: 14px;
+  background: var(--brand-2);
+  border-radius: 50%;
+  box-shadow: 0 0 0 5px var(--hover);
+}
+
+.node::after {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 14px;
+  right: 0;
+  height: 2px;
+  background: var(--brand-2);
+  opacity: 0.45;
+}
+
+.step:last-child .node::after {
+  background: linear-gradient(90deg, var(--brand-2), transparent);
+}
+
+.body {
+  padding-right: 32px;
+}
+
+.title {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.text {
+  margin: 0 0 12px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.link {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--brand-accent);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+}
+
+.link:hover {
+  text-decoration-thickness: 2px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1180px) {
+  .section {
+    --edge: 32px;
+    padding-bottom: 64px;
+  }
+}
+
+/* the timeline turns vertical: the line runs down the left side */
+@media (max-width: 900px) {
+  .top {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .steps {
+    grid-template-columns: minmax(0, 1fr);
+    margin-top: 32px;
+  }
+
+  .step {
+    padding: 0 0 30px 38px;
+  }
+
+  .step:last-child {
+    padding-bottom: 0;
+  }
+
+  .number {
+    margin-bottom: 8px;
+    font-size: 36px;
+    letter-spacing: -1px;
+  }
+
+  .node {
+    position: absolute;
+    top: 8px;
+    bottom: 0;
+    left: 0;
+    width: 14px;
+    height: auto;
+    margin: 0;
+  }
+
+  .node::after {
+    top: 14px;
+    right: auto;
+    bottom: -8px;
+    left: 6px;
+    width: 2px;
+    height: auto;
+  }
+
+  .step:last-child .node::after {
+    background: linear-gradient(var(--brand-2), transparent);
+  }
+
+  .body {
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .section {
+    --edge: 20px;
+    padding-bottom: 48px;
+  }
+
+  .intro {
+    font-size: 15.5px;
+  }
+}

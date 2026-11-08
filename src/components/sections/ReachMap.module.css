@@ -1,0 +1,259 @@
+.section {
+  /* same content edge as the other sections (96px inside the 1440px column) */
+  --edge: max(96px, calc((100% - 1440px) / 2 + 96px));
+  padding: 0 var(--edge) 56px;
+}
+
+.eyebrow {
+  display: inline-block;
+  margin: 0 0 18px;
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--brand-accent);
+  border: 1px solid var(--brand-accent);
+  border-radius: 999px;
+}
+
+.heading {
+  margin: 0 0 10px;
+  font-size: clamp(28px, 3vw, 44px);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.8px;
+  color: var(--text);
+}
+
+.text {
+  margin: 0;
+  font-size: 16.5px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+/* ---------- Map ---------- */
+.stage {
+  overflow: hidden;
+}
+
+.map {
+  position: relative;
+  max-width: 680px;
+  margin: 12px auto 0;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+}
+
+.dark {
+  display: none;
+}
+
+:global([data-theme='dark']) .light {
+  display: none;
+}
+
+:global([data-theme='dark']) .dark {
+  display: block;
+}
+
+.routes {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* the faint dotted line stays when the comet is turned off (reduced motion) */
+.route {
+  stroke: var(--brand-accent);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-dasharray: 0.5 7;
+  opacity: 0.7;
+}
+
+/* the bright dash travelling out from Qatar.
+   The gap is longer than the whole route (pathLength 100), so the dash pattern
+   never repeats: only one dash is ever on the line, and none appears at the far end. */
+.comet {
+  stroke: var(--brand-accent);
+  stroke-width: 4.5;
+  stroke-linecap: round;
+  stroke-dasharray: 18 200;
+  stroke-dashoffset: 18;
+  animation: travel 3.2s linear infinite;
+}
+
+@keyframes travel {
+  to {
+    stroke-dashoffset: -100;
+  }
+}
+
+.point {
+  fill: var(--brand-accent);
+  stroke: var(--page-bg);
+  stroke-width: 2.5;
+}
+
+.pulse {
+  fill: var(--brand-accent);
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pulse 2.6s ease-out infinite;
+}
+
+@keyframes pulse {
+  from {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(3.4);
+  }
+}
+
+/* ---------- Labels ---------- */
+.labels {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.label {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 15px 8px 10px;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  color: var(--text);
+  background: var(--menu-bg-strong);
+  border-radius: 999px;
+  box-shadow: 0 6px 18px rgba(19, 48, 122, 0.16);
+}
+
+/* each label sits beside its point, clear of the routes */
+.top {
+  transform: translate(-50%, calc(-100% - 14px));
+}
+
+.bottom {
+  transform: translate(-50%, 14px);
+}
+
+.left {
+  transform: translate(calc(-100% - 14px), -50%);
+}
+
+.right {
+  transform: translate(14px, -50%);
+}
+
+.pin {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: var(--brand-2);
+}
+
+.code {
+  font-size: 11.5px;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+}
+
+/* Qatar: the home base stands out */
+.hub {
+  color: #fff;
+  background: var(--brand-2);
+}
+
+.hub .pin,
+.hub .code {
+  color: #fff;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1180px) {
+  .section {
+    --edge: 32px;
+    padding-bottom: 48px;
+  }
+}
+
+@media (max-width: 600px) {
+  .section {
+    --edge: 20px;
+    padding-bottom: 36px;
+  }
+
+  .text {
+    font-size: 15.5px;
+  }
+
+  /* edge to edge, so nothing is cut off at the page gutter */
+  .stage {
+    margin: 0 calc(var(--edge) * -1);
+  }
+
+  /* zoom in on the Gulf: at full width the points would be too close for the labels */
+  .map {
+    width: 190%;
+    max-width: none;
+    margin-left: -45%;
+  }
+
+  .route {
+    stroke-width: 3.5;
+    stroke-dasharray: 0.5 9;
+  }
+
+  .label {
+    gap: 3px;
+    padding: 5px 10px 5px 6px;
+    font-size: 12.5px;
+  }
+
+  .top {
+    transform: translate(-50%, calc(-100% - 8px));
+  }
+
+  .bottom {
+    transform: translate(-50%, 8px);
+  }
+
+  .left {
+    transform: translate(calc(-100% - 8px), -50%);
+  }
+
+  .right {
+    transform: translate(8px, -50%);
+  }
+
+  .pin {
+    width: 15px;
+    height: 15px;
+  }
+
+  .code {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .comet,
+  .pulse {
+    display: none;
+  }
+}

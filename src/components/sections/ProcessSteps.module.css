@@ -1,0 +1,371 @@
+.section {
+  /* same content edge as the other sections (96px inside the 1440px column) */
+  --edge: max(96px, calc((100% - 1440px) / 2 + 96px));
+  --zk-green: #7cc243;
+  --icon: 60px;
+  padding: 80px var(--edge);
+}
+
+/* ---------- Heading ---------- */
+.head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 24px 72px;
+  align-items: end;
+  margin-bottom: 52px;
+}
+
+.heading {
+  margin: 0;
+  font-size: clamp(28px, 2.8vw, 40px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.6px;
+  color: var(--text);
+}
+
+.intro {
+  margin: 0;
+  font-size: 16.5px;
+  line-height: 1.75;
+  color: var(--text-muted);
+}
+
+/* ---------- Steps: icons joined by a dashed line ---------- */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 28px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.step {
+  position: relative;
+}
+
+/* dashed connector from this icon towards the next one */
+.step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: calc(var(--icon) / 2 - 1px);
+  left: calc(var(--icon) + 14px);
+  right: -14px;
+  height: 2px;
+  background-image: linear-gradient(90deg, var(--zk-green) 55%, transparent 0);
+  background-size: 12px 2px;
+  opacity: 0.7;
+}
+
+.marker {
+  position: relative;
+  width: var(--icon);
+  height: var(--icon);
+  margin-bottom: 24px;
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  color: var(--brand-2);
+  background: var(--menu-bg-strong);
+  border: 1px solid var(--glass-border);
+  border-radius: 18px;
+  box-shadow: 0 12px 28px rgba(19, 48, 122, 0.14);
+  transition: transform 0.25s ease, color 0.25s, background 0.25s;
+}
+
+:global([data-theme='dark']) .icon {
+  color: var(--brand-accent);
+}
+
+.icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.step:hover .icon {
+  transform: translateY(-3px);
+  color: #fff;
+  background: var(--brand);
+}
+
+.number {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  display: grid;
+  place-items: center;
+  min-width: 28px;
+  height: 24px;
+  padding: 0 6px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  color: #12170f;
+  background: var(--zk-green);
+  border: 2px solid var(--page-bg);
+  border-radius: 999px;
+}
+
+.title {
+  margin: 0 0 10px;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--text);
+}
+
+.text {
+  margin: 0;
+  font-size: 15.5px;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------- Contact bar (same charcoal + green as the ZKTeco hero) ---------- */
+.contact {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px 40px;
+  margin-top: 60px;
+  padding: 30px 36px;
+  color: #fff;
+  border-radius: 22px;
+  background:
+    radial-gradient(520px circle at 100% 0%, rgba(124, 194, 67, 0.2), transparent 65%),
+    linear-gradient(140deg, #14191d 0%, #1b2125 55%, #0e1215 100%);
+  box-shadow: 0 24px 56px rgba(10, 14, 18, 0.28);
+}
+
+:global([data-theme='dark']) .contact {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 24px 56px rgba(0, 0, 0, 0.45);
+}
+
+.contactHeading {
+  margin: 0 0 4px;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+.contactText {
+  margin: 0;
+  font-size: 15.5px;
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.primary,
+.ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  height: 48px;
+  padding: 0 20px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 999px;
+  transition: transform 0.2s, background 0.2s, border-color 0.2s;
+}
+
+.primary {
+  color: #12170f;
+  background: #fff;
+}
+
+.primary:hover {
+  transform: translateY(-1px);
+  background: #eaf3df;
+}
+
+.primary svg {
+  width: 15px;
+  height: 15px;
+  color: #4e8f22;
+}
+
+.ghost {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.ghost:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.ghost svg {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  color: var(--zk-green);
+}
+
+.whatsapp svg {
+  color: #25d366;
+}
+
+.primary:focus-visible,
+.ghost:focus-visible {
+  outline: 2px solid var(--zk-green);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .icon,
+  .primary {
+    transition: none;
+  }
+
+  .step:hover .icon,
+  .primary:hover {
+    transform: none;
+  }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1180px) {
+  .section {
+    --edge: 32px;
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  .head {
+    gap: 16px 48px;
+  }
+
+  .steps {
+    gap: 24px;
+  }
+
+  .step:not(:last-child)::after {
+    right: -12px;
+  }
+}
+
+/* vertical timeline: icon on the left, line running down to the next step */
+@media (max-width: 900px) {
+  .head {
+    grid-template-columns: minmax(0, 1fr);
+    margin-bottom: 36px;
+  }
+
+  .steps {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+
+  .step {
+    display: grid;
+    grid-template-columns: var(--icon) minmax(0, 1fr);
+    column-gap: 22px;
+    padding-bottom: 32px;
+  }
+
+  .step:last-child {
+    padding-bottom: 0;
+  }
+
+  .marker {
+    grid-row: span 2;
+    margin-bottom: 0;
+  }
+
+  .title {
+    margin-top: 4px;
+  }
+
+  .step:not(:last-child)::after {
+    top: calc(var(--icon) + 12px);
+    bottom: 12px;
+    left: calc(var(--icon) / 2 - 1px);
+    right: auto;
+    width: 2px;
+    height: auto;
+    background-image: linear-gradient(180deg, var(--zk-green) 55%, transparent 0);
+    background-size: 2px 12px;
+  }
+
+  .contact {
+    margin-top: 44px;
+  }
+}
+
+@media (max-width: 600px) {
+  .section {
+    --edge: 20px;
+    --icon: 52px;
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .intro {
+    font-size: 15.5px;
+  }
+
+  .icon {
+    border-radius: 15px;
+  }
+
+  .icon svg {
+    width: 23px;
+    height: 23px;
+  }
+
+  .step {
+    column-gap: 18px;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+
+  .text {
+    font-size: 15px;
+  }
+
+  .contact {
+    padding: 26px 20px;
+    border-radius: 18px;
+  }
+
+  .contactHeading {
+    font-size: 21px;
+  }
+
+  .actions,
+  .primary,
+  .ghost {
+    width: 100%;
+  }
+}

@@ -1,0 +1,153 @@
+.section {
+  /* same content edge as the other sections (96px inside the 1440px column) */
+  --edge: max(96px, calc((100% - 1440px) / 2 + 96px));
+  padding: 88px var(--edge);
+}
+
+.top {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 64px;
+  align-items: end;
+  margin-bottom: 40px;
+}
+
+.heading {
+  margin: 0;
+  font-size: clamp(28px, 2.8vw, 40px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.6px;
+  color: var(--text);
+}
+
+.intro {
+  margin: 0;
+  font-size: 16.5px;
+  line-height: 1.75;
+  color: var(--text-muted);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 22px;
+  font-size: 16.5px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--text);
+  background: var(--menu-bg-strong);
+  border: 1px solid var(--glass-border);
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(19, 48, 122, 0.07);
+  transition:
+    transform 0.25s,
+    box-shadow 0.25s,
+    border-color 0.25s;
+}
+
+.card:hover {
+  border-color: rgba(47, 91, 211, 0.4);
+  box-shadow: 0 14px 30px rgba(19, 48, 122, 0.14);
+  transform: translateY(-2px);
+}
+
+.icon {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  color: var(--brand-2);
+  background: rgba(47, 91, 211, 0.1);
+  border-radius: 14px;
+}
+
+:global([data-theme='dark']) .icon {
+  color: var(--brand-accent);
+  background: rgba(143, 176, 255, 0.12);
+}
+
+.icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+@media (max-width: 1180px) {
+  .section {
+    --edge: 32px;
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+
+  .top {
+    gap: 40px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .top {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .section {
+    --edge: 20px;
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+
+  .top {
+    margin-bottom: 28px;
+  }
+
+  .intro {
+    font-size: 15.5px;
+  }
+
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .card {
+    padding: 14px 16px;
+    font-size: 15.5px;
+  }
+
+  .icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    transition: none;
+  }
+
+  .card:hover {
+    transform: none;
+  }
+}

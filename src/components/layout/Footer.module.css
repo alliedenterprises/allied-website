@@ -1,0 +1,218 @@
+/* Glassy rectangular footer — matches the header. Tokens live in app/(frontend)/styles.css */
+
+.wrap {
+  padding: 64px 48px 24px;
+}
+
+.card {
+  position: relative;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 52px 64px 0;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 6px;
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(22px) saturate(180%);
+  -webkit-backdrop-filter: blur(22px) saturate(180%);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 8%;
+  right: 8%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--glass-shine), transparent);
+  pointer-events: none;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.55fr 1.05fr 1fr;
+  gap: 56px;
+  padding-bottom: 36px;
+}
+
+/* ---------- Text ---------- */
+.logo {
+  display: block;
+  height: 64px;
+  width: fit-content;
+  margin-bottom: 20px;
+}
+
+.heading {
+  margin: 0 0 14px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.subheading {
+  margin: 14px 0 4px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.text {
+  margin: 0 0 6px;
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--text-muted);
+  /* even right edge; hyphenation keeps word gaps from stretching */
+  text-align: justify;
+  hyphens: auto;
+}
+
+/* ---------- Social ---------- */
+.social {
+  display: flex;
+  gap: 10px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.social a {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  color: var(--text);
+  border: 1px solid var(--glass-border);
+  border-radius: 4px;
+  background: var(--hover);
+  transition: color 0.2s, background 0.2s, transform 0.2s;
+}
+
+.social a:hover {
+  color: #fff;
+  background: var(--brand);
+  transform: translateY(-2px);
+}
+
+.social svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ---------- Map ---------- */
+.map {
+  position: relative;
+  height: 250px;
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  border-radius: 6px;
+  background: var(--hover);
+}
+
+.map iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.mapLink {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 14px;
+  color: var(--brand-accent);
+  text-decoration: none;
+}
+
+.mapLink:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* ---------- Address ---------- */
+.company {
+  margin: 0 0 6px;
+  font-size: 14.5px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  color: var(--text);
+}
+
+.address {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 8px;
+  font-style: normal;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.address a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.address a:hover {
+  color: var(--brand-accent);
+}
+
+.hours {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+/* ---------- Bottom bar ---------- */
+.bottom {
+  padding: 22px 0 24px;
+  border-top: 1px solid var(--glass-border);
+  font-size: 16px;
+  color: var(--text-muted);
+}
+
+.bottom p {
+  margin: 0;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1100px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .grid > :first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 720px) {
+  .wrap {
+    padding: 56px 16px 16px;
+  }
+
+  .card {
+    padding: 40px 24px 0;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 520px) {
+  /* leave room for the floating WhatsApp button */
+  .wrap {
+    padding-bottom: 88px;
+  }
+
+  .logo {
+    height: 54px;
+  }
+}

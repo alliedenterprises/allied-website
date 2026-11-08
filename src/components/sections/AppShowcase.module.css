@@ -1,0 +1,220 @@
+.section {
+  --edge: max(48px, calc((100% - 1440px) / 2 + 48px));
+  padding: 24px var(--edge) 72px;
+}
+
+/* light glass panel like the rest of the site; follows the light/dark theme tokens */
+.panel {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: 48px;
+  align-items: center;
+  padding: 60px 56px;
+  color: var(--text);
+  border: 1px solid var(--glass-border);
+  border-radius: 28px;
+  background:
+    radial-gradient(560px circle at 90% 10%, rgba(47, 91, 211, 0.12), transparent 65%),
+    var(--glass-bg);
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(22px) saturate(180%);
+  -webkit-backdrop-filter: blur(22px) saturate(180%);
+}
+
+/* fine grid in the top-right corner */
+.panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(rgba(19, 48, 122, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(19, 48, 122, 0.06) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(ellipse 55% 75% at 85% 20%, #000 10%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 55% 75% at 85% 20%, #000 10%, transparent 75%);
+}
+
+:global([data-theme='dark']) .panel::before {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+}
+
+.heading {
+  margin: 0 0 14px;
+  font-size: clamp(28px, 2.8vw, 40px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.6px;
+  color: var(--text);
+}
+
+.intro {
+  max-width: 560px;
+  margin: 0;
+  font-size: 16.5px;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+/* store badges: dark pills, as the official badges are */
+.stores {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 22px 0 30px;
+  padding: 0;
+  list-style: none;
+}
+
+.stores li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #fff;
+  background: #111318;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+}
+
+.stores svg {
+  width: 18px;
+  height: 18px;
+}
+
+.featuresTitle {
+  margin: 0 0 12px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--brand-2);
+}
+
+:global([data-theme='dark']) .featuresTitle {
+  color: var(--brand-accent);
+}
+
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.features li {
+  padding: 7px 13px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  background: var(--menu-bg-strong);
+  border: 1px solid var(--dropdown-border);
+  border-radius: 999px;
+}
+
+/* ---------- Highlight cards ---------- */
+.highlights {
+  display: grid;
+  gap: 16px;
+}
+
+.card {
+  padding: 24px 26px;
+  background: var(--menu-bg-strong);
+  border: 1px solid var(--dropdown-border);
+  border-radius: 20px;
+  box-shadow: 0 10px 28px rgba(19, 48, 122, 0.08);
+}
+
+.cardTitle {
+  margin: 0 0 12px;
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.cardList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cardList li {
+  position: relative;
+  padding: 5px 0 5px 24px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.cardList li::before {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 10px;
+  width: 11px;
+  height: 6px;
+  border-left: 2px solid var(--brand-2);
+  border-bottom: 2px solid var(--brand-2);
+  transform: rotate(-45deg);
+}
+
+:global([data-theme='dark']) .cardList li::before {
+  border-color: var(--brand-accent);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1180px) {
+  .section {
+    --edge: 24px;
+  }
+
+  .panel {
+    padding: 48px 40px;
+    gap: 36px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .panel {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .highlights {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .section {
+    --edge: 12px;
+    padding-bottom: 48px;
+  }
+
+  .panel {
+    padding: 32px 20px;
+    border-radius: 20px;
+  }
+
+  .intro {
+    font-size: 15.5px;
+  }
+
+  .highlights {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .features li {
+    font-size: 13px;
+    padding: 6px 11px;
+  }
+}

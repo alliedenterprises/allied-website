@@ -1,0 +1,272 @@
+.section {
+  /* same content edge as the other sections (96px inside the 1440px column) */
+  --edge: max(96px, calc((100% - 1440px) / 2 + 96px));
+  padding: 0 var(--edge) 64px;
+}
+
+.top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 32px;
+  margin-bottom: 20px;
+}
+
+/* same label style as the clients heading above (small square + uppercase monospace) */
+.heading {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0;
+  font-family: ui-monospace, 'Cascadia Mono', Consolas, Menlo, monospace;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--brand-2);
+}
+
+.heading::before {
+  content: '';
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  background: var(--brand-2);
+}
+
+:global([data-theme='dark']) .heading {
+  color: var(--brand-accent);
+}
+
+.summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 14.5px;
+  color: var(--text-muted);
+}
+
+.summary strong {
+  font-size: 16.5px;
+  color: var(--text);
+}
+
+.summaryLogo {
+  width: 18px;
+  height: 18px;
+}
+
+.stars {
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  color: #f5b301;
+}
+
+/* ---------- Wall ---------- */
+.wall {
+  columns: var(--cols, 4) 240px;
+  column-gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card {
+  break-inside: avoid;
+  margin-bottom: 14px;
+  background: var(--menu-bg-strong);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  box-shadow: 0 8px 22px rgba(19, 48, 122, 0.07);
+  transition:
+    transform 0.25s,
+    box-shadow 0.25s;
+}
+
+.card:hover {
+  box-shadow: 0 16px 36px rgba(19, 48, 122, 0.14);
+  transform: translateY(-2px);
+}
+
+.figure {
+  margin: 0;
+  padding: 18px 20px 20px;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.avatar {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  border-radius: 50%;
+}
+
+.who {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.name {
+  overflow: hidden;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.detail {
+  font-size: 12.5px;
+  line-height: 1.35;
+  color: var(--text-muted);
+}
+
+.source {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  align-self: flex-start;
+}
+
+.quote {
+  margin: 6px 0 0;
+}
+
+.quote p {
+  margin: 0 0 4px;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--text);
+}
+
+.quote p:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- Closing card ---------- */
+.cta {
+  color: #fff;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(143, 176, 255, 0.4), transparent 55%),
+    linear-gradient(150deg, var(--brand) 0%, var(--brand-2) 100%);
+  border-color: transparent;
+}
+
+.ctaLink {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 20px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.ctaRating {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+.ctaStars {
+  font-size: 15px;
+  letter-spacing: 1.5px;
+  color: #ffc83d;
+}
+
+.ctaText {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.ctaLabel {
+  margin-top: 6px;
+  font-size: 14.5px;
+  font-weight: 600;
+}
+
+.ctaLink:hover .ctaLabel {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+@media (max-width: 1180px) {
+  .section {
+    --edge: 32px;
+    padding-bottom: 56px;
+  }
+}
+
+@media (max-width: 720px) {
+  .section {
+    --edge: 20px;
+    padding-bottom: 44px;
+  }
+
+  .heading {
+    gap: 10px;
+    font-size: 15px;
+    letter-spacing: 2px;
+  }
+
+  .figure {
+    padding: 16px 16px 18px;
+  }
+}
+
+/* phones: a swipeable row instead of one long column (the next card peeks in) */
+@media (max-width: 600px) {
+  .wall {
+    display: flex;
+    gap: 12px;
+    margin: 0 calc(var(--edge) * -1);
+    padding: 0 var(--edge) 6px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 0 var(--edge);
+    scrollbar-width: none;
+  }
+
+  .wall::-webkit-scrollbar {
+    display: none;
+  }
+
+  .card {
+    flex: 0 0 84%;
+    margin-bottom: 0;
+    scroll-snap-align: start;
+  }
+
+  .card:hover {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    transition: none;
+  }
+
+  .card:hover {
+    transform: none;
+  }
+}
