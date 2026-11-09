@@ -440,18 +440,59 @@
 }
 
 @media (max-width: 600px) {
-  /* one point per row */
+  /* phones: 2 × 2 grid of small centred cards (icon in a tinted circle, title, text) */
   .highlights {
-    --hl-edge: 20px;
-    grid-template-columns: minmax(0, 1fr);
-    row-gap: 12px;
+    --hl-edge: 16px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
     padding-block: 16px;
   }
 
   .highlight,
   .highlight:nth-child(even) {
-    padding: 0;
-    border-left: 0;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 10px;
+    padding: 16px 10px 14px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(19, 48, 122, 0.06);
+    border-radius: 10px;
+    box-shadow: 0 4px 14px rgba(19, 48, 122, 0.05);
+  }
+
+  :global([data-theme='dark']) .highlight,
+  :global([data-theme='dark']) .highlight:nth-child(even) {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: none;
+  }
+
+  /* 42px circle; border-box, so the 10px padding leaves a 22px icon */
+  .highlightIcon {
+    width: 42px;
+    height: 42px;
+    padding: 10px;
+    background: rgba(47, 91, 211, 0.1);
+    border-radius: 50%;
+  }
+
+  :global([data-theme='dark']) .highlightIcon {
+    background: rgba(143, 176, 255, 0.12);
+  }
+
+  .highlightBody {
+    align-items: center;
+    gap: 3px;
+  }
+
+  .highlightTitle {
+    font-size: 14.5px;
+  }
+
+  .highlightText {
+    font-size: 12.5px;
+    line-height: 1.4;
   }
 
   .card {
