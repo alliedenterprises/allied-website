@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 
+import { pageMetadata } from '@/lib/seo'
+
 import { CtaBanner } from '@/components/sections/CtaBanner'
 import { PageHero } from '@/components/sections/PageHero'
 import { SplitFeature } from '@/components/sections/SplitFeature'
@@ -7,18 +9,18 @@ import { company } from '@/content/company'
 import { erpCloud, erpHero, erpOutgrow, erpWhat, erpWho } from '@/content/erp'
 import { ctaBanner } from '@/content/home'
 
-export const metadata: Metadata = {
-  // absolute: the brand is already in the title, so skip the layout's "| …" suffix
-  title: { absolute: 'Enterprise Resource Planning (ERP) in Qatar | Allied Enterprises' },
+export const metadata: Metadata = pageMetadata({
+  title: 'Enterprise Resource Planning (ERP) in Qatar | Allied Enterprises',
   description:
     'ERP software in Qatar to connect sales, HR, inventory, accounts and POS in one system, with cloud options and customised reporting. Talk to Allied Enterprises.',
-  alternates: { canonical: '/enterprise-resource-planning-qatar/' },
-}
+  path: '/enterprise-resource-planning-qatar/',
+})
 
 export default function ErpPage() {
   return (
     <>
       <PageHero
+        path="/enterprise-resource-planning-qatar/"
         eyebrow={erpHero.eyebrow}
         heading={erpHero.heading}
         lead={erpHero.lead}

@@ -1,5 +1,6 @@
 .section {
-  --edge: max(96px, calc((100% - 1440px) / 2 + 96px));
+  /* heading sits 48px in (not the usual 96px), level with where the logo strip starts */
+  --edge: max(48px, calc((100% - 1440px) / 2 + 48px));
   --slot-w: 190px;
   --slot-h: 60px;
   --gap: 56px;

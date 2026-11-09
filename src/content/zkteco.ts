@@ -1,8 +1,9 @@
 // /zkteco-qatar/ copy: new page (no old WordPress equivalent; see docs/seo-audit.md P2). Original text built
 // only from facts already confirmed elsewhere on the site:
-// - "authorized ZKTeco agent in Qatar" (confirmed by the company, see about.ts / home.ts); the About page's old
-//   copy also says "authorized dealer". It does NOT say "distributor" (a different role), so that word is
-//   not used.
+// - "authorized ZKTeco distributor in Qatar": the company's ZKTeco Co., Ltd. 2026 certificate (shown on this page
+//   and the home page) names Allied Enterprises "Authorized Distributor" for the territory of Qatar. The wording
+//   was changed from "agent/dealer" to "distributor" sitewide on 2026-11-09 (SEO audit). "Dealer" is kept as a
+//   search term. VERIFY each January that the certificate was renewed.
 // - 3000+ installations as of 2026, stock and support staff in Qatar, consultation → no-obligation quote →
 //   site visit if required → installation → software demonstration (time-attendance.ts).
 // - Product families and models already named on the home banners and the gate barrier page.
@@ -11,8 +12,8 @@ import { company } from './company'
 import type { FaqItem } from './types'
 
 export const zktecoHero = {
-  heading: 'Authorized ZKTeco Dealer in Qatar',
-  lead: 'Allied Enterprises is the authorized ZKTeco agent and dealer in Qatar, supplying a wide range of ZKTeco products and solutions to businesses across Doha and the rest of the country.',
+  heading: 'Authorized ZKTeco Distributor & Dealer in Qatar',
+  lead: 'Allied Enterprises is the authorized ZKTeco distributor and dealer in Qatar, supplying a wide range of ZKTeco products and solutions to businesses across Doha and the rest of the country.',
   text: [
     'From a single fingerprint terminal for a small office to multi-site attendance, access control and entrance control, we supply the hardware, install it, set up the software and support it from our two offices in Doha.',
   ],
@@ -22,7 +23,7 @@ export const zktecoHero = {
     height: 777,
     alt: 'ZKTeco face recognition and palm verification time attendance terminals',
   },
-  badge: 'Authorized ZKTeco agent in Qatar',
+  badge: 'Authorized ZKTeco distributor in Qatar',
   // recognition methods of the terminals we supply (see zktecoProducts below)
   methods: ['Face', 'Palm', 'Fingerprint', 'Card'],
   // facts already confirmed elsewhere on the site (home.ts companyStats, time-attendance.ts, company.ts)
@@ -39,15 +40,16 @@ export type ProductFamily = {
   title: string
   text: string
   image: { src: string; width: number; height: number; alt: string }
-  /** Official ZKTeco product page (opens in a new tab) */
+  /** Official ZKTeco Middle East (zkteco.me) product page (opens in a new tab) */
   href: string
 }
 
 export const zktecoProducts = {
   heading: 'ZKTeco Products and Solutions in Qatar',
   intro:
-    'As an authorized ZKTeco dealer, we supply the main ZKTeco product families and help you choose the right models for your staff numbers, doors and sites.',
-  // Images: product shots supplied by the company (from zkteco.com); links: official zkteco.com pages.
+    'As the authorized ZKTeco distributor and dealer, we supply the main ZKTeco product families and help you choose the right models for your staff numbers, doors and sites.',
+  // Images: product shots supplied by the company (from zkteco.com).
+  // Links: ZKTeco Middle East (zkteco.me) pages, checked as loading (HTTP 200) on 2026-11-09.
   items: [
     {
       title: 'Time attendance terminals',
@@ -58,7 +60,7 @@ export const zktecoProducts = {
         height: 403,
         alt: 'ZKTeco fingerprint time attendance terminal with keypad',
       },
-      href: 'https://www.zkteco.com/en/TimeAttendanceTerminal',
+      href: 'https://www.zkteco.me/Time-Attendance',
     },
     {
       title: 'Attendance software',
@@ -69,7 +71,7 @@ export const zktecoProducts = {
         height: 261,
         alt: 'ZKBioTime Cloud attendance software sign-in screen',
       },
-      href: 'https://www.zkteco.com/en/ZKBioTimeCloud/ZKBio_Time_Cloud',
+      href: 'https://www.zkteco.me/biotime-95',
     },
     {
       title: 'Face recognition and access control',
@@ -80,7 +82,8 @@ export const zktecoProducts = {
         height: 439,
         alt: 'ZKTeco SpeedFace series face recognition terminal',
       },
-      href: 'https://www.zkteco.com/en/SpeedFaceSeries',
+      // zkteco.me has no SpeedFace series page; its face access control page lists the SpeedFace models
+      href: 'https://www.zkteco.me/face-access-control',
     },
     {
       title: 'Turnstiles, flap and swing barriers',
@@ -91,7 +94,8 @@ export const zktecoProducts = {
         height: 411,
         alt: 'ZKTeco Comet series swing barrier',
       },
-      href: 'https://www.zkteco.com/en/CometSeries',
+      // turnstile / pedestrian page: covers tripod turnstiles, flap and swing barriers, including the Comet series
+      href: 'https://www.zkteco.me/pedestrian-product',
     },
     {
       title: 'Vehicle and parking control',
@@ -102,7 +106,8 @@ export const zktecoProducts = {
         height: 214,
         alt: 'ZKTeco BGM1000 parking barrier gate',
       },
-      href: 'https://www.zkteco.com/en/BGM1000',
+      // vehicle control page: BGM1000 and other parking barriers, LPR and UHF products
+      href: 'https://www.zkteco.me/vehicle-control',
     },
   ] as ProductFamily[],
   links: [
@@ -113,10 +118,27 @@ export const zktecoProducts = {
   ],
 }
 
+// Same certificate as the home page (home.ts whyAllied.certificate).
+// VERIFY: valid 1 Jan – 31 Dec 2026 only. Replace with the renewed certificate in January 2027.
+export const zktecoCertificate = {
+  heading: 'Certified by ZKTeco for Qatar',
+  text: [
+    'ZKTeco Co., Ltd. has issued Allied Enterprises its Authorized Distributor certificate for the territory of Qatar, valid from 1 January to 31 December 2026.',
+    'Buying through the authorized distributor means genuine ZKTeco products supplied through the official channel, with installation, configuration and support from our team in Doha.',
+  ],
+  links: [{ label: 'View the full certificate', href: '/images/certifications/zkteco-authorized-distributor-qatar-2026.webp' }],
+  image: {
+    src: '/images/certifications/zkteco-authorized-distributor-qatar-2026.webp',
+    width: 1360,
+    height: 1785,
+    alt: 'ZKTeco 2026 Authorized Distributor certificate issued to Allied Enterprises for the territory of Qatar',
+  },
+}
+
 export const zktecoWhy = {
   heading: 'Why buy ZKTeco from Allied Enterprises',
   items: [
-    'Authorized ZKTeco agent in Qatar',
+    'Authorized ZKTeco distributor in Qatar',
     'More than 3000 installations as of 2026',
     'Product stock and support staff in Qatar',
     'Advice on the right models for your site',
@@ -128,6 +150,7 @@ export const zktecoWhy = {
   links: [
     { label: 'Payroll integration', href: '/payroll-integration-qatar/' },
     { label: 'HRMS and payroll management', href: '/hrms-payroll-management-qatar/' },
+    { label: 'About Allied Enterprises', href: '/about-us/' },
   ],
 }
 
@@ -173,9 +196,9 @@ export const zktecoFaq = {
   heading: 'ZKTeco Qatar: frequently asked questions',
   items: [
     {
-      question: 'Is Allied Enterprises an authorized ZKTeco dealer in Qatar?',
+      question: 'Is Allied Enterprises an authorized ZKTeco distributor in Qatar?',
       answer: [
-        'Yes. Allied Enterprises WLL is the authorized ZKTeco agent in Qatar, supplying ZKTeco time attendance, access control and entrance control products, and has completed more than 3000 installations as of 2026.',
+        'Yes. ZKTeco Co., Ltd. has certified Allied Enterprises WLL as its authorized distributor for the territory of Qatar (2026 certificate shown on this page). We supply ZKTeco time attendance, access control and entrance control products as a distributor and dealer, and have completed more than 3000 installations as of 2026.',
       ],
     },
     {

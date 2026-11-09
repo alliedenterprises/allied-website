@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 
+import { pageMetadata } from '@/lib/seo'
+
 import { ClientsGrid } from '@/components/sections/ClientsGrid'
 import { CompanyStats } from '@/components/sections/CompanyStats'
 import { CtaBanner } from '@/components/sections/CtaBanner'
@@ -28,13 +30,12 @@ import {
   whyChooseAllied,
 } from '@/content/home'
 
-export const metadata: Metadata = {
-  // absolute: the homepage title must not get the layout's "| …" suffix
-  title: { absolute: 'ZKTeco Time Attendance & Access Control in Qatar | Allied Enterprises' },
+export const metadata: Metadata = pageMetadata({
+  title: 'ZKTeco Attendance & Access Control in Qatar | Allied Enterprises',
   description:
     'ZKTeco biometric attendance, BioTime software and access control in Qatar. Supply, installation and local support from Allied Enterprises, Doha.',
-  alternates: { canonical: '/' },
-}
+  path: '/',
+})
 
 const googleListingUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
   company.map.name,
@@ -45,8 +46,10 @@ export default function HomePage() {
     <>
       <HeroSlider slides={bannerSlides} label="ZKTeco products and solutions" />
       <WhyAllied
+        highlights={whyAllied.highlights}
         heading={whyAllied.heading}
         intro={whyAllied.intro}
+        moreLink={whyAllied.moreLink}
         rating={{ ...whyAllied.googleRating, href: googleListingUrl }}
         cta={whyAllied.cta.primary}
         whatsapp={{ label: 'WhatsApp us', href: company.helpline.whatsapp }}

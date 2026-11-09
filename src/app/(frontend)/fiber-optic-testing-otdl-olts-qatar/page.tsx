@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 
+import { pageMetadata } from '@/lib/seo'
+
 import { CtaBanner } from '@/components/sections/CtaBanner'
 import { PageHero } from '@/components/sections/PageHero'
 import { SplitFeature } from '@/components/sections/SplitFeature'
@@ -14,18 +16,18 @@ import {
 import { ctaBanner } from '@/content/home'
 
 // The "otdl" typo in the path is the old WordPress URL, kept on purpose (CLAUDE.md §14A).
-export const metadata: Metadata = {
-  // absolute: the brand is already in the title, so skip the layout's "| …" suffix
-  title: { absolute: 'Fiber Optic Testing OTDR & OLTS in Qatar | Allied Enterprises' },
+export const metadata: Metadata = pageMetadata({
+  title: 'Fiber Optic Testing OTDR & OLTS in Qatar | Allied Enterprises',
   description:
     'Fiber optic testing in Qatar with OTDR and OLTS: loss, length and fault testing, plus test equipment, rental and calibration from Allied Enterprises.',
-  alternates: { canonical: '/fiber-optic-testing-otdl-olts-qatar/' },
-}
+  path: '/fiber-optic-testing-otdl-olts-qatar/',
+})
 
 export default function FiberTestingPage() {
   return (
     <>
       <PageHero
+        path="/fiber-optic-testing-otdl-olts-qatar/"
         eyebrow={fiberHero.eyebrow}
         heading={fiberHero.heading}
         lead={fiberHero.lead}

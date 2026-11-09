@@ -1,51 +1,56 @@
-/* Contact page (/contact-us/). Tokens live in app/(frontend)/styles.css */
+/* Contact page (/contact-us/): text + details on the left, form card on the right.
+   Dot patterns are CSS-only decoration. Tokens live in app/(frontend)/styles.css */
 
-/* ---------- Hero band: photo + navy overlay ---------- */
-.hero {
-  --edge: max(48px, calc((100% - 1440px) / 2 + 48px));
-  padding: 24px var(--edge) 0;
+.section {
+  /* same content edge as the other sections (96px inside the 1440px column) */
+  --edge: max(96px, calc((100% - 1440px) / 2 + 96px));
+  --dot: rgba(19, 48, 122, 0.1);
+  --line: rgba(19, 48, 122, 0.12);
+  padding: 64px var(--edge) 72px;
 }
 
-.heroInner {
+:global([data-theme='dark']) .section {
+  --dot: rgba(255, 255, 255, 0.08);
+  --line: rgba(255, 255, 255, 0.12);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  gap: 88px;
+  align-items: start;
+}
+
+/* ---------- Left: heading, lead, details ---------- */
+.intro {
   position: relative;
-  overflow: hidden;
   isolation: isolate;
-  display: flex;
-  align-items: center;
-  min-height: 300px;
-  padding: 56px 56px;
-  border-radius: 24px;
+  padding-top: 24px;
 }
 
-.heroImage {
-  z-index: -2;
-  object-fit: cover;
-  object-position: 70% 30%;
-}
-
-/* navy overlay, strongest behind the text so it stays readable */
-.heroInner::after {
+/* dotted square behind the heading */
+.intro::before {
   content: '';
   position: absolute;
-  inset: 0;
+  top: 60px; /* behind the heading, below the breadcrumb */
+  left: -28px;
   z-index: -1;
-  background: linear-gradient(90deg, rgba(8, 18, 48, 0.95) 0%, rgba(15, 38, 98, 0.85) 45%, rgba(19, 48, 122, 0.3) 100%);
-}
-
-.heroCopy {
-  max-width: 600px;
+  width: 168px;
+  height: 112px; /* stays behind the heading, clear of the lead text */
+  background-image: radial-gradient(circle, var(--dot) 5px, transparent 5.5px);
+  background-size: 28px 28px;
+  pointer-events: none;
 }
 
 .breadcrumb ol {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
   gap: 8px;
-  margin: 0 0 16px;
+  margin: 0 0 24px;
   padding: 0;
   list-style: none;
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--text-muted);
 }
 
 .breadcrumb li + li::before {
@@ -55,207 +60,322 @@
 }
 
 .breadcrumb a {
-  color: #fff;
+  color: var(--text-muted);
   text-decoration: none;
 }
 
 .breadcrumb a:hover {
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  color: var(--text);
 }
 
 .heading {
-  margin: 0 0 14px;
-  font-size: clamp(32px, 3.8vw, 52px);
-  font-weight: 700;
-  line-height: 1.08;
+  margin: 0 0 20px;
+  font-size: clamp(34px, 3.8vw, 52px);
+  font-weight: 400;
+  line-height: 1.1;
   letter-spacing: -1px;
-  color: #fff;
+  color: var(--text);
 }
 
 .lead {
-  margin: 0;
-  font-size: 17.5px;
-  line-height: 1.65;
-  color: rgba(255, 255, 255, 0.82);
+  max-width: 520px;
+  margin: 0 0 48px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-muted);
 }
 
-/* ---------- Split card: details + form ---------- */
-.body {
-  --edge: max(96px, calc((100% - 1440px) / 2 + 96px));
-  padding: 56px var(--edge) 88px;
-}
-
-.card {
-  display: grid;
-  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-  overflow: hidden;
-  background: var(--menu-bg-strong);
-  border: 1px solid var(--dropdown-border);
-  border-radius: 24px;
-  box-shadow: 0 24px 60px rgba(19, 48, 122, 0.12);
-}
-
-/* ---------- Navy details panel ---------- */
-.info {
-  position: relative;
-  isolation: isolate;
-  padding: 48px 44px;
-  color: #fff;
-  background: linear-gradient(160deg, #0b1a45 0%, #13307a 100%);
-}
-
-/* soft glow in the corner */
-.info::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: radial-gradient(420px circle at 100% 100%, rgba(47, 91, 211, 0.45), transparent 70%);
+.lead a {
+  color: var(--brand-accent);
+  text-underline-offset: 3px;
 }
 
 .infoHeading {
-  margin: 0 0 8px;
-  font-size: 26px;
-  font-weight: 700;
-  letter-spacing: -0.4px;
+  margin: 0 0 20px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-muted);
 }
 
-.infoIntro {
-  margin: 0 0 32px;
-  font-size: 15px;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.72);
-}
-
+/* one row per contact method: icon tile | label + details, thin divider between rows */
 .list {
-  display: grid;
-  gap: 24px;
+  max-width: 560px;
   margin: 0;
-  padding: 0;
-  list-style: none;
+  border-top: 1px solid var(--line);
 }
 
-.row {
+.item {
   display: flex;
-  gap: 16px;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.item:last-child {
+  border-bottom: 0;
 }
 
 .icon {
   display: grid;
   flex-shrink: 0;
   place-items: center;
-  width: 40px;
-  height: 40px;
-  color: #b9cbff;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 12px;
+  width: 42px;
+  height: 42px;
+  color: var(--brand-2);
+  background: rgba(47, 91, 211, 0.08);
+  border-radius: 10px;
+}
+
+:global([data-theme='dark']) .icon {
+  color: var(--brand-accent);
+  background: rgba(143, 176, 255, 0.1);
 }
 
 .icon svg {
-  width: 18px;
-  height: 18px;
+  width: 19px;
+  height: 19px;
 }
 
-.rowBody {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
+.itemBody {
+  flex: 1;
   min-width: 0;
-  font-size: 15.5px;
-  line-height: 1.55;
 }
 
 .label {
-  font-size: 12.5px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.55);
+  margin: 0 0 4px;
+  font-size: 13px;
+  color: var(--text-muted);
 }
 
-.rowBody a {
-  font-weight: 600;
-  color: #fff;
+.value {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.value a {
+  width: fit-content;
+  color: var(--text);
   text-decoration: none;
   overflow-wrap: anywhere;
 }
 
-.rowBody a:hover {
+.value a:hover {
   text-decoration: underline;
-  text-underline-offset: 3px;
+  text-underline-offset: 4px;
 }
 
-.rowBody .subLink {
+/* the number / address to act on */
+.value .main {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.value .subLink {
   margin-top: 2px;
   font-size: 14px;
   font-weight: 500;
-  color: #b9cbff;
+  color: var(--brand-accent);
 }
 
-.address,
-.hoursLine {
-  font-style: normal;
-  color: rgba(255, 255, 255, 0.88);
+/* ---------- Right: form card ---------- */
+.formWrap {
+  position: relative;
+  isolation: isolate;
+  padding-bottom: 40px;
 }
 
-/* ---------- Form side ---------- */
-.formSide {
-  padding: 48px 48px 44px;
+/* row of dots beneath the card */
+.formWrap::after {
+  content: '';
+  position: absolute;
+  right: 32px;
+  bottom: 0;
+  z-index: -1;
+  width: 60%;
+  height: 64px;
+  background-image: radial-gradient(circle, var(--dot) 6px, transparent 6.5px);
+  background-size: 32px 32px;
+  pointer-events: none;
+}
+
+.card {
+  padding: 40px;
+  background: #fff;
+  border: 1px solid rgba(19, 48, 122, 0.06);
+  border-radius: 6px;
+  box-shadow: 0 18px 50px rgba(19, 48, 122, 0.1);
+}
+
+:global([data-theme='dark']) .card {
+  background: var(--header-solid);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+}
+
+/* ---------- What happens next: four numbered steps under both columns ---------- */
+.steps {
+  margin-top: 56px;
+  padding-top: 48px;
+  border-top: 1px solid var(--line);
+}
+
+.stepsHeading {
+  margin: 0 0 28px;
+  font-size: clamp(22px, 2.2vw, 28px);
+  font-weight: 600;
+  letter-spacing: -0.4px;
+  color: var(--text);
+}
+
+.stepList {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.step {
+  padding: 26px 24px 28px;
+  background: #fff;
+  border: 1px solid rgba(19, 48, 122, 0.06);
+  border-radius: 6px;
+  box-shadow: 0 10px 30px rgba(19, 48, 122, 0.06);
+}
+
+:global([data-theme='dark']) .step {
+  background: var(--header-solid);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: none;
+}
+
+.stepNumber {
+  display: inline-grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 18px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--brand-2);
+  background: rgba(47, 91, 211, 0.08);
+  border-radius: 10px;
+}
+
+:global([data-theme='dark']) .stepNumber {
+  color: var(--brand-accent);
+  background: rgba(143, 176, 255, 0.1);
+}
+
+.stepTitle {
+  margin: 0 0 8px;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.stepText {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--text-muted);
 }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 1180px) {
-  .hero,
-  .body {
+  .section {
     --edge: 32px;
+  }
+
+  .grid {
+    gap: 48px;
+  }
+
+  .card {
+    padding: 32px;
   }
 }
 
-@media (max-width: 960px) {
-  .card {
+@media (max-width: 1100px) {
+  .stepList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  /* one column; spacing comes from each item's margins */
+  .grid {
     grid-template-columns: minmax(0, 1fr);
+    gap: 0;
   }
 
-  /* form first on small screens: it is the main action */
-  .formSide {
+  .formWrap {
+    margin: 32px 0 24px;
+  }
+
+  .lead {
+    margin-bottom: 0;
+  }
+
+  /* heading → form → details: the form is the main action */
+  .intro {
+    display: contents;
+  }
+
+  .intro::before {
+    display: none;
+  }
+
+  .breadcrumb,
+  .heading,
+  .lead {
+    order: -2;
+  }
+
+  .formWrap {
     order: -1;
   }
 }
 
 @media (max-width: 600px) {
-  .hero {
-    --edge: 16px;
-    padding-top: 16px;
+  .section {
+    --edge: 20px;
+    padding-top: 40px;
+    padding-bottom: 48px;
   }
 
-  .heroInner {
-    min-height: 0;
-    padding: 40px 22px;
-    border-radius: 18px;
+  .formWrap {
+    padding-bottom: 0;
   }
 
-  .heroInner::after {
-    background: linear-gradient(180deg, rgba(8, 18, 48, 0.92) 0%, rgba(19, 48, 122, 0.84) 100%);
+  .steps {
+    margin-top: 40px;
+    padding-top: 36px;
   }
 
-  .lead {
-    font-size: 16px;
+  .stepList {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
   }
 
-  .body {
-    --edge: 16px;
-    padding-top: 28px;
-    padding-bottom: 56px;
+  .step {
+    padding: 20px;
+  }
+
+  .formWrap::after {
+    display: none;
   }
 
   .card {
-    border-radius: 18px;
-  }
-
-  .info,
-  .formSide {
-    padding: 32px 22px;
+    padding: 24px 20px;
   }
 }

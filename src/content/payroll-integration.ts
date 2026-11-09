@@ -11,7 +11,7 @@ export const piHero = {
     'Integrating your payroll system with our employee time and attendance software can reduce payroll errors as you can track exactly how many hours have been worked and use the built-in calculations to work out overtime, vacation and sick pay.',
   ],
   highlight: { value: '3000+', label: 'installations as of 2026' },
-  badge: 'Authorized ZKTeco agent in Qatar',
+  badge: 'Authorized ZKTeco distributor in Qatar',
   primary: { label: 'Request a Quote', href: '/contact-us/' },
 }
 

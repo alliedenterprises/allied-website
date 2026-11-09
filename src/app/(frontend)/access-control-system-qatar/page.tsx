@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 
+import { pageMetadata } from '@/lib/seo'
+
 import { CtaBanner } from '@/components/sections/CtaBanner'
 import { PageHero } from '@/components/sections/PageHero'
 import { SplitFeature } from '@/components/sections/SplitFeature'
@@ -14,18 +16,18 @@ import {
 import { company } from '@/content/company'
 import { ctaBanner } from '@/content/home'
 
-export const metadata: Metadata = {
-  // absolute: the brand is already in the title, so skip the layout's "| …" suffix
-  title: { absolute: 'Access Control System in Qatar | Allied Enterprises' },
+export const metadata: Metadata = pageMetadata({
+  title: 'Access Control System in Qatar | Allied Enterprises',
   description:
     'Access control systems in Qatar using cards, PIN codes, tags and biometrics, integrated with turnstiles, speed gates and security doors. Installed in Doha.',
-  alternates: { canonical: '/access-control-system-qatar/' },
-}
+  path: '/access-control-system-qatar/',
+})
 
 export default function AccessControlPage() {
   return (
     <>
       <PageHero
+        path="/access-control-system-qatar/"
         eyebrow={acHero.eyebrow}
         heading={acHero.heading}
         lead={acHero.lead}

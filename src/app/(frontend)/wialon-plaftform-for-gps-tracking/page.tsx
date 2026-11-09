@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 
+import { pageMetadata } from '@/lib/seo'
+
 import { CheckGrid } from '@/components/sections/CheckGrid'
 import { CtaBanner } from '@/components/sections/CtaBanner'
 import { PageHero } from '@/components/sections/PageHero'
@@ -9,18 +11,18 @@ import { ctaBanner } from '@/content/home'
 import { wialonFeatures, wialonHero, wialonMore, wialonPlatform } from '@/content/wialon'
 
 // The "plaftform" typo in the path is the old WordPress URL, kept on purpose (CLAUDE.md §14A).
-export const metadata: Metadata = {
-  // absolute: the brand is already in the title, so skip the layout's "| …" suffix
-  title: { absolute: 'Wialon GPS Tracking Platform in Qatar | Allied Enterprises' },
+export const metadata: Metadata = pageMetadata({
+  title: 'Wialon GPS Tracking Platform in Qatar | Allied Enterprises',
   description:
     'Wialon GPS tracking in Qatar for fleets and assets: real-time tracking, geofences, fuel and driver management, alerts and reports, in the cloud or on-premise.',
-  alternates: { canonical: '/wialon-plaftform-for-gps-tracking/' },
-}
+  path: '/wialon-plaftform-for-gps-tracking/',
+})
 
 export default function WialonPage() {
   return (
     <>
       <PageHero
+        path="/wialon-plaftform-for-gps-tracking/"
         eyebrow={wialonHero.eyebrow}
         heading={wialonHero.heading}
         lead={wialonHero.lead}

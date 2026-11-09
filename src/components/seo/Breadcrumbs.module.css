@@ -1,0 +1,37 @@
+/* Same look as the hub pages' breadcrumb (CategoryHub.module.css) */
+.breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 18px;
+  padding: 0;
+  list-style: none;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.breadcrumb li + li::before {
+  content: '/';
+  margin-right: 8px;
+  opacity: 0.5;
+}
+
+.breadcrumb a {
+  color: var(--brand-accent);
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* dark hero panels (ZKTeco page) */
+.onDark ol {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.onDark a {
+  color: #fff;
+}

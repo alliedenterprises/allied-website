@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 
+import { pageMetadata } from '@/lib/seo'
+
 import { CtaBanner } from '@/components/sections/CtaBanner'
 import { PageHero } from '@/components/sections/PageHero'
 import { SplitFeature } from '@/components/sections/SplitFeature'
@@ -7,18 +9,18 @@ import { company } from '@/content/company'
 import { ctaBanner } from '@/content/home'
 import { cablingChoose, cablingCompany, cablingHero, cablingTypes } from '@/content/structured-cabling'
 
-export const metadata: Metadata = {
-  // absolute: the brand is already in the title, so skip the layout's "| …" suffix
-  title: { absolute: 'Structured Cabling Data & Voice in Qatar | Allied Enterprises' },
+export const metadata: Metadata = pageMetadata({
+  title: 'Structured Cabling Data & Voice in Qatar | Allied Enterprises',
   description:
     'Structured cabling in Qatar for data and voice: Cat6A F/UTP, STP and fiber optic cabling, network cabinets, installation and testing by Allied Enterprises.',
-  alternates: { canonical: '/structured-cabling-data-voice-qatar/' },
-}
+  path: '/structured-cabling-data-voice-qatar/',
+})
 
 export default function StructuredCablingPage() {
   return (
     <>
       <PageHero
+        path="/structured-cabling-data-voice-qatar/"
         eyebrow={cablingHero.eyebrow}
         heading={cablingHero.heading}
         lead={cablingHero.lead}

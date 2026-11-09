@@ -17,11 +17,11 @@ export const gateHero = {
   heading: 'Gate Barrier System in Qatar',
   lead: 'Access control is a critical step in maintaining strong security inside offices, shopping malls, toll plazas, residential areas and other buildings that need stringent security standards. Allied Enterprises offers innovative, state-of-the-art security solutions to implement controlled passage and safeguard your premises from unauthorized access and unexpected threats from outsiders.',
   text: [
-    'In collaboration with ZKTeco, one of the leading manufacturers of security solutions in the world, we offer a wide array of equipment that manages vehicle traffic and pedestrian crossings. Led by a group of innovative engineers and smart professionals, we make sure our gate barrier systems perform up to your expectations and meet your security requirements.',
+    'As the authorized ZKTeco distributor in Qatar, we offer a wide array of equipment that manages vehicle traffic and pedestrian crossings. Led by a group of innovative engineers and smart professionals, we make sure our gate barrier systems perform up to your expectations and meet your security requirements.',
     'From residential to industrial and commercial use, our automatic gate barrier systems deliver high performance and smoothly manage heavy vehicle movement at the entry and exit points of your premises.',
   ],
   highlight: { value: '3000+', label: 'installations as of 2026' },
-  badge: 'Authorized ZKTeco agent in Qatar',
+  badge: 'Authorized ZKTeco distributor in Qatar',
   primary: { label: 'Request a Quote', href: '/contact-us/' },
 }
 
@@ -154,10 +154,11 @@ export const gateFlapFeatures = {
       ],
     },
     'We deliver Physical Access Solutions in Qatar that help make the country a secure and relaxed environment for the people who live and work here.',
-    'Our long partnership with ZKTeco has helped us become a prominent physical access solutions provider in Qatar and a recognised distributor, dealer and supplier of gate barriers, turnstiles and flap barriers.',
+    'Our long partnership with ZKTeco, whose authorized distributor for Qatar we are, means we supply, install and maintain ZKTeco gate barriers, turnstiles and flap barriers with local stock and support.',
     'Want to know more about Allied Enterprises’ flap barriers? Talk to our gate barrier experts in Doha, Qatar about cost-effective Physical Access Security Services.',
   ] as ContentBlock[],
   links: [
+    { label: 'ZKTeco products in Qatar', href: '/zkteco-qatar/' },
     { label: 'Time attendance systems', href: '/time-attendance-system-qatar/' },
     { label: 'Contact our team', href: '/contact-us/' },
   ],

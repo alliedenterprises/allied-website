@@ -6,7 +6,8 @@
 // its plain meaning; typos fixed ("Sytem", "an PABX"); the old helpline +974 3002 9868 replaced with the
 // numbers in company.ts. The old H3 section titles are now H2s. No pictures (requested).
 // VERIFY: Panasonic, "certified specialists", "reputed clients list", installs "in some of the largest
-// business offices and multinational organizations in Qatar", and "best"/"top" claims are the company's own.
+// business offices and multinational organizations in Qatar" is the company's own claim. "Best"/"top" claims were reworded
+// as facts on 2026-11-09 (SEO audit).
 import { company } from './company'
 import type { ContentBlock } from './types'
 
@@ -43,7 +44,7 @@ export const pabxSolutions = {
     'We offer complete telephone system PABX solutions and call centre solutions in Qatar. We know that a good telecommunication system is a cornerstone of your organisation. Our telecom products and solutions make sure you are always connected to your business; besides growing with your business, they provide technical features that enhance it. We always make sure our customers get the right telephony solution, and our extensive experience and expertise in this field let us understand and meet your exact business communication needs.',
     'We bring top brands in the telecommunications industry to fulfil our customers’ major requirements. We deal with Panasonic products.',
     { subheading: 'Allied Enterprises – PABX system experts in Qatar' },
-    'Allied Enterprises Qatar offers the best telephone systems in Qatar: PABX systems, PBX systems and IP PBX systems from reputed vendors. The right system makes sure that incoming and outgoing calls reach the right user. It also stays reliable during busy times, grows with your company and delivers technological features that upgrade your phone system.',
+    'Allied Enterprises supplies and installs telephone systems across Qatar: PABX systems, PBX systems and IP PBX systems from reputed vendors. The right system makes sure that incoming and outgoing calls reach the right user. It also stays reliable during busy times, grows with your company and delivers technological features that upgrade your phone system.',
     'Choosing a PABX expert company in Qatar to install IP PBX systems is critical. We are certified specialists in Qatar with a reputed client list. Our sales, support and PBX installation service covers the whole of Qatar, so do not waste your time hiring an unprofessional firm for your telephone installation.',
   ] as ContentBlock[],
   links: [{ label: 'Structured cabling data & voice', href: '/structured-cabling-data-voice-qatar/' }],
@@ -54,10 +55,10 @@ export const pabxValue = {
   text: [
     'Our skilled, trained and certified engineers deploy creative and efficient communication networking solutions for each customer, with custom features that best fit their business telecom needs.',
     'We have installed complex IP PBX and PABX systems for enterprises and business offices across Qatar. We work with partner vendors and companies to create unique telecom solutions with stylish, high-tech devices and systems, for a seamless user experience to international telecommunication standards.',
-    'Our professional engineers study and analyse each client’s case, with a clear understanding of the problems with the system currently in place. With a complete understanding of the client’s telecommunication requirements, we draw up the best solution. These designs take into account the company’s infrastructure, networking conditions and other factors that affect seamless connectivity.',
+    'Our professional engineers study and analyse each client’s case, with a clear understanding of the problems with the system currently in place. With a complete understanding of the client’s telecommunication requirements, we design the solution that fits. These designs take into account the company’s infrastructure, networking conditions and other factors that affect seamless connectivity.',
     'Our IP telecom systems have been installed and integrated in some of the largest business offices and multinational organisations in Qatar.',
     'The IP telephony systems we provide, IP PBX telephone solutions and PABX telecom systems, can improve the productivity and profitability of an organisation. Our telecom systems have helped reduce phone bills and create an easier platform for communication within organisations.',
-    `As one of the best telephone solution companies in Qatar, Allied Enterprises offers telecommunication services in almost every area of Qatar. Call us today for a free consultation and quote on ${company.phone.display}, WhatsApp ${company.helpline.display} or email ${company.email}.`,
+    `Allied Enterprises offers telecommunication services in almost every area of Qatar. Call us today for a free consultation and quote on ${company.phone.display}, WhatsApp ${company.helpline.display} or email ${company.email}.`,
   ] as ContentBlock[],
   links: [
     { label: 'Audio & video intercom', href: '/audio-video-intercom-qatar/' },

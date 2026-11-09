@@ -7,7 +7,9 @@ import { Header } from '@/components/layout/Header'
 import { themeInitScript } from '@/components/layout/theme'
 import { WhatsAppButton } from '@/components/layout/WhatsAppButton'
 import { LocalBusinessJsonLd } from '@/components/seo/LocalBusinessJsonLd'
+import { company } from '@/content/company'
 import { headerCta, mainNav } from '@/content/navigation'
+import { shareImage } from '@/lib/seo'
 import './styles.css'
 
 const outfit = Outfit({
@@ -16,14 +18,25 @@ const outfit = Outfit({
   variable: '--font-outfit',
 })
 
+// Defaults for any page without its own metadata. Public pages set everything through pageMetadata()
+// (src/lib/seo.ts), which also builds their Open Graph / Twitter tags. Icons: src/app/icon.png and
+// apple-icon.png (app root, so the 404 page gets them too).
 export const metadata: Metadata = {
-  metadataBase: new URL('https://alliedeprs.com'),
+  metadataBase: new URL(company.domain),
   title: {
-    default: 'Time Attendance & Access Control in Qatar | Allied Enterprises Qatar',
-    template: '%s | Allied Enterprises Qatar',
+    default: 'ZKTeco Attendance & Access Control in Qatar | Allied Enterprises',
+    template: '%s | Allied Enterprises',
   },
-  description:
-    'Authorized ZKTeco partner in Doha, Qatar for time attendance, access control, HRMS & payroll, and IT infrastructure solutions.',
+  description: company.description,
+  openGraph: {
+    type: 'website',
+    siteName: company.shortName,
+    images: [shareImage],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: [shareImage.url],
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

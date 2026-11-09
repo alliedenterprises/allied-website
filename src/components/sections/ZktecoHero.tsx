@@ -2,10 +2,13 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import type { PageImage } from '@/content/types'
+import { Breadcrumbs } from '@/components/seo/Breadcrumbs'
 import { BrandText, ZKTeco } from '@/components/ui/BrandText'
 import styles from './ZktecoHero.module.css'
 
 type ZktecoHeroProps = {
+  /** Canonical path of the page: shows the breadcrumb (and its JSON-LD) above the heading */
+  path?: string
   heading: string
   lead: string
   text: readonly string[]
@@ -23,9 +26,10 @@ type ZktecoHeroProps = {
  * Showcase hero for the /zkteco-qatar/ page: a dark charcoal panel with the page's single H1,
  * the products on a lit stage and a stats strip. In the H1 "ZKTeco" is shown as the official
  * logo; the word itself stays in the HTML as visually-hidden text (same as BrandText elsewhere),
- * so the H1 still reads "Authorized ZKTeco Dealer in Qatar".
+ * so the H1 still reads "Authorized ZKTeco Distributor & Dealer in Qatar".
  */
 export function ZktecoHero({
+  path,
   heading,
   lead,
   text,
@@ -44,6 +48,7 @@ export function ZktecoHero({
       <div className={styles.panel}>
         <div className={styles.grid}>
           <div className={styles.copy}>
+            {path && <Breadcrumbs path={path} fallbackName={heading} onDark />}
             <p className={styles.pill}>
               <span className={styles.check} aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round">

@@ -29,7 +29,7 @@ export const cablingCompany = {
     'Allied Enterprise Qatar offers outstanding structured cabling solutions in Qatar. We have expertise in the design and installation of structured cabling systems, with an emphasis on new construction and corporate relocations. Whether your network is ten PCs or ten buildings on a campus, Allied Qatar can provide the fiber and copper network cabling needed to connect data and voice over the Local Area Network. Our structured cabling technicians have broad hands-on knowledge of large-scale corporate installation, construction, corporate relocation and expansion.',
     'Our structured cabling service specialises in making business and industrial information mobility systems available. It offers a wide range of products and services that can be delivered anywhere in the country. We provide state-of-the-art cabling infrastructure and after sales services, from the design of the structured cabling system to testing, installation and documentation.',
     'Our company is ISO 9001 certified, and our staff and engineers are highly qualified, with fiber optic certified capabilities and a wealth of experience in technical and mechanical solutions. Our certified and trained technicians and installers are on the ground to supervise the setup and installation of your cabling network to ensure there are no errors or inconsistencies.',
-    'We are fully capable of providing data, voice and video cabling services that guarantee consistent and clear communication and transfer of data and information, with cabling systems that reach desktops, data centres and other destinations.',
+    'We are fully capable of providing data, voice and video cabling services for consistent, clear communication and transfer of data and information, with cabling systems that reach desktops, data centres and other destinations.',
     'You can have confidence in the quality of our products, as they are state of the art and up to industry standards. Our staff are highly trained and are continually updated on the advances and improvements in the data transmission industry. Our cables and wiring systems are covered by specific warranties, which vary depending on the product and other details.',
   ] as ContentBlock[],
 }
@@ -49,11 +49,11 @@ export const cablingTypes = {
 }
 
 export const cablingChoose = {
-  heading: 'Choose the Best Data Cabling Company in Qatar',
+  heading: 'Choosing a Data Cabling Company in Qatar',
   text: [
     'Some structured cabling companies try to compete in a fast-moving market by looking only for financial benefit, without regard to work quality and ethics. The outcome for their clients can be poor. In this scenario Allied Enterprises stands out: our experienced professionals will give you complete satisfaction by giving 100% from our side, bringing the communication and connectivity of your peripherals to a higher bandwidth.',
     'We take structured cabling and networking to another level with forefront services. Our data cabling and structured cabling solutions in Qatar are designed with high calibre and today’s business bandwidth requirements in mind. We have networking products to support all connectivity methods, including voice and data, and we offer the greatest flexibility for every business specialty or customisation requirement. Allied Enterprises Qatar provides an excellent structured cabling installation service across Qatar.',
-    'Allied Enterprise Qatar, a highly reputed name among structured cabling companies, has already served major industries including hospitality, transportation, retail, logistics, health care and education. Our objective is to make your peripherals and infrastructure produce an optimum result and to minimise risks, so choose the best among the structured cabling companies in Qatar.',
+    'Allied Enterprises has already served major industries including hospitality, transportation, retail, logistics, health care and education. Our objective is to make your peripherals and infrastructure produce an optimum result and to minimise risks.',
     `Contact Allied Enterprise Qatar today for your data cabling needs or for purchasing products in Qatar. Call ${company.phone.display}, WhatsApp ${company.helpline.display} or email ${company.email}.`,
   ] as ContentBlock[],
   links: [

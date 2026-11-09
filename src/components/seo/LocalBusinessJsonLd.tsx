@@ -1,4 +1,5 @@
 import { company } from '@/content/company'
+import { shareImage } from '@/lib/seo'
 
 const businessId = `${company.domain}/#business`
 
@@ -13,18 +14,24 @@ function postalAddress(office: (typeof company.offices)[number]) {
 
 const [mainOffice, ...otherOffices] = company.offices
 
+// same Google Maps listing link as the footer and contact page
+const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(company.map.name)}&query_place_id=${company.map.placeId}`
+
 const business = {
   '@type': 'LocalBusiness',
   '@id': businessId,
   name: company.name,
   alternateName: company.shortName,
   description: company.description,
-  url: company.domain,
+  url: `${company.domain}/`,
   logo: `${company.domain}${company.logo}`,
-  image: `${company.domain}${company.logo}`,
+  image: [`${company.domain}${shareImage.url}`, `${company.domain}${company.logo}`],
   email: company.email,
   telephone: company.phone.e164,
   address: postalAddress(mainOffice),
+  // Google Maps pin of the listing (company.ts map)
+  geo: { '@type': 'GeoCoordinates', latitude: company.map.lat, longitude: company.map.lng },
+  hasMap: mapUrl,
   areaServed: { '@type': 'Country', name: 'Qatar' },
   openingHoursSpecification: company.hours
     .filter((h) => h.opens && h.closes)

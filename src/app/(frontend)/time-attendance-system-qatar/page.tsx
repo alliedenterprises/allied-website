@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 
+import { pageMetadata } from '@/lib/seo'
+
 import { CtaBanner } from '@/components/sections/CtaBanner'
 import { FaqList } from '@/components/sections/FaqList'
 import { PageHero } from '@/components/sections/PageHero'
@@ -8,18 +10,18 @@ import { company } from '@/content/company'
 import { ctaBanner } from '@/content/home'
 import { taBenefits, taCloud, taFaq, taHero, taWhyAllied } from '@/content/time-attendance'
 
-export const metadata: Metadata = {
-  // absolute: the brand is already in the title, so skip the layout's "| …" suffix
-  title: { absolute: 'Time Attendance System in Qatar | Allied Enterprises' },
+export const metadata: Metadata = pageMetadata({
+  title: 'Time Attendance System in Qatar | Allied Enterprises',
   description:
-    'Biometric time attendance systems in Qatar from the authorized ZKTeco agent: fingerprint and face devices, cloud software, installation and local support.',
-  alternates: { canonical: '/time-attendance-system-qatar/' },
-}
+    'Biometric time attendance systems in Qatar from the authorized ZKTeco distributor: fingerprint and face devices, cloud software, installation and local support.',
+  path: '/time-attendance-system-qatar/',
+})
 
 export default function TimeAttendancePage() {
   return (
     <>
       <PageHero
+        path="/time-attendance-system-qatar/"
         eyebrow={taHero.eyebrow}
         heading={taHero.heading}
         lead={taHero.lead}

@@ -158,16 +158,33 @@ export type WhyPoint = {
   linkLabel: string
 }
 
+export type Highlight = {
+  title: string
+  text: string
+  icon: 'award' | 'support' | 'team' | 'handshake'
+}
+
 export const whyAllied = {
-  // The page's single H1 — real text, not part of an image.
-  heading: 'Leading Supplier for Time Attendance Systems in Qatar – Biometric Supplier in Qatar',
+  // Four short value points shown in a strip above the H1.
+  // "certified professionals" was softened to "experienced": no staff certification is verified.
+  highlights: [
+    { title: 'Trusted Partner', text: 'Proven experience & reliable solutions', icon: 'award' },
+    { title: 'End-to-End Support', text: 'Supply, installation & maintenance', icon: 'support' },
+    { title: 'Expert Team', text: 'Qualified, experienced professionals', icon: 'team' },
+    { title: 'Customer Focused', text: 'Solutions tailored to your needs', icon: 'handshake' },
+  ] as Highlight[],
+  // The page's single H1 — real text, not part of an image. CLAUDE.md §7 draft H1 (SEO audit 2026-11-09:
+  // the previous H1/intro used unverifiable "leading" / "best price" claims and repeated "in Qatar").
+  heading: 'ZKTeco Supplier in Qatar for Biometric Attendance & Access Control',
   intro: [
-    // Paragraph 1: company's own wording (requested). "Leading" / "best price" are unverified.
-    // Paragraphs 2–3: condensed from the original site copy. "Authorized agent" confirmed by the company.
-    'Allied Enterprises is known for our time attendance system Qatar. We are the leading biometric attendance machine supplier in Qatar that also provide the best biometric fingerprint scanner price in Qatar.',
-    'As the authorized ZKTeco agent in Qatar, we supply the full product range and help you download, install and set up the attendance software.',
+    // Facts only: distributor status per the ZKTeco 2026 certificate below; 3000+ installations as of 2026
+    // and two Doha offices as stated elsewhere on the site.
+    'Allied Enterprises is the authorized ZKTeco distributor in Qatar. We supply, install and support biometric time attendance machines, attendance software and access control systems for businesses across Doha and the rest of the country.',
+    'Choose from face, palm, fingerprint and card terminals, with BioTime software to turn every punch into attendance, overtime and payroll reports. With more than 3000 installations as of 2026 and two offices in Doha, our team handles everything from the site survey to after-sales support.',
     'We also provide access control, GPS and vehicle tracking systems, so attendance, security and vehicles are handled by one partner in Doha.',
   ],
+  // contextual link to the dedicated ZKTeco page (SEO audit: it had only one link from page content)
+  moreLink: { label: 'See our ZKTeco products and services in Qatar', href: '/zkteco-qatar/' },
   // Snapshot of the Google Business Profile — update periodically.
   googleRating: {
     rating: '4.9',

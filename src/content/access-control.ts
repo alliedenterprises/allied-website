@@ -1,136 +1,119 @@
-// /access-control-system-qatar/ copy: kept from the old WordPress page of the same URL (requested),
-// split into sections. Changes: typos fixed ("you building", "Tailgaiting"), the helpline typo
-// "33338694" corrected to 33338964 (src/content/company.ts), "four objectives" (seven were listed)
-// changed to "objectives", "TEAM ALLIED" written as "Team Allied", and the old heading levels
-// (H3/H4 used as section titles) turned into H2s. The old page's 10 links to boonedam.com.au
-// and Wikipedia were not carried over. No pictures (requested).
-// NOTE: much of this copy closely follows Boon Edam articles (an entrance manufacturer); rewriting
-// it in Allied's own words would be stronger for SEO.
-// VERIFY: "leading … provider", "best … supplier in Qatar", and integration with CCTV, alarm systems,
-// intercoms and back-to-base monitoring are the company's own claims.
+// /access-control-system-qatar/ copy (old WordPress URL, same path).
+// Rewritten in original words on 2026-11-09 (SEO audit): the previous copy closely followed Boon Edam
+// articles and used unverifiable "leading" / "best … supplier in Qatar" claims. Section structure, topics
+// (what access control is, why doors alone are not enough, anti-tailgating / anti-passback, choosing
+// readers and entrances) and contact details were kept. Facts used: ZKTeco distributor status (2026
+// certificate), 3000+ installations as of 2026, products already named on the site (ZKTeco face, palm,
+// fingerprint and card devices; turnstiles, flap and swing barriers on the gate barrier page).
+// VERIFY: integration with CCTV, alarm systems and intercoms is the company's own statement (old page).
+import { company } from './company'
 import type { ContentBlock } from './types'
 
 export const acHero = {
-  eyebrow: 'Leading access control system provider in Qatar',
+  eyebrow: 'Card, PIN and biometric access control',
   heading: 'Access Control System in Qatar',
-  lead: 'Access Control Systems are designed to provide a high level of security, control and convenience. Systems can be designed using swipe cards, pin codes, tags or proximity to gain access to your premises.',
+  lead: 'An access control system decides who can open which door, and when. Instead of keys, people use a card, a PIN, a mobile credential or their face, palm or fingerprint, and every entry is recorded.',
   text: [
-    'The great advantage of an access control system is the control of permitting or denying authorised users access into specified areas.',
-    'Access control systems can be software driven that provide audit trail reports that will record the day and time authorised users accessed certain areas.',
-    'They offer the convenience of changing access permissions easily and cancelling users from the system without the process of re-keying locks.',
-    'We have a complete line of security access control systems that can be customised for your requirements.',
+    'When someone leaves or loses a card, you remove their access in the software in seconds, with no locks to change.',
+    'Allied Enterprises designs, supplies and installs access control for offices, warehouses, schools and residential buildings across Qatar, from a single door to multi-site systems connected to turnstiles and barriers.',
   ],
   highlight: { value: '3000+', label: 'installations as of 2026' },
-  badge: 'Authorized ZKTeco agent in Qatar',
+  badge: 'Authorized ZKTeco distributor in Qatar',
   primary: { label: 'Request a Quote', href: '/contact-us/' },
 }
 
 export const acWhatIs = {
   heading: 'What is an Access Control System?',
   text: [
-    'We have come a long way since the introduction of the solid key. Access control systems have become a vital security addition for businesses and buildings worldwide. They provide reassurance and safety to millions of individuals. Integrated in physical security entrances, they create the most secure solution for granting access and mitigating unauthorised entry. The access control system grants and manages access to certain areas of your building, while the physical security entrance operates to deter, detect or prevent unauthorised access.',
-    'An access control system is the method of managing access to your building, or certain areas of your building. An access control system typically consists of:',
+    'An access control system replaces keys with electronic credentials and rules. It controls entry to a building, or to particular rooms inside it, and keeps a record of who went where.',
+    'A typical system has three parts:',
     {
       list: [
-        'access control devices, such as access cards and card readers',
-        'access management dashboard',
-        'hardware, such as access control panels and access control servers',
+        'Readers at each door: card, PIN, face, palm or fingerprint',
+        'A controller or panel that checks each request and releases the lock',
+        'Software where you add users, set rules and view entry reports',
       ],
     },
-    'Access control systems reduce the risk involved in data- and product theft and increase employee safety. They are commonly installed with a two-factor or multi-factor identification process. They could require a card or token and a piece of information, such as a password.',
-    'An access control system determines who is allowed to enter or exit, where they are allowed to exit or enter, and when they are allowed to enter or exit. Historically, this was partially accomplished through keys and locks.',
+    'Rules can depend on the person, the door and the time of day. Staff might enter the office from 7 am to 7 pm, while only the IT team can open the server room. For sensitive areas you can require two factors, such as a card and a fingerprint.',
+    'Because every attempt is logged, you can see who entered an area and when, which helps with investigations, audits and health and safety.',
   ] as ContentBlock[],
 }
 
 export const acNotEnough = {
   heading: 'Why an Access Control System Alone is Not Enough',
   text: [
-    'Access control devices are often installed alongside swinging doors with the intention of reducing unauthorised entries. However, once open, a swinging door can allow multiple users to go through on one single credential.',
-    'This is why combining electronic access control systems with physical security solutions has become increasingly popular. Integrating access control systems into speed gates and security revolving doors solves many issues concerning unauthorised access into buildings and facilities.',
-    { subheading: 'What are the objectives in access control?' },
-    'They are:',
+    'A reader on a normal door checks one person, but once the door is open anyone can follow them in. In busy lobbies and car parks this "tailgating" is the most common way people get in without permission.',
+    'Combining access control with a physical entrance, such as a turnstile, flap barrier, swing barrier or vehicle barrier, makes sure one valid credential lets exactly one person or vehicle through.',
+    { subheading: 'What should a good access control system achieve?' },
     {
       list: [
-        'Identification',
-        'Authentication',
-        'Authorization',
-        'Confidentiality',
-        'Integrity',
-        'Availability',
-        'Accountability',
+        'Identify each person reliably (card, PIN or biometrics)',
+        'Allow only the right people into each area, at the right times',
+        'Record every entry and refused attempt',
+        'Make it quick to add, change or cancel access',
+        'Keep working, and keep doors safe, during a power or network failure',
       ],
     },
-    'This is considered a physical access control. Identity authentication is based on a person’s physical characteristics. The most common physical access controls are used at hospitals, police stations, government offices, data centers, and any area that contains sensitive equipment and/or data.',
+    'Biometric readers add another layer because a face or fingerprint cannot be lent to someone else. They suit areas such as server rooms, stores, cash offices and labs.',
   ] as ContentBlock[],
 }
 
 export const acAntiTailgating = {
   heading: 'Anti-Tailgating, Anti-Loitering and Anti-Passback',
   text: [
-    'Access control systems combined with physical entrance solutions provide a better way to manage, monitor and control access points in a building.',
+    'These features are available when the access control system works together with a physical entrance or controller.',
     { subheading: 'Anti-tailgating' },
-    'Most automated access control systems alone cannot detect how many people at one time are entering. Integrate them into physical security entrances and they offer anti-tailgating technology. The access control system will then be able to detect you when you approach the entryway and if you have successfully passed through it.',
-    'Depending on the security entrance, the product will either give off a signal or deny access to someone trying to gain unauthorised access.',
-    'In busy environments, poor people flow can cause access problems. Tailgating technology helps by letting you pass without interruption, while denying access to unauthorised users.',
+    'Sensors in a speed gate, flap barrier or turnstile count how many people pass for each valid credential. If a second person tries to follow, the entrance closes or raises an alarm.',
     { subheading: 'Anti-loitering' },
-    'Accompanying anti-tailgating is anti-loitering technology. Anti-loitering technology monitors your progress through the entryway – ensuring continued movement.',
+    'The entrance expects continuous movement. If someone stops inside the lane, the system alerts the guard instead of leaving the lane open.',
     { subheading: 'Anti-passback' },
-    'Finally, anti-passback technology allows access cards and keys to be monitored. If the system detects a second entry of the same card or key within a small timeframe, access will be denied to the second user. Access cards cannot be “passed back” to other users.',
+    'A card that has been used to enter cannot be used to enter again until it has been used to exit. This stops people passing a card back to a colleague outside.',
   ] as ContentBlock[],
 }
 
 export const acWhichEntrance = {
   heading: 'What Access Control System to Integrate in which Security Entrance?',
   text: [
-    'The best combination of access control system and security entrance is based upon your specific needs. Think about the following:',
+    'The right combination depends on your building and how much security each area needs. When we survey a site, we ask:',
     {
       list: [
-        'Do you need perimeter security?',
-        'How many points of access do you have?',
-        'Should there be different authorisation rules based upon job role?',
-        'Should there be different time-based authorisation rules?',
-        'Are there any rooms or areas where you require an extra layer of security?',
-        'Is two factor authentication enough, or do you need multi factor authentication?',
+        'Do you need to secure the perimeter, the building entrance, or individual rooms?',
+        'How many doors, gates and lanes need control?',
+        'Should access depend on job role or on the time of day?',
+        'Which areas need two-factor identification?',
+        'Should entries feed into time attendance or visitor management?',
       ],
     },
-    'Depending on your need and level of security, there are various access control devices and security entrances you can consider. A few of the possible access control devices are:',
+    'Common reader options:',
     {
       list: [
-        'Keypad readers',
-        'Proximity card- or badge readers',
-        'RFID readers',
-        'Mobile phone based readers',
-        'StereoVision',
-        'Biometric devices',
+        'Keypad (PIN) readers',
+        'Proximity card and RFID readers',
+        'Mobile credential readers',
+        'Face recognition terminals',
+        'Palm and fingerprint readers',
       ],
     },
-    'For each of these, you need to consider in what type of security entrance you will integrate your chosen access control system. Compatible products are:',
+    'Entrances they can control:',
     {
-      list: [
-        'Access Gates',
-        'Tripod Turnstiles',
-        'Full Height Turnstiles',
-        'Speed Gates',
-        'High Security Doors',
-        'Revolving Doors',
-      ],
+      list: ['Doors with electric locks', 'Tripod turnstiles', 'Flap and swing barriers', 'Speed gates', 'Vehicle barriers and parking gates'],
     },
-    'Perimeter security is mostly taken care of by installing full height turnstiles in combination with proximity cards. Access to your office building can be managed by installing a bank of speed gates in combination with proximity readers, RFID access control systems or biometric devices. For the highest level of security, you will need high security doors and a combination of different access control systems.',
+    'As a rule of thumb: card or face readers on office doors; flap or swing barriers with face or card readers in the main lobby; tripod or full-height turnstiles for staff entrances and sites; and vehicle barriers with UHF or number-plate readers for car parks.',
   ] as ContentBlock[],
   links: [
+    { label: 'ZKTeco products in Qatar', href: '/zkteco-qatar/' },
     { label: 'Gate barrier systems', href: '/zkteco-qatar-gate-barrier-system/' },
     { label: 'RFID, barcode & NFC solutions', href: '/rfid-barcode-nfc-solutions-qatar/' },
   ],
 }
 
 export const acContact = {
-  heading: 'Delivering the Best Access Control Solutions in Doha Qatar',
+  heading: 'Access Control Installation in Doha, Qatar',
   text: [
-    'Do you need help in determining the best access control solution for your security entrance?',
-    'Please contact us on email : info@alliedeprs.com or call us on 33338964',
-    'Enjoy the confidence that comes from choosing Team Allied as your preferred access control systems provider and best access control systems supplier in Qatar. You’ll rest easy knowing that you’re getting the leading access control installation services for your home or business.',
-    'Team Allied looks forward to hearing what your requirements are and working with you to develop an effective access control solution that ticks all the boxes and meets your specific needs. Contact us on 44718845 or 33338964 today to learn more.',
-    'Team Allied access control installation specialists in Qatar have the capability to integrate our systems with other already established security measures in place to reinforce your overall security system. These might include CCTV, alarm systems, intercoms and back to base monitoring, among other options.',
+    'Not sure which readers or entrances you need? Our team will visit your site, recommend a layout and send a no-obligation quotation.',
+    `Call ${company.phone.display}, WhatsApp ${company.helpline.display} or email ${company.email}.`,
+    'We can connect access control with systems you already have, such as CCTV, alarm systems and intercoms, and with time attendance, so the same face or card is used for both.',
+    'After installation we enrol your users, train your administrators and support the system from our offices in Doha.',
   ] as ContentBlock[],
   links: [
     { label: 'Contact our team', href: '/contact-us/' },

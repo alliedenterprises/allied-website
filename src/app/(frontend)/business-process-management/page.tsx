@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 
+import { pageMetadata } from '@/lib/seo'
+
 import { CheckGrid } from '@/components/sections/CheckGrid'
 import { CtaBanner } from '@/components/sections/CtaBanner'
 import { PageHero } from '@/components/sections/PageHero'
@@ -8,18 +10,18 @@ import { bpmBenefits, bpmHero, bpmLifecycle, bpmTypes, bpmWhat } from '@/content
 import { company } from '@/content/company'
 import { ctaBanner } from '@/content/home'
 
-export const metadata: Metadata = {
-  // absolute: the brand is already in the title, so skip the layout's "| …" suffix
-  title: { absolute: 'Business Process Management (BPM) in Qatar | Allied Enterprises' },
+export const metadata: Metadata = pageMetadata({
+  title: 'Business Process Management (BPM) in Qatar | Allied Enterprises',
   description:
     'Business process management in Qatar: design, model, run and optimise your workflows with Appian. BPM consultancy and implementation by Allied Enterprises.',
-  alternates: { canonical: '/business-process-management/' },
-}
+  path: '/business-process-management/',
+})
 
 export default function BusinessProcessPage() {
   return (
     <>
       <PageHero
+        path="/business-process-management/"
         eyebrow={bpmHero.eyebrow}
         heading={bpmHero.heading}
         lead={bpmHero.lead}

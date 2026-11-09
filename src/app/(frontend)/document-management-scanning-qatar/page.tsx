@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 
+import { pageMetadata } from '@/lib/seo'
+
 import { CheckGrid } from '@/components/sections/CheckGrid'
 import { CtaBanner } from '@/components/sections/CtaBanner'
 import { PageHero } from '@/components/sections/PageHero'
@@ -13,18 +15,18 @@ import {
 } from '@/content/document-management'
 import { ctaBanner } from '@/content/home'
 
-export const metadata: Metadata = {
-  // absolute: the brand is already in the title, so skip the layout's "| …" suffix
-  title: { absolute: 'Document Management & Scanning in Qatar | Allied Enterprises' },
+export const metadata: Metadata = pageMetadata({
+  title: 'Document Management & Scanning in Qatar | Allied Enterprises',
   description:
     'Document scanning, indexing and digital archiving in Qatar. Turn paper files into searchable records with secure web access and back-up. Contact Allied Enterprises.',
-  alternates: { canonical: '/document-management-scanning-qatar/' },
-}
+  path: '/document-management-scanning-qatar/',
+})
 
 export default function DocumentManagementPage() {
   return (
     <>
       <PageHero
+        path="/document-management-scanning-qatar/"
         eyebrow={documentHero.eyebrow}
         heading={documentHero.heading}
         lead={documentHero.lead}

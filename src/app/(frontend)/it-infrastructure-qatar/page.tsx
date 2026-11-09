@@ -1,16 +1,14 @@
 import type { Metadata } from 'next'
 
+import { pageMetadata } from '@/lib/seo'
+
 import { CategoryHub } from '@/components/sections/CategoryHub'
 import { CtaBanner } from '@/components/sections/CtaBanner'
 import { itInfrastructureHub as hub } from '@/content/categories'
 import { ctaBanner } from '@/content/home'
 
 // Old WordPress URL (title-only page); rebuilt as the menu section's hub page
-export const metadata: Metadata = {
-  title: { absolute: hub.title },
-  description: hub.description,
-  alternates: { canonical: hub.path },
-}
+export const metadata: Metadata = pageMetadata({ title: hub.title, description: hub.description, path: hub.path })
 
 export default function ItInfrastructurePage() {
   return (

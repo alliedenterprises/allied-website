@@ -1,6 +1,6 @@
 .section {
-  /* same content edge as the other sections (96px inside the 1440px column) */
-  --edge: max(96px, calc((100% - 1440px) / 2 + 96px));
+  /* 48px in (not the usual 96px), level with the Strategic Partners heading and logo strip above */
+  --edge: max(48px, calc((100% - 1440px) / 2 + 48px));
   --gap: 20px;
   /* text panel: solid dark navy in both themes, so white text always reads clearly */
   --panel: #0b1530;

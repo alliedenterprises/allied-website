@@ -27,8 +27,8 @@ function logoSize(width: number, height: number) {
 
 function LogoList({ partners, hidden }: { partners: readonly Partner[]; hidden?: boolean }) {
   return (
-    // The second copy only exists to make the loop seamless: hidden from screen readers
-    // and given empty alt text so each brand is announced once.
+    // The second copy only exists to make the loop seamless: the list is hidden from screen readers
+    // (aria-hidden), so each brand is announced once even though every image has alt text.
     <ul className={styles.group} aria-hidden={hidden || undefined}>
       {partners.map((partner) => {
         const { w, h } = logoSize(partner.logo.width, partner.logo.height)
@@ -40,7 +40,7 @@ function LogoList({ partners, hidden }: { partners: readonly Partner[]; hidden?:
           >
             <Image
               src={partner.logo.src}
-              alt={hidden ? '' : partner.name}
+              alt={`${partner.name} logo`}
               width={w}
               height={h}
               quality={92}
@@ -53,7 +53,7 @@ function LogoList({ partners, hidden }: { partners: readonly Partner[]; hidden?:
             {partner.darkSrc && (
               <Image
                 src={partner.darkSrc}
-                alt=""
+                alt={`${partner.name} logo`}
                 aria-hidden="true"
                 width={w}
                 height={h}

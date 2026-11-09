@@ -1,21 +1,18 @@
-// /business-process-management/ copy: kept from the old WordPress page of the same URL (requested), split
-// into sections. Changes: the old copy had been machine-reworded in places, so garbled words were put back
-// to their plain meaning ("enhancing a business technique" → improving a business process, "persistent
-// development" → continuous improvement, "virtual transformation" → digital transformation, "Represent the
-// procedure in a visible layout" → represent the process visually, and similar). No pictures (requested).
-// NOTE: the BPM definitions, life cycle and three BPM types closely follow a well-known BPM software
-// vendor's article; rewriting in Allied's own words, with Appian projects it has delivered, would be stronger.
-// VERIFY: Appian implementation expertise and "best … in Qatar" claims are the company's own.
+// /business-process-management/ copy (old WordPress URL, same path).
+// Rewritten in original words on 2026-11-09 (SEO audit): the previous definitions, life cycle and three BPM
+// types closely followed a well-known BPM software vendor's article. Kept from the old page: Appian as the BPM
+// platform Allied implements, the benefits list, the five-step life cycle and the three BPM types as topics.
+// VERIFY: Appian implementation and process migration are services Allied provides.
 import { company } from './company'
 import type { ContentBlock } from './types'
 
 export const bpmHero = {
   eyebrow: 'Appian business process management',
   heading: 'Business Process Management in Qatar',
-  lead: 'Business Process Management (BPM) is the discipline of improving a business process from end to end: analysing it, modelling how it works in different scenarios, executing improvements, monitoring the improved process and continually optimising it.',
+  lead: 'Business process management (BPM) means taking the way work moves through your organisation, such as approvals, requests, onboarding and purchasing, and making it faster, clearer and measurable.',
   text: [
-    'BPM examines the current state and identifies areas of improvement to create a more efficient and effective organisation. Each department in an organisation is responsible for taking some raw material or information and turning it into something else.',
-    'Allied Enterprises has experts in implementing intelligent business process management solutions across the organisation, and we are experts in implementing Appian as a business process management solution.',
+    'Instead of emails, paper forms and spreadsheets, each process runs in one system: the right person gets each task, nothing is lost, and managers can see where every request is and how long it took.',
+    'Allied Enterprises implements Appian as a business process management platform, from mapping your current processes to building, launching and improving them.',
   ],
   highlight: { value: '3000+', label: 'installations as of 2026' },
   badge: 'Appian BPM implementation',
@@ -25,22 +22,22 @@ export const bpmHero = {
 export const bpmWhat = {
   heading: 'What BPM Is, and What It Isn’t',
   text: [
-    'We offer business process management software in Qatar. BPM is not task management or project management. Task management is about organising certain fixed activities that arise out of a project, and these projects are often one-time and non-repeatable.',
-    'We help make your business process management easier with a smart and simple interface. As an approach, BPM sees processes as crucial assets of an enterprise that need to be understood, managed, improved and developed to deliver value-added products and services to customers. This approach closely resembles total quality management and continuous improvement methodologies.',
-    'BPM is an effective approach in times of crisis, to make sure processes are efficient and effective and to build a better, more cost-efficient organisation. Business process management is about formalising and institutionalising better ways for work to get done.',
+    'BPM is about processes that repeat: a leave request, a purchase approval, a customer complaint, a contract review. The same steps happen hundreds of times, so every improvement pays off again and again.',
+    'That is what separates it from project or task management, which organise one-off pieces of work with a start and an end.',
+    'A BPM platform lets you design each process once, with its forms, rules and approval steps, and then run it consistently. Because every step is recorded, you can see where work gets stuck and change the process without rewriting software.',
   ] as ContentBlock[],
 }
 
 export const bpmBenefits = {
   heading: 'Benefits of business process management',
   items: [
-    'Manage chaotic and unwieldy processes',
+    'Replace emails, paper forms and spreadsheets with one system',
     'Create, map, analyse and improve business processes',
-    'Run regular operations more efficiently',
-    'Achieve larger organisational goals',
-    'Move towards digital transformation',
-    'Develop and optimise complex operations',
-    'Closely track individual items as they pass through a workflow',
+    'Run regular operations faster and more consistently',
+    'See where every request is, and who is holding it',
+    'Find and remove bottlenecks using real data',
+    'Support digital transformation across departments',
+    'Keep an audit trail of every decision',
   ],
 }
 
@@ -48,30 +45,30 @@ export const bpmLifecycle = {
   heading: 'The BPM Life Cycle',
   text: [
     { subheading: 'Step 1: Design' },
-    'Most processes include a form to gather information and a workflow to process it. Build the form and decide who will own each task in the workflow.',
+    'Agree what the process should achieve, what information it needs and who is responsible for each step.',
     { subheading: 'Step 2: Model' },
-    'Represent the process visually. Set details such as deadlines and conditions to give a clear idea of the sequence of events and the flow of data through the system.',
+    'Draw the process as a flow, with its forms, decision points, deadlines and the data that moves between steps.',
     { subheading: 'Step 3: Execute' },
-    'Run the process live with a small group first, then open it up to all users. Make sure you limit access to sensitive information.',
+    'Build it in the platform and launch it with a small pilot group, then roll it out to everyone, with access to sensitive data limited to the right roles.',
     { subheading: 'Step 4: Monitor' },
-    'Watch the process as it runs through the workflow. Use the right metrics to track progress, measure efficiency and find bottlenecks.',
+    'Track volumes, waiting times and completion rates to see how the process actually performs.',
     { subheading: 'Step 5: Optimise' },
-    'Identify any changes needed to the form or workflow to make it more efficient.',
+    'Use what you measured to simplify forms, remove steps or automate decisions, and repeat the cycle.',
   ] as ContentBlock[],
 }
 
 export const bpmTypes = {
   heading: 'Types of Business Process Management',
   text: [
-    'BPM systems can be classified by the purpose they serve. These are the three types of business process management:',
+    'Processes differ in where most of the work happens, so BPM projects usually focus on one of three areas:',
     { subheading: 'Integration-centric BPM' },
-    'This kind of BPM system handles processes that frequently move between existing systems (for example HRMS, CRM and ERP) without much human involvement. Integration-centric BPM systems have extensive connectors and API access, so you can create processes that flow quickly.',
+    'Work that moves mainly between systems, such as HR, CRM and ERP, with little manual input. The focus is on connectors and APIs so data flows automatically.',
     { subheading: 'Human-centric BPM' },
-    'Human-centric BPM is for processes that are mainly carried out by people. These systems excel at a friendly user interface, easy notifications and quick tracking.',
+    'Work done mainly by people, such as approvals and requests. The focus is on clear forms, notifications and easy tracking.',
     { subheading: 'Document-centric BPM' },
-    'These BPM solutions have a document (for example a contract or agreement) at the heart of the system. They allow routing, formatting, verifying and getting the document signed as the tasks pass along the workflow.',
-    'Our business process management systems in Qatar can combine elements of each of these, though each one will have a specialty.',
-    'We are experts in implementing Appian as a business process management solution, and in migrating processes to Appian to enable a digitisation drive across the enterprise.',
+    'Work built around a document, such as a contract or agreement, that must be routed, reviewed, verified and signed.',
+    'Most real processes combine all three, and Appian supports each of them on one platform.',
+    'We implement Appian and migrate existing processes onto it, to support digitisation across the organisation.',
     `To discuss your processes, call ${company.phone.display}, WhatsApp ${company.helpline.display} or email ${company.email}.`,
   ] as ContentBlock[],
   links: [

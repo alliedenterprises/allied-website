@@ -338,7 +338,7 @@ export const schoolBiometric = {
   heading: 'Connect biometric attendance devices',
   text: [
     'The attendance module supports integration with biometric devices, and student ID cards can carry a QR code and RFID.',
-    'As the authorized ZKTeco agent in Qatar, we also supply and install biometric attendance terminals. Ask us about connecting them to your school system, so attendance is recorded automatically and parents are alerted.',
+    'As the authorized ZKTeco distributor in Qatar, we also supply and install biometric attendance terminals. Ask us about connecting them to your school system, so attendance is recorded automatically and parents are alerted.',
   ],
   links: [
     { label: 'Time attendance systems', href: '/time-attendance-system-qatar/' },

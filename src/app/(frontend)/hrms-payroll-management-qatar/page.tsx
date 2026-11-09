@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 
+import { pageMetadata } from '@/lib/seo'
+
 import { CheckGrid } from '@/components/sections/CheckGrid'
 import { CtaBanner } from '@/components/sections/CtaBanner'
 import { FaqList } from '@/components/sections/FaqList'
@@ -9,18 +11,18 @@ import { company } from '@/content/company'
 import { ctaBanner } from '@/content/home'
 import { hrmsCovers, hrmsFaq, hrmsFlow, hrmsHero, hrmsQatarRules } from '@/content/hrms-payroll'
 
-export const metadata: Metadata = {
-  // absolute: the brand is already in the title, so skip the layout's "| …" suffix
-  title: { absolute: 'HRMS & Payroll Software in Qatar | Allied Enterprises' },
+export const metadata: Metadata = pageMetadata({
+  title: 'HRMS & Payroll Software in Qatar | Allied Enterprises',
   description:
     'HR and payroll management in Qatar: employee records, leave, WPS salary payments and attendance from ZKTeco devices via BioTime and Sunbird. Ask for a demo.',
-  alternates: { canonical: '/hrms-payroll-management-qatar/' },
-}
+  path: '/hrms-payroll-management-qatar/',
+})
 
 export default function HrmsPayrollPage() {
   return (
     <>
       <PageHero
+        path="/hrms-payroll-management-qatar/"
         eyebrow={hrmsHero.eyebrow}
         heading={hrmsHero.heading}
         lead={hrmsHero.lead}

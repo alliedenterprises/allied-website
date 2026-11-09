@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 
+import { pageMetadata } from '@/lib/seo'
+
 import { CheckGrid } from '@/components/sections/CheckGrid'
 import { CtaBanner } from '@/components/sections/CtaBanner'
 import { PageHero } from '@/components/sections/PageHero'
@@ -8,18 +10,18 @@ import { company } from '@/content/company'
 import { ctaBanner } from '@/content/home'
 import { queueExperience, queueHero, queueSolutions } from '@/content/queue-management'
 
-export const metadata: Metadata = {
-  // absolute: the brand is already in the title, so skip the layout's "| …" suffix
-  title: { absolute: 'Queue Management System in Qatar | Allied Enterprises' },
+export const metadata: Metadata = pageMetadata({
+  title: 'Queue Management System in Qatar | Allied Enterprises',
   description:
     'Queue management systems, self-service kiosks, customer feedback and digital signage in Qatar, with customisable software and support in Doha.',
-  alternates: { canonical: '/queue-management-qatar/' },
-}
+  path: '/queue-management-qatar/',
+})
 
 export default function QueueManagementPage() {
   return (
     <>
       <PageHero
+        path="/queue-management-qatar/"
         eyebrow={queueHero.eyebrow}
         heading={queueHero.heading}
         lead={queueHero.lead}

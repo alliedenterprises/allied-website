@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 
+import { pageMetadata } from '@/lib/seo'
+
 import { CtaBanner } from '@/components/sections/CtaBanner'
 import { PageHero } from '@/components/sections/PageHero'
 import { SplitFeature } from '@/components/sections/SplitFeature'
@@ -7,18 +9,18 @@ import { company } from '@/content/company'
 import { ctaBanner } from '@/content/home'
 import { pabxHero, pabxHow, pabxSolutions, pabxValue } from '@/content/pabx'
 
-export const metadata: Metadata = {
-  // absolute: the brand is already in the title, so skip the layout's "| …" suffix
-  title: { absolute: 'PABX & IP PBX Telephone System in Qatar | Allied Enterprises' },
+export const metadata: Metadata = pageMetadata({
+  title: 'PABX & IP PBX Telephone System in Qatar | Allied Enterprises',
   description:
     'PABX and IP PBX telephone systems in Qatar with IVR, voicemail to email, call queue and call recording. Sales, installation and support by Allied Enterprises.',
-  alternates: { canonical: '/pabx-system-qatar/' },
-}
+  path: '/pabx-system-qatar/',
+})
 
 export default function PabxPage() {
   return (
     <>
       <PageHero
+        path="/pabx-system-qatar/"
         eyebrow={pabxHero.eyebrow}
         heading={pabxHero.heading}
         lead={pabxHero.lead}

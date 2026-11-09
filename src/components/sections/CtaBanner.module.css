@@ -20,6 +20,15 @@
   pointer-events: none;
 }
 
+/* Doha skyline over the dark base and light streaks. The photo is already dark, so it can be
+   stronger than a light photo would be; anchored low so the lit buildings stay in view. */
+.bgImage {
+  object-fit: cover;
+  object-position: center 85%;
+  opacity: 0.38;
+  pointer-events: none;
+}
+
 .content {
   position: relative;
   display: flex;
@@ -28,6 +37,8 @@
   max-width: 720px;
   margin: 0 auto;
   text-align: center;
+  /* soft shadow keeps the text crisp where it crosses the lit buildings */
+  text-shadow: 0 1px 14px rgba(5, 8, 18, 0.75);
 }
 
 .eyebrow {
@@ -88,6 +99,18 @@
 @media (max-width: 600px) {
   .section {
     padding: 52px 20px;
+  }
+
+  /* phones: the banner is tall and narrow, so the lit skyline (lower part of the photo) would sit at
+     the very bottom. Lift the photo so the skyline sits in the middle, centre the main tower cluster,
+     and fade the photo's lower edge into the dark base. !important: next/image sets inline position styles. */
+  .bgImage {
+    top: auto !important;
+    bottom: 22% !important;
+    height: 100% !important;
+    object-position: 44% 100%;
+    -webkit-mask-image: linear-gradient(180deg, #000 82%, transparent 100%);
+    mask-image: linear-gradient(180deg, #000 82%, transparent 100%);
   }
 
   .text {

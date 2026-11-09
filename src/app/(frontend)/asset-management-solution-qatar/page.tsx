@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 
+import { pageMetadata } from '@/lib/seo'
+
 import { AppShowcase } from '@/components/sections/AppShowcase'
 import { CtaBanner } from '@/components/sections/CtaBanner'
 import { FaqList } from '@/components/sections/FaqList'
@@ -22,18 +24,18 @@ import { company } from '@/content/company'
 import { ctaBanner } from '@/content/home'
 
 // New page (no old WordPress URL); slug already used by the menu and the home services carousel.
-export const metadata: Metadata = {
-  // absolute: the brand is already in the title, so skip the layout's "| …" suffix
-  title: { absolute: 'RFID Asset Management System in Qatar | Allied Enterprises' },
+export const metadata: Metadata = pageMetadata({
+  title: 'RFID Asset Management System in Qatar | Allied Enterprises',
   description:
     'Asset management system in Qatar with RFID and barcode tagging, asset tracking, stocktaking, maintenance ticketing and ERP integration. Book a demo or site survey.',
-  alternates: { canonical: '/asset-management-solution-qatar/' },
-}
+  path: '/asset-management-solution-qatar/',
+})
 
 export default function AssetManagementPage() {
   return (
     <>
       <PageHero
+        path="/asset-management-solution-qatar/"
         eyebrow={assetHero.eyebrow}
         heading={assetHero.heading}
         lead={assetHero.lead}

@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 
+import { pageMetadata } from '@/lib/seo'
+
 import { AppShowcase } from '@/components/sections/AppShowcase'
 import { CtaBanner } from '@/components/sections/CtaBanner'
 import { FaqList } from '@/components/sections/FaqList'
@@ -18,18 +20,18 @@ import {
   schoolUsers,
 } from '@/content/school-management'
 
-export const metadata: Metadata = {
-  // absolute: the brand is already in the title, so skip the layout's "| …" suffix
-  title: { absolute: 'School Management Software in Qatar | Allied Enterprises' },
+export const metadata: Metadata = pageMetadata({
+  title: 'School Management Software in Qatar | Allied Enterprises',
   description:
     'School management software in Qatar for admissions, attendance, exams, fees, transport and HR, with a mobile app for teachers, students and parents. Book a demo.',
-  alternates: { canonical: '/school-management-software-qatar/' },
-}
+  path: '/school-management-software-qatar/',
+})
 
 export default function SchoolManagementPage() {
   return (
     <>
       <PageHero
+        path="/school-management-software-qatar/"
         eyebrow={schoolHero.eyebrow}
         heading={schoolHero.heading}
         lead={schoolHero.lead}

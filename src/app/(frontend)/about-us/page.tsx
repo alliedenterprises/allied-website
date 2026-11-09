@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 
+import { pageMetadata } from '@/lib/seo'
+
 import { AudienceGrid } from '@/components/sections/AudienceGrid'
 import { CtaBanner } from '@/components/sections/CtaBanner'
 import { PageHero } from '@/components/sections/PageHero'
@@ -20,20 +22,18 @@ import {
 import { company } from '@/content/company'
 import { ctaBanner } from '@/content/home'
 
-export const metadata: Metadata = {
-  // absolute: the brand is already in the title, so skip the layout's "| …" suffix.
-  // Keeps "ZKTeco" + "Qatar" from the old ranking title; "time attendance" is left to
-  // /time-attendance-system-qatar/ so the two pages don't compete.
-  title: { absolute: 'About Allied Enterprises | Authorized ZKTeco Agent in Qatar' },
+export const metadata: Metadata = pageMetadata({
+  title: 'About Allied Enterprises | IT & Security Solutions in Doha',
   description:
-    'Allied Enterprises WLL is the authorized ZKTeco agent in Qatar, supplying and installing time attendance, access control and IT infrastructure from Doha.',
-  alternates: { canonical: '/about-us/' },
-}
+    'Allied Enterprises WLL is the authorized ZKTeco distributor in Qatar, supplying and installing time attendance, access control and IT infrastructure from Doha.',
+  path: '/about-us/',
+})
 
 export default function AboutPage() {
   return (
     <>
       <PageHero
+        path="/about-us/"
         heading={aboutHero.heading}
         lead={aboutHero.lead}
         text={aboutHero.text}

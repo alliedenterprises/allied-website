@@ -4,13 +4,13 @@ Source of truth for the WordPress → Next.js migration (see CLAUDE.md §14A). N
 
 Taken from the live Yoast sitemaps on 2026-11-02 (`sitemap_index.xml`: page, post, project, category and author sitemaps), 39 URLs. Search Console data and WordPress media/PDF URLs are not included yet.
 
-Status values: `rebuilt` | `redirected → <new URL>` | `pending`. Any decision to drop or merge a page needs human approval first.
+Status values: `rebuilt` | `redirected → <new URL>` | `dropped (404)` | `pending`. Any decision to drop or merge a page needs human approval first.
 
 | Old URL | Status | Notes |
 | --- | --- | --- |
 | `/` | rebuilt | |
 | `/about-us/` | rebuilt | Starter page; ranks for ZKTeco searches today (see `docs/seo-audit.md`) |
-| `/contact-us/` | rebuilt | One split card: contact details (call, WhatsApp, email, both offices, map link, hours from `company.ts`) beside the form; enquiry form opens WhatsApp with the message filled in (nothing stored or emailed). Breadcrumb JSON-LD; LocalBusiness JSON-LD comes from the layout |
+| `/contact-us/` | rebuilt | Heading, lead and contact details (call, WhatsApp, email, both offices, map link, hours from `company.ts`) on the left; enquiry form in a card on the right that opens WhatsApp with the message filled in (nothing stored or emailed). Breadcrumb JSON-LD; LocalBusiness JSON-LD comes from the layout |
 | `/time-management/` | rebuilt | Old page had a title only; now the menu section hub (H1 + intro + cards linking its 4 pages) |
 | `/time-attendance-system-qatar/` | rebuilt | Old copy kept; "No 1" claim and outbound links to aussietimesheets.com.au dropped |
 | `/access-control-system-qatar/` | rebuilt | Old copy kept (closely follows Boon Edam articles; rewrite recommended); 10 outbound links dropped |
@@ -36,23 +36,23 @@ Status values: `rebuilt` | `redirected → <new URL>` | `pending`. Any decision 
 | `/enterprise-resource-planning-qatar/` | rebuilt | Old copy kept; customer name "Mega Music" left out until approved (company to confirm ERP product) |
 | `/business-intelligence-qatar/` | rebuilt | Old copy kept; outbound businesswire.com link dropped (opening follows a 2019 press release; rewrite recommended; Manthan partnership to confirm) |
 | `/geographical-information-systems-qatar/` | rebuilt | Old copy kept; "unparalleled" claim removed; retired ArcIMS dropped from services list |
-| `/products/` | pending | |
-| `/team-allied/` | pending | Not in the current menu |
-| `/support/` | pending | Not in the current menu |
-| `/downloads/` | pending | Not in the current menu |
-| `/vision/` | pending | Not in the current menu |
-| `/quality-policy/` | pending | Not in the current menu |
-| `/blog/` | pending | |
-| `/hello-world/` | pending | WordPress default post |
-| `/project/` | pending | |
-| `/category/uncategorized/` | pending | |
-| `/author/admin/` | pending | |
+| `/products/` | dropped (404) | Old page was an empty placeholder (heading only, checked 2026-11-09). Owner decided 2026-11-09: no page and no redirect |
+| `/team-allied/` | dropped (404) | Empty placeholder (heading only). Owner decided 2026-11-09: no redirect |
+| `/support/` | dropped (404) | Empty placeholder (heading only). Owner decided 2026-11-09: no redirect |
+| `/downloads/` | dropped (404) | Empty placeholder (heading only, no files). Owner decided 2026-11-09: no redirect |
+| `/vision/` | dropped (404) | Empty placeholder (heading only). Owner decided 2026-11-09: no redirect |
+| `/quality-policy/` | dropped (404) | Empty placeholder (heading only). Owner decided 2026-11-09: no redirect |
+| `/blog/` | dropped (404) | Empty WordPress blog listing. Owner decided 2026-11-09: no redirect |
+| `/hello-world/` | dropped (404) | WordPress sample post. Owner decided 2026-11-09: no redirect |
+| `/project/` | dropped (404) | Empty theme archive ("No Results Found"). Owner decided 2026-11-09: no redirect |
+| `/category/uncategorized/` | dropped (404) | Empty WordPress category archive. Owner decided 2026-11-09: no redirect |
+| `/author/admin/` | dropped (404) | WordPress author archive (exposed the admin user name). Owner decided 2026-11-09: no redirect |
 
 ## New pages (no old WordPress URL)
 
 | New URL | Notes |
 | --- | --- |
-| `/zkteco-qatar/` | Dedicated ZKTeco dealer page (seo-audit P2). Title "Authorized ZKTeco Dealer in Qatar"; uses the confirmed "authorized agent/dealer" wording, not "distributor". `/about-us/` should be retitled to a brand title so the two don't compete. |
+| `/zkteco-qatar/` | Dedicated ZKTeco page (seo-audit P2). Title "Authorized ZKTeco Distributor in Qatar" (wording from the 2026 ZKTeco certificate, shown on the page; changed from "dealer/agent" on 2026-11-09). `/about-us/` retitled to a brand title on 2026-11-09 so the two don't compete. |
 | `/school-management-software-qatar/` | School ERP page; no school page existed in the old sitemap. Slug already used by the menu and home services carousel. Content from the vendor's brochure, vendor name and company details left out. |
 | `/asset-management-solution-qatar/` | Asset management + RFID tracking + ticketing page; no asset page existed in the old sitemap. Slug already used by the menu and home services carousel. Content outlined from a customer RFQ, customer name and quantities left out. Targets "asset management system Qatar" / RFID asset tracking; RFID hardware (tags, readers, scanners) is left to `/rfid-barcode-nfc-solutions-qatar/` to avoid cannibalization. Feature claims marked VERIFY in `src/content/asset-management.ts`. |
 | `/rfid-barcode-nfc-solutions-qatar/` | RFID, barcode & NFC technologies and hardware page; no such page existed in the old sitemap. Slug already used by the menu, home services carousel and access control page. Short, plain-language page (requested): what each technology is, products supplied (Zebra, Honeywell, Newland from the home partner strip), where it helps, 4 FAQs. Targets "RFID solutions Qatar", barcode scanners/printers and NFC tags; links to the asset management page for the software. Hardware claims marked VERIFY in `src/content/rfid-barcode-nfc.ts`. |

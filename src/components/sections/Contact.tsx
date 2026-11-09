@@ -1,32 +1,28 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import type { ReactNode } from 'react'
 
 import { company } from '@/content/company'
-import type { PageImage } from '@/content/types'
 import styles from './Contact.module.css'
 
-type ContactHeroProps = {
+type ContactSectionProps = {
   heading: string
   lead: string
-  image: PageImage
+  infoHeading: string
+  /** Numbered "what happens next" steps shown across the full width under both columns */
+  steps?: { heading: string; steps: readonly { title: string; text: string }[] }
+  /** The enquiry form, shown in the white card on the right */
+  children: ReactNode
 }
 
-/** Contact page heading band: photo behind a navy overlay, breadcrumb, the page's single H1 and a lead. */
-export function ContactHero({ heading, lead, image }: ContactHeroProps) {
+/**
+ * Contact page: heading, lead and contact details on the left (dotted pattern behind the heading),
+ * the enquiry form in a white card on the right (dots beneath it). Decoration is CSS only.
+ */
+export function ContactSection({ heading, lead, infoHeading, steps, children }: ContactSectionProps) {
   return (
-    <section className={styles.hero} aria-labelledby="page-heading">
-      <div className={styles.heroInner}>
-        <Image
-          src={image.src}
-          alt={image.alt}
-          fill
-          sizes="(max-width: 1440px) 100vw, 1344px"
-          preload
-          loading="eager"
-          className={styles.heroImage}
-        />
-        <div className={styles.heroCopy}>
+    <section className={styles.section} aria-labelledby="page-heading">
+      <div className={styles.grid}>
+        <div className={styles.intro}>
           <nav aria-label="Breadcrumb" className={styles.breadcrumb}>
             <ol>
               <li>
@@ -39,88 +35,74 @@ export function ContactHero({ heading, lead, image }: ContactHeroProps) {
             {heading}
           </h1>
           <p className={styles.lead}>{lead}</p>
+
+          <h2 className={styles.infoHeading}>{infoHeading}</h2>
+          {/* one row per way to reach us: call, WhatsApp, email. Office addresses and opening hours are in the
+              footer on every page and in the LocalBusiness JSON-LD, so this column stays as short as the form. */}
+          <dl className={styles.list}>
+            <Item icon={icons.phone} label="Office phone">
+              <a href={company.phone.href} className={styles.main}>
+                {company.phone.display}
+              </a>
+            </Item>
+            <Item icon={icons.whatsapp} label="Helpline & WhatsApp">
+              <a href={company.helpline.href} className={styles.main}>
+                {company.helpline.display}
+              </a>
+              <a href={company.helpline.whatsapp} target="_blank" rel="noopener noreferrer" className={styles.subLink}>
+                Chat on WhatsApp →
+              </a>
+            </Item>
+            <Item icon={icons.mail} label="Email">
+              <a href={`mailto:${company.email}`} className={styles.main}>
+                {company.email}
+              </a>
+            </Item>
+          </dl>
+        </div>
+
+        <div className={styles.formWrap}>
+          <div className={styles.card}>{children}</div>
         </div>
       </div>
-    </section>
-  )
-}
 
-type ContactPanelProps = {
-  heading: string
-  intro: string
-  /** The enquiry form */
-  children: ReactNode
-}
-
-/** One split card: navy contact-details panel on the left, the enquiry form (children) on the right. */
-export function ContactPanel({ heading, intro, children }: ContactPanelProps) {
-  const { map } = company
-  // same Google listing link as the footer
-  const mapLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(map.name)}&query_place_id=${map.placeId}`
-
-  return (
-    <section className={styles.body} aria-label="Contact details and enquiry form">
-      <div className={styles.card}>
-        <aside className={styles.info} aria-labelledby="info-heading">
-          <h2 id="info-heading" className={styles.infoHeading}>
-            {heading}
+      {steps && (
+        <div className={styles.steps}>
+          <h2 id="steps-heading" className={styles.stepsHeading}>
+            {steps.heading}
           </h2>
-          <p className={styles.infoIntro}>{intro}</p>
-
-          <ul className={styles.list}>
-            <InfoRow icon={icons.phone} label="Office">
-              <a href={company.phone.href}>{company.phone.display}</a>
-            </InfoRow>
-            <InfoRow icon={icons.whatsapp} label="Helpline & WhatsApp">
-              <a href={company.helpline.href}>{company.helpline.display}</a>
-              <a href={company.helpline.whatsapp} target="_blank" rel="noopener noreferrer" className={styles.subLink}>
-                Chat on WhatsApp
-              </a>
-            </InfoRow>
-            <InfoRow icon={icons.mail} label="Email">
-              <a href={`mailto:${company.email}`}>{company.email}</a>
-            </InfoRow>
-            <InfoRow icon={icons.pin} label="Offices">
-              {company.offices.map((office) => (
-                <address key={office.streetAddress} className={styles.address}>
-                  {office.streetAddress}, {office.addressLocality}
-                </address>
-              ))}
-              <a href={mapLink} target="_blank" rel="noopener noreferrer" className={styles.subLink}>
-                Open in Google Maps
-              </a>
-            </InfoRow>
-            <InfoRow icon={icons.clock} label="Business hours">
-              {company.hours.map((h) => (
-                <span key={h.text} className={styles.hoursLine}>
-                  {h.text.replace(' : ', ': ')}
+          <ol className={styles.stepList} aria-labelledby="steps-heading">
+            {steps.steps.map((step, i) => (
+              <li key={step.title} className={styles.step}>
+                <span className={styles.stepNumber} aria-hidden="true">
+                  {String(i + 1).padStart(2, '0')}
                 </span>
-              ))}
-            </InfoRow>
-          </ul>
-        </aside>
-
-        <div className={styles.formSide}>{children}</div>
-      </div>
+                <h3 className={styles.stepTitle}>{step.title}</h3>
+                <p className={styles.stepText}>{step.text}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      )}
     </section>
   )
 }
 
-function InfoRow({ icon, label, children }: { icon: ReactNode; label: string; children: ReactNode }) {
+function Item({ icon, label, children }: { icon: ReactNode; label: string; children: ReactNode }) {
   return (
-    <li className={styles.row}>
+    <div className={styles.item}>
       <span className={styles.icon} aria-hidden="true">
         {icon}
       </span>
-      <div className={styles.rowBody}>
-        <span className={styles.label}>{label}</span>
-        {children}
+      <div className={styles.itemBody}>
+        <dt className={styles.label}>{label}</dt>
+        <dd className={styles.value}>{children}</dd>
       </div>
-    </li>
+    </div>
   )
 }
 
-const p = {
+const svg = {
   viewBox: '0 0 24 24',
   fill: 'none',
   stroke: 'currentColor',
@@ -131,7 +113,7 @@ const p = {
 
 const icons = {
   phone: (
-    <svg {...p}>
+    <svg {...svg}>
       <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z" />
     </svg>
   ),
@@ -141,21 +123,9 @@ const icons = {
     </svg>
   ),
   mail: (
-    <svg {...p}>
+    <svg {...svg}>
       <rect x="2" y="4" width="20" height="16" rx="2" />
       <path d="m22 7-10 6L2 7" />
-    </svg>
-  ),
-  pin: (
-    <svg {...p}>
-      <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z" />
-      <circle cx="12" cy="10" r="3" />
-    </svg>
-  ),
-  clock: (
-    <svg {...p}>
-      <circle cx="12" cy="12" r="9" />
-      <path d="M12 7v5l3 2" />
     </svg>
   ),
 }

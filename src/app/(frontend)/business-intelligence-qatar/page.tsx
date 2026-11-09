@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 
+import { pageMetadata } from '@/lib/seo'
+
 import { CtaBanner } from '@/components/sections/CtaBanner'
 import { PageHero } from '@/components/sections/PageHero'
 import { SplitFeature } from '@/components/sections/SplitFeature'
@@ -7,18 +9,18 @@ import { biBenefits, biHero } from '@/content/business-intelligence'
 import { company } from '@/content/company'
 import { ctaBanner } from '@/content/home'
 
-export const metadata: Metadata = {
-  // absolute: the brand is already in the title, so skip the layout's "| …" suffix
-  title: { absolute: 'Business Intelligence Solutions in Qatar | Allied Enterprises' },
+export const metadata: Metadata = pageMetadata({
+  title: 'Business Intelligence Solutions in Qatar | Allied Enterprises',
   description:
     'Business intelligence and analytics in Qatar: automated reports, KPI dashboards and real-time, actionable data. Allied Enterprises, in partnership with Manthan.',
-  alternates: { canonical: '/business-intelligence-qatar/' },
-}
+  path: '/business-intelligence-qatar/',
+})
 
 export default function BusinessIntelligencePage() {
   return (
     <>
       <PageHero
+        path="/business-intelligence-qatar/"
         eyebrow={biHero.eyebrow}
         heading={biHero.heading}
         lead={biHero.lead}

@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 
+import { pageMetadata } from '@/lib/seo'
+
 import { CheckGrid } from '@/components/sections/CheckGrid'
 import { CtaBanner } from '@/components/sections/CtaBanner'
 import { FaqList } from '@/components/sections/FaqList'
@@ -9,18 +11,18 @@ import { company } from '@/content/company'
 import { ctaBanner } from '@/content/home'
 import { sunbirdFaq, sunbirdHelps, sunbirdHero, sunbirdHosting, sunbirdPayroll } from '@/content/sunbird'
 
-export const metadata: Metadata = {
-  // absolute: the brand is already in the title, so skip the layout's "| …" suffix
-  title: { absolute: 'Sunbird Time Management System in Qatar | Allied Enterprises' },
+export const metadata: Metadata = pageMetadata({
+  title: 'Sunbird Time Management System in Qatar | Allied Enterprises',
   description:
     'Sunbird Time & Attendance in Qatar: cloud-based time management with real-time data, GPS mobile clocking and payroll integration, on our server or yours.',
-  alternates: { canonical: '/sunbirdtime-time-management-system-qatar/' },
-}
+  path: '/sunbirdtime-time-management-system-qatar/',
+})
 
 export default function SunbirdPage() {
   return (
     <>
       <PageHero
+        path="/sunbirdtime-time-management-system-qatar/"
         eyebrow={sunbirdHero.eyebrow}
         heading={sunbirdHero.heading}
         lead={sunbirdHero.lead}

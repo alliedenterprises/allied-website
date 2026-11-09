@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 
+import { pageMetadata } from '@/lib/seo'
+
 import { CheckGrid } from '@/components/sections/CheckGrid'
 import { CtaBanner } from '@/components/sections/CtaBanner'
 import { PageHero } from '@/components/sections/PageHero'
@@ -8,18 +10,18 @@ import { company } from '@/content/company'
 import { gisApproach, gisData, gisHero, gisServices } from '@/content/gis'
 import { ctaBanner } from '@/content/home'
 
-export const metadata: Metadata = {
-  // absolute: the brand is already in the title, so skip the layout's "| …" suffix
-  title: { absolute: 'GIS – Geographic Information Systems in Qatar | Allied Enterprises' },
+export const metadata: Metadata = pageMetadata({
+  title: 'GIS Solutions in Qatar | Allied Enterprises',
   description:
     'GIS software and mapping solutions in Qatar: geospatial imaging, utility and land GIS, web GIS, spatial ETL, telecom network planning and road network data.',
-  alternates: { canonical: '/geographical-information-systems-qatar/' },
-}
+  path: '/geographical-information-systems-qatar/',
+})
 
 export default function GisPage() {
   return (
     <>
       <PageHero
+        path="/geographical-information-systems-qatar/"
         eyebrow={gisHero.eyebrow}
         heading={gisHero.heading}
         lead={gisHero.lead}

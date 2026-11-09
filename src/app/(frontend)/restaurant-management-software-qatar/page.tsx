@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 
+import { pageMetadata } from '@/lib/seo'
+
 import { CheckGrid } from '@/components/sections/CheckGrid'
 import { CtaBanner } from '@/components/sections/CtaBanner'
 import { PageHero } from '@/components/sections/PageHero'
@@ -13,18 +15,18 @@ import {
   restaurantWhy,
 } from '@/content/restaurant'
 
-export const metadata: Metadata = {
-  // absolute: the brand is already in the title, so skip the layout's "| …" suffix
-  title: { absolute: 'Restaurant Management Software in Qatar | Allied Enterprises' },
+export const metadata: Metadata = pageMetadata({
+  title: 'Restaurant Management Software in Qatar | Allied Enterprises',
   description:
     'Restaurant management and POS software in Qatar for orders, tables, menus, delivery, billing, reservations and reports, with setup and support in Doha.',
-  alternates: { canonical: '/restaurant-management-software-qatar/' },
-}
+  path: '/restaurant-management-software-qatar/',
+})
 
 export default function RestaurantPage() {
   return (
     <>
       <PageHero
+        path="/restaurant-management-software-qatar/"
         eyebrow={restaurantHero.eyebrow}
         heading={restaurantHero.heading}
         lead={restaurantHero.lead}

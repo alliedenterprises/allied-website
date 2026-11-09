@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 
+import { pageMetadata } from '@/lib/seo'
+
 import { CtaBanner } from '@/components/sections/CtaBanner'
 import { PageHero } from '@/components/sections/PageHero'
 import { SplitFeature } from '@/components/sections/SplitFeature'
@@ -7,18 +9,18 @@ import { company } from '@/content/company'
 import { ctaBanner } from '@/content/home'
 import { intercomBenefits, intercomContact, intercomHero, intercomTypes } from '@/content/intercom'
 
-export const metadata: Metadata = {
-  // absolute: the brand is already in the title, so skip the layout's "| …" suffix
-  title: { absolute: 'Audio & Video Intercom Systems in Qatar | Allied Enterprises' },
+export const metadata: Metadata = pageMetadata({
+  title: 'Audio & Video Intercom Systems in Qatar | Allied Enterprises',
   description:
     'Audio and video intercom systems in Qatar: wired, wireless, apartment and security intercoms with door release and CCTV integration, installed in Doha.',
-  alternates: { canonical: '/audio-video-intercom-qatar/' },
-}
+  path: '/audio-video-intercom-qatar/',
+})
 
 export default function IntercomPage() {
   return (
     <>
       <PageHero
+        path="/audio-video-intercom-qatar/"
         eyebrow={intercomHero.eyebrow}
         heading={intercomHero.heading}
         lead={intercomHero.lead}

@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 
+import { pageMetadata } from '@/lib/seo'
+
 import { CheckGrid } from '@/components/sections/CheckGrid'
 import { CtaBanner } from '@/components/sections/CtaBanner'
 import { PageHero } from '@/components/sections/PageHero'
@@ -7,18 +9,18 @@ import { company } from '@/content/company'
 import { ctaBanner } from '@/content/home'
 import { piBenefits, piHero } from '@/content/payroll-integration'
 
-export const metadata: Metadata = {
-  // absolute: the brand is already in the title, so skip the layout's "| …" suffix
-  title: { absolute: 'Payroll Integration System in Qatar | Allied Enterprises' },
+export const metadata: Metadata = pageMetadata({
+  title: 'Payroll Integration System in Qatar | Allied Enterprises',
   description:
     'Connect BioTime and Sunbird time attendance data to your payroll system in Qatar to reduce payroll errors and calculate overtime, vacation and sick pay.',
-  alternates: { canonical: '/payroll-integration-qatar/' },
-}
+  path: '/payroll-integration-qatar/',
+})
 
 export default function PayrollIntegrationPage() {
   return (
     <>
       <PageHero
+        path="/payroll-integration-qatar/"
         heading={piHero.heading}
         lead={piHero.lead}
         text={piHero.text}

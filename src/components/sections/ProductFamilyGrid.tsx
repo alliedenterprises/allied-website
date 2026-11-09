@@ -45,7 +45,7 @@ export function ProductFamilyGrid({ id, heading, intro, items, links = [] }: Pro
               <p className={styles.text}>{item.text}</p>
               <a href={item.href} target="_blank" rel="noopener noreferrer" className={styles.more}>
                 Learn more
-                <span className={styles.srOnly}> about ZKTeco {item.title.toLowerCase()} on zkteco.com (opens in a new tab)</span>
+                <span className={styles.srOnly}> about ZKTeco {item.title.toLowerCase()} on the ZKTeco Middle East website (opens in a new tab)</span>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <path d="M7 17 17 7M8 7h9v9" />
                 </svg>

@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 
+import { pageMetadata } from '@/lib/seo'
+
 import { CheckGrid } from '@/components/sections/CheckGrid'
 import { CtaBanner } from '@/components/sections/CtaBanner'
 import { PageHero } from '@/components/sections/PageHero'
@@ -8,18 +10,18 @@ import { company } from '@/content/company'
 import { ctaBanner } from '@/content/home'
 import { paFactors, paHero, paRequirements, paSupply, paWhatIs } from '@/content/public-address'
 
-export const metadata: Metadata = {
-  // absolute: the brand is already in the title, so skip the layout's "| …" suffix
-  title: { absolute: 'Public Address System in Qatar | Allied Enterprises' },
+export const metadata: Metadata = pageMetadata({
+  title: 'Public Address System in Qatar | Allied Enterprises',
   description:
     'Public address systems in Qatar for announcements, background music and evacuation: amplifiers, mixers and ceiling speakers, designed and installed in Doha.',
-  alternates: { canonical: '/public-address-system-qatar/' },
-}
+  path: '/public-address-system-qatar/',
+})
 
 export default function PublicAddressPage() {
   return (
     <>
       <PageHero
+        path="/public-address-system-qatar/"
         eyebrow={paHero.eyebrow}
         heading={paHero.heading}
         lead={paHero.lead}

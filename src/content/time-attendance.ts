@@ -3,13 +3,15 @@
 // "Time time attendance", "specialized" → "specializes", "modes" → "molds"), section headings added,
 // and "Qatar's No 1 … providers" removed (project rule: no "number one" claims).
 // The old page's two links to aussietimesheets.com.au were not carried over.
-// VERIFY: "leading supplier", "cloud-based … hosted on your server or ours" and GPS mobile clocking
+// SEO audit 2026-11-09: "Qatar's leading supplier" eyebrow and "ZKTeco is the leading enterprise" reworded as facts;
+// ZKTeco role changed from "agent" to "distributor" (2026 ZKTeco certificate); link to /zkteco-qatar/ added.
+// VERIFY: "cloud-based … hosted on your server or ours" and GPS mobile clocking
 // are the company's own claims. "FMLA" is a US law and does not apply in Qatar.
 // No pictures on this page (requested).
 import type { FaqItem } from './types'
 
 export const taHero = {
-  eyebrow: 'Qatar’s leading supplier for time attendance systems',
+  eyebrow: 'Biometric time attendance supplier in Qatar',
   heading: 'Time Attendance System in Qatar',
   lead: 'Have you been looking for a reliable and efficient time and attendance system in Qatar to streamline the amount of time spent on payroll each month?',
   text: [
@@ -17,18 +19,19 @@ export const taHero = {
     'No matter the size of your business or the industry you work in, if you have employees your business will benefit from a time and attendance system.',
   ],
   highlight: { value: '3000+', label: 'installations as of 2026' },
-  badge: 'Authorized ZKTeco agent in Qatar',
+  badge: 'Authorized ZKTeco distributor in Qatar',
   primary: { label: 'Request a Quote', href: '/contact-us/' },
 }
 
 export const taWhyAllied = {
   heading: 'Why Allied Enterprises as your Time Attendance System Supplier in Qatar?',
   text: [
-    'ZKTeco is the leading enterprise of Biometric Workforce Management Solutions in the globe. Allied Enterprises is the authorized agent for ZKTeco products in Qatar. We have a wide range of stock and support staff in Qatar.',
+    'ZKTeco is a global manufacturer of biometric workforce management solutions, and Allied Enterprises is its authorized distributor in Qatar. We have a wide range of stock and support staff in Qatar.',
     'We offer a full range of time attendance system starting with an initial consultation to ascertain your time management requirements followed by a no obligation quotation, and site visit if required, continuing on to the installation of the time management or time attendance system coupled with a demonstration of any time management software.',
     'Allied Enterprises specializes in Time and Attendance Systems and Clocking In Systems that help businesses to record employee’s attended time, manage employee absence, run a well managed flexitime scheme, store employee records, control access to secure areas and automatically transfer attendance data to their chosen payroll software.',
   ],
   links: [
+    { label: 'ZKTeco products in Qatar', href: '/zkteco-qatar/' },
     { label: 'Payroll integration', href: '/payroll-integration-qatar/' },
     { label: 'Access control systems', href: '/access-control-system-qatar/' },
   ],

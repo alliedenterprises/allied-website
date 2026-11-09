@@ -2,10 +2,13 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import type { PageImage } from '@/content/types'
+import { Breadcrumbs } from '@/components/seo/Breadcrumbs'
 import { BrandText } from '@/components/ui/BrandText'
 import styles from './PageHero.module.css'
 
 type PageHeroProps = {
+  /** Canonical path of the page: shows the breadcrumb (and its JSON-LD) above the heading */
+  path?: string
   /** Small line above the H1 */
   eyebrow?: string
   heading: string
@@ -23,6 +26,7 @@ type PageHeroProps = {
 
 /** Top of an inner page: the page's single H1 beside an image with two floating facts. */
 export function PageHero({
+  path,
   eyebrow,
   heading,
   lead,
@@ -54,6 +58,7 @@ export function PageHero({
   return (
     <section className={`${styles.section} ${image ? '' : styles.textOnly}`} aria-labelledby="page-heading">
       <div className={styles.copy}>
+        {path && <Breadcrumbs path={path} fallbackName={heading} />}
         {eyebrow && <p className={styles.eyebrow}>{eyebrow}</p>}
         <h1 id="page-heading" className={styles.heading}>
           {heading}

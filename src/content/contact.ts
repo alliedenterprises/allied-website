@@ -1,25 +1,42 @@
 // /contact-us/ copy (old WordPress URL, rebuilt at the same path).
-// Layout: one split card, navy contact-details panel on the left and an enquiry form on the right that
-// opens WhatsApp with the message filled in (no email server or stored form data needed). All contact
-// details come from company.ts.
+// Layout: heading, lead and contact details on the left; the enquiry form in a white card on the right.
+// The form opens WhatsApp with the message filled in (no email server or stored form data needed).
+// All contact details come from company.ts.
 import { company } from './company'
 import { mainNav } from './navigation'
 
 export const contactHero = {
   heading: 'Contact Allied Enterprises in Doha',
   lead: 'Need a quotation, a demo or support? Call us, message us on WhatsApp or send an enquiry, and our team in Doha will get back to you.',
-  image: {
-    src: '/images/about/allied-support-team-office.webp',
-    width: 1536,
-    height: 1024,
-    // decorative background behind the heading
-    alt: '',
-  },
 }
 
 export const contactInfo = {
   heading: 'Get in touch',
-  intro: 'Our team in Doha is here to help with quotations, demos and support.',
+}
+
+// "What happens next" strip under the form. Same confirmed process as the ZKTeco page (zkteco.ts
+// zktecoProcess): consultation → no-obligation quotation, site visit if required → installation → demo/support.
+// No response-time promise (not confirmed by the company).
+export const contactSteps = {
+  heading: 'What happens after you contact us',
+  steps: [
+    {
+      title: 'We discuss your needs',
+      text: 'Our team in Doha gets back to you to understand your staff numbers, doors, sites and current system.',
+    },
+    {
+      title: 'Free quotation',
+      text: 'We recommend the right devices and software and send a no-obligation quotation, with a site visit if required.',
+    },
+    {
+      title: 'Installation & setup',
+      text: 'Our technicians install the hardware, configure the software and enrol your users.',
+    },
+    {
+      title: 'Training & support',
+      text: 'We show your team how to use the system and support you after installation.',
+    },
+  ],
 }
 
 export const contactForm = {

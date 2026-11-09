@@ -31,7 +31,7 @@ export const timeManagementHub: CategoryHub = {
   items: [
     {
       title: 'Time Attendance System',
-      text: 'Fingerprint and face recognition attendance devices from the authorized ZKTeco agent, with cloud software, installation and local support.',
+      text: 'Fingerprint and face recognition attendance devices from the authorized ZKTeco distributor, with cloud software, installation and local support.',
       href: '/time-attendance-system-qatar/',
     },
     {

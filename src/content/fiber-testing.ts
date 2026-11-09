@@ -1,11 +1,7 @@
-// /fiber-optic-testing-otdl-olts-qatar/ copy: kept from the old WordPress page of the same URL (requested),
-// split into sections. The slug's "otdl" typo is kept (CLAUDE.md §14A). Changes: the old copy had been
-// machine-reworded in places, so garbled phrases were put back to their plain meaning ("progression of
-// optical pulses" → series, "attention rate" → attenuation rate, "deliberate worth" → measured value,
-// "occasions" → events, "healthier left" → better left, and similar); the unfinished sentence
-// "Models we service include Fluke, and__________." shortened to Fluke only. No pictures (requested).
-// NOTE: parts of this copy follow Wikipedia's OTDR article; rewriting it in Allied's own words, with
-// details of the testing service Allied actually provides, would be stronger for SEO.
+// /fiber-optic-testing-otdl-olts-qatar/ copy (old WordPress URL; the slug's "otdl" typo is kept, CLAUDE.md §14A).
+// Rewritten in original words on 2026-11-09 (SEO audit): the previous copy closely followed Wikipedia's OTDR
+// article. Kept from the old page: the services (OTDR and OLTS testing, power meter and drum testing, test
+// equipment sales, rental, calibration and repair, Fluke servicing) and the ISO 9001:2015 badge.
 // VERIFY: test equipment sales, rental, calibration and repair, and servicing Fluke models.
 import { company } from './company'
 import type { ContentBlock } from './types'
@@ -13,10 +9,10 @@ import type { ContentBlock } from './types'
 export const fiberHero = {
   eyebrow: 'OTDR, OLTS, power meter and drum testing',
   heading: 'Fiber Optic Testing in Qatar: OTDR & OLTS',
-  lead: 'In today’s world of communications, bandwidth is the most sought after commodity. The wider the bandwidth, the more data can be sent, and the faster, over the communications media.',
+  lead: 'A new fiber link is only as good as its test results. We test, certify and troubleshoot fiber optic cabling for offices, data centres, buildings and campuses across Qatar.',
   text: [
-    'Fiber optics uses light through glass. Light is at such a high frequency that the bandwidth available for fiber optic communications systems is the greatest of all the communications media available today.',
-    'Allied Enterprise Qatar provides quotes on new fiber optic test equipment units, rental units, calibration and repair.',
+    'We measure loss, length and the quality of every connector and splice, locate breaks and bad bends, and hand over documented results for your records or your client.',
+    'We also quote for new fiber optic test equipment, rental units, calibration and repair.',
   ],
   highlight: { value: '3000+', label: 'installations as of 2026' },
   badge: 'ISO 9001:2015 certified company',
@@ -26,47 +22,58 @@ export const fiberHero = {
 export const fiberOtdr = {
   heading: 'What is an OTDR?',
   text: [
-    'An Optical Time Domain Reflectometer (OTDR) is an important instrument used by organisations to certify the performance of new fiber optic links and detect problems with existing fiber links. An OTDR is the optical equivalent of an electronic time-domain reflectometer. It injects a series of optical pulses into the fiber under test and extracts, from the same end of the fiber, light that is scattered or reflected back from points along the fiber. The scattered or reflected light that is gathered back is used to characterise the optical fiber, in the same way that an electronic time-domain meter measures reflections caused by changes in the impedance of the cable under test. The strength of the return pulses is measured and integrated as a function of time, and plotted as a function of fiber length.',
-    { subheading: 'Detecting problems using an OTDR' },
-    'OTDRs are also used for maintaining fiber plant performance. An OTDR maps the cabling and can show the termination quality and the location of faults that may impair network performance. It reveals problems along the length of a channel that may affect long-term reliability and accuracy. OTDRs identify features such as attenuation uniformity and attenuation rate, segment length, the location and insertion loss of connectors and splices, and other events such as sharp bends that may have been introduced during cable installation or afterwards.',
-    'When selecting an OTDR, network engineers should make sure the tool has certain functionality, such as loss-length certification, a channel or event map view, power meter capabilities, an easy-to-use interface and smart-remote options. The OTDR also needs to provide a reliable way to document the results. Features that make an OTDR simple to operate, such as automated setup and an event map, are essential for users who aren’t OTDR specialists but need to find problems quickly.',
-    { subheading: 'Reading an OTDR trace' },
-    'The OTDR is useful for testing the integrity of fiber optic cables. It can verify splice loss, measure length and find faults. It is also commonly used to create a “picture” of a fiber optic cable when it is newly installed. Later, comparisons can be made between the original trace and a second trace taken if problems arise. Analysing the OTDR trace is always easier when there is documentation from the original trace created when the cable was installed.',
-    'OTDRs are only effective when testing long cables (more than approximately 250 metres or 800 feet) or cable plants with splices. The information the OTDR produces is typically used to create an image called a “trace” or “signature”, which holds relevant information for the trained user and can be stored for later reference or checked against a blueprint when network trouble arises. OTDRs should not be used for measuring insertion loss in the fiber optic cable; that task is better left to a fiber optic test source and power meter. OTDRs show where the cables are terminated and verify the quality of the fibers, connections and splices. OTDR traces are also used for troubleshooting, since they show where breaks are in the fiber when traces are compared to installation documentation.',
-  ] as ContentBlock[],
-}
-
-export const fiberQuality = {
-  heading: 'Reliability and Quality of OTDR Equipment',
-  text: [
-    'The reliability and quality of an OTDR depend on its accuracy, measurement range, ability to resolve and measure closely spaced events, measurement speed, and ability to perform well in different environmental conditions and after different kinds of physical abuse. The instrument is also judged on its cost, features, size, weight and ease of use.',
-    'Some of the terms regularly used to describe the quality of an OTDR are:',
-    { subheading: 'Accuracy' },
-    'The correctness of the measurement, that is, the difference between the measured value and the true value of the event being measured.',
-    { subheading: 'Measurement range' },
-    'The maximum attenuation that can be placed between the instrument and the event being measured, for which the instrument will still be able to measure the event within acceptable accuracy limits.',
-    { subheading: 'Instrument resolution' },
-    'A measure of how close two events can be spaced and still be recognised as two separate events. The length of the measurement pulse and the data sampling interval limit the resolution of an OTDR: the shorter the pulse and the sampling interval, the better the resolution, but the shorter the measurement range. Resolution is also often limited when strong reflections return to the OTDR and briefly overload the detector; some time is then needed before the instrument can resolve a second fiber event. Some OTDR manufacturers use a “masking” technique to improve resolution.',
-    'Industry requirements for the reliability and quality of OTDRs are specified in the Generic Requirements for Optical Time Domain Reflectometer (OTDR) Type Equipment.',
+    'An OTDR (optical time domain reflectometer) sends short pulses of light into one end of a fiber and measures the light that comes back from each point along it. From the timing and strength of those reflections, it draws a graph of the whole link, called a trace.',
+    { subheading: 'What an OTDR test shows' },
+    {
+      list: [
+        'The total length of the fiber, and the length of each section',
+        'The loss at every connector and splice, and where each one is',
+        'The distance to a break, crush or tight bend',
+        'How evenly the fiber loses signal along its length',
+      ],
+    },
+    'Because it works from one end, an OTDR is the tool for finding where a problem is, for example a cable damaged during building works.',
+    { subheading: 'Why keep the trace from installation' },
+    'We recommend saving an OTDR trace for every fiber when it is installed. If a fault appears later, a new trace can be compared with the original to see exactly what has changed and where, which makes repairs much faster.',
+    'OTDRs work best on longer links and on links with splices. For very short patch cords, and for the official loss figure of a link, an OLTS (light source and power meter) is the better tool.',
   ] as ContentBlock[],
 }
 
 export const fiberTesters = {
   heading: 'Fiber Optic Tester Types',
   text: [
-    'Communications systems using fiber optics have two basic types of test equipment for the installation and maintenance of fiber optic networks: the Optical Line Test Set (OLTS) and the Optical Time Domain Reflectometer (OTDR).',
-    { subheading: 'OLTS fiber tester' },
-    'In its most basic form, the OLTS consists of a fiber optic light source and a fiber optic power meter. An OLTS kit requires access to both ends of a fiber run, and it cannot be used to locate a break within a fiber run. With the most basic optical line test set, the installer or maintainer of the fiber optic network can determine the overall loss of a fiber optic installation, which is then compared to the allowable total loss of the installation. Advanced OLTS sets can determine more than overall loss: they can show loss levels at each connection, as well as the lengths of the fiber optic runs and the distances between fault or connection points.',
-    { subheading: 'OTDR fiber tester' },
-    'The OTDR does not require access to both ends of a fiber run. It can determine the length of fiber runs, the loss of the run, the distance to a break, or the length of fiber on a spool. It can be used on very short runs, such as within a single building, and on long fiber runs, such as between cities. The classic OTDR output is a trace, very similar to the traces seen in metallic time domain or frequency domain reflectometers. Most modern OTDR units also have onboard computing power to analyse a trace and help the user evaluate it. Almost all OTDR units can store the data, with software available to produce test reports for submission as needed.',
+    'Fiber networks are certified with two complementary types of test. Most projects need both.',
+    { subheading: 'OLTS: light source and power meter' },
+    'An optical loss test set puts a known light source at one end of the link and a power meter at the other, and measures exactly how much light is lost end to end. The result is compared with the loss budget for the link, so it tells you whether the link passes or fails. It needs access to both ends and does not show where a problem is.',
+    { subheading: 'OTDR: one-ended trace' },
+    'An OTDR needs only one end and shows every event along the link: connectors, splices, bends and breaks, with their distances. It explains why a link fails an OLTS test and where to fix it.',
+    { subheading: 'Drum (reel) testing' },
+    'Testing fiber on the drum before it is pulled confirms the cable was not damaged in transport or storage, before labour is spent installing it.',
+    'All results are saved and supplied as test reports for handover and warranty documentation.',
   ] as ContentBlock[],
   links: [{ label: 'Structured cabling data & voice', href: '/structured-cabling-data-voice-qatar/' }],
+}
+
+export const fiberQuality = {
+  heading: 'Reliability and Quality of OTDR Equipment',
+  text: [
+    'Not every OTDR suits every job. When choosing or renting one, these are the specifications that matter:',
+    { subheading: 'Accuracy' },
+    'How close the measured distance and loss are to the real values. This matters when you send a team to dig or open a duct at a reported fault location.',
+    { subheading: 'Dynamic range' },
+    'How much loss the instrument can see through. Long links and links with many splices need more range.',
+    { subheading: 'Dead zone and resolution' },
+    'How close together two events can be and still be shown separately. Short links inside buildings, with connectors close together, need a short dead zone.',
+    { subheading: 'Ease of use and reporting' },
+    'Automatic setup, an event map view and built-in report software help technicians who are not OTDR specialists get correct results quickly.',
+    'Tell us your cable types and link lengths, and we will recommend suitable equipment to buy or rent.',
+  ] as ContentBlock[],
 }
 
 export const fiberCalibration = {
   heading: 'Fiber Optic Test Equipment Calibration, Verification and Factory Service',
   text: [
-    'We offer calibration and verification of accuracy for both fiber optic line test sets and fiber optic time domain reflectometers, to ensure the accuracy of measurements.',
+    'Test results are only trustworthy if the instrument is accurate. We calibrate and verify both optical loss test sets and OTDRs, and arrange repair and factory service when needed.',
     'Models we service include Fluke.',
     `For fiber testing, test equipment, rental or calibration, call ${company.phone.display}, WhatsApp ${company.helpline.display} or email ${company.email}.`,
   ] as ContentBlock[],

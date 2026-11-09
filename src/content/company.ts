@@ -2,10 +2,11 @@ export const company = {
   name: 'Allied Enterprises WLL',
   shortName: 'Allied Enterprises',
   description:
-    'Authorized ZKTeco partner in Doha, Qatar for time attendance, access control, HRMS & payroll, and IT infrastructure solutions.',
-  // Footer copy — kept word-for-word from the current alliedeprs.com footer
+    'Authorized ZKTeco distributor in Doha, Qatar for time attendance, access control, HRMS & payroll, and IT infrastructure solutions.',
+  // Footer copy — from the current alliedeprs.com footer; the first sentence's "one of the leading" claim was
+  // reworded as a fact on 2026-11-09 (SEO audit)
   about: [
-    'Allied Enterprises is one of the leading professional vendors in the arena of Time Attendance System, Access Control, Telecommunication contractor, and Vehicle tracking solutions.',
+    'Allied Enterprises is a professional vendor of time attendance systems, access control, telecommunication contracting and vehicle tracking solutions in Qatar.',
     'Allied Enterprises is a team of passionate young individuals who are committed to making a difference in the way businesses are run.',
     'The company offers a wide array of technical solutions for various needs of homes and businesses which help get better outcomes with a strong operational focus.',
   ],

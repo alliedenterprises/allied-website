@@ -12,8 +12,9 @@ type SplitFeatureProps = {
   text: readonly ContentBlock[]
   /** Without an image the heading sits on the left and the text on the right */
   image?: PageImage
-  /** `photo`: framed, cropped to 3:2; `product`: cut-out product image shown whole, unframed */
-  imageStyle?: 'photo' | 'product'
+  /** `photo`: framed, cropped to 3:2; `product`: cut-out product image shown whole, unframed;
+   *  `document`: portrait certificate or document, shown whole at a limited height in a white frame */
+  imageStyle?: 'photo' | 'product' | 'document'
   /** Which side the photo sits on (desktop); it always comes first on small screens */
   imageSide?: 'left' | 'right'
   links?: readonly { label: string; href: string }[]
@@ -37,6 +38,7 @@ export function SplitFeature({
     imageSide === 'right' && styles.reverse,
     tinted && styles.tinted,
     imageStyle === 'product' && styles.product,
+    imageStyle === 'document' && styles.document,
     !image && styles.textOnly,
   ]
     .filter(Boolean)

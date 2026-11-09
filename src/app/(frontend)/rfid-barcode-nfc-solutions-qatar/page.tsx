@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 
+import { pageMetadata } from '@/lib/seo'
+
 import { CheckGrid } from '@/components/sections/CheckGrid'
 import { CtaBanner } from '@/components/sections/CtaBanner'
 import { FaqList } from '@/components/sections/FaqList'
@@ -12,18 +14,18 @@ import { rfidBasics, rfidFaq, rfidHero, rfidProducts, rfidUses } from '@/content
 
 // New page (no old WordPress URL); slug already used by the menu, the home services carousel and the
 // access control page.
-export const metadata: Metadata = {
-  // absolute: the brand is already in the title, so skip the layout's "| …" suffix
-  title: { absolute: 'RFID, Barcode & NFC Solutions in Qatar | Allied Enterprises' },
+export const metadata: Metadata = pageMetadata({
+  title: 'RFID, Barcode & NFC Solutions in Qatar | Allied Enterprises',
   description:
     'RFID tags and readers, barcode scanners and printers, and NFC tags and cards in Qatar, supplied, installed and supported by our team in Doha. Request a quote.',
-  alternates: { canonical: '/rfid-barcode-nfc-solutions-qatar/' },
-}
+  path: '/rfid-barcode-nfc-solutions-qatar/',
+})
 
 export default function RfidBarcodeNfcPage() {
   return (
     <>
       <PageHero
+        path="/rfid-barcode-nfc-solutions-qatar/"
         eyebrow={rfidHero.eyebrow}
         heading={rfidHero.heading}
         lead={rfidHero.lead}

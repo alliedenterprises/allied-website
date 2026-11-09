@@ -5,7 +5,7 @@
 // selection-factor bullets); the stray "Core Terms." dropped; the old helpline +974 3002 9868 replaced
 // with the numbers in company.ts. No pictures (requested).
 // VERIFY: the PA brands Allied represents (naming them would help), home theatre and HDMI products,
-// and "leading … installers" / "reliable provider" claims are the company's own.
+// "leading … installer" / "the best" / "guarantee" were reworded as facts on 2026-11-09 (SEO audit).
 import { company } from './company'
 import type { ContentBlock } from './types'
 
@@ -27,7 +27,7 @@ export const paSupply = {
   text: [
     'Public address systems remain one of the most efficient means of communicating with the general public and staff. A public address system for small and large venues, such as school auditoriums, malls, restaurants, and train, metro, airport and bus terminals, is very important and often mandatory. In simple terms, a public address system is required to make announcements in public, institutional and commercial buildings.',
     'Allied Enterprises is a reliable provider of sound systems and public address systems in Qatar, with accessories that include audio power amplifiers, audio amplifiers, sound mixers, portable PA systems, PA amplifiers, public address wall amplifiers, PA power speakers, public address driver units and PA stands. Choose from a diverse sound system range in Qatar, including home theatre systems, speaker systems, loudspeakers, home audio systems, music systems, ceiling speakers and high-quality HDMI cables that enhance the audio experience with high-quality surround sound.',
-    'As a leading public address system installer in Qatar, we partner with high quality audio system brands that use their expertise to produce the best audio output from a host of sound systems. Enjoy the magic of surround sound as it resounds through the entire house, and hidden speakers without cluttered, messy wires give you a smooth, elegant finish.',
+    'As a public address system installer in Qatar, we work with high-quality audio brands to get clear, even sound from every speaker in the system. Enjoy the magic of surround sound as it resounds through the entire house, and hidden speakers without cluttered, messy wires give you a smooth, elegant finish.',
     'We represent reliable PA brands that manufacture a full range of PA equipment, including mixers, amplifiers and ceiling speakers. We can serve your PA needs whether your requirement is a digital PA system or a conventional system.',
     'We install at a competitive and affordable price to meet the different needs of industry applications. Our aim is to provide innovative products and top-notch services that meet and exceed our customers’ expectations.',
   ] as ContentBlock[],
@@ -73,10 +73,10 @@ export const paFactors = {
         'The number of speakers the P.A. system can drive.',
         'Support for wireless microphones.',
         'Size, weight and quality.',
-        'A guarantee of reliable operation and after-sales service.',
+        'Reliable operation and after-sales service.',
       ],
     },
-    'We always keep up with the latest developments in the field and offer the best.',
+    'We keep up with the latest developments in the field and recommend what suits your building.',
     `Contact our sales engineers and they’ll work with you to custom design the right business audio system for your application, needs and budget. Call ${company.phone.display}, WhatsApp ${company.helpline.display} or email ${company.email}.`,
   ] as ContentBlock[],
   links: [

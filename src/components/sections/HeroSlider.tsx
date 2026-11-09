@@ -207,7 +207,9 @@ function Slide({ slide, priority }: { slide: BannerSlide; priority: boolean }) {
           <BrandText text={slide.eyebrow} />
           {slide.badge && <span className={styles.badge}>{slide.badge}</span>}
         </p>
-        <h2 className={styles.title}>
+        {/* <p>, not a heading: the page's H1 comes after the banner, so the outline must not start with
+            five slide headings (SEO audit 2026-11-09). Looks the same; styled by class. */}
+        <p className={styles.title}>
           <BrandText text={slide.title} />
           {slide.highlight && (
             <>
@@ -215,7 +217,7 @@ function Slide({ slide, priority }: { slide: BannerSlide; priority: boolean }) {
               <span className={styles.highlight}>{slide.highlight}</span>
             </>
           )}
-        </h2>
+        </p>
         <p className={styles.subtitle}>
           <BrandText text={slide.subtitle} />
         </p>

@@ -17,7 +17,7 @@ export const hrmsHero = {
     'Tell us how many employees and sites you have and how you pay salaries today, and we will suggest a setup and arrange a demonstration.',
   ],
   highlight: { value: '3000+', label: 'installations as of 2026' },
-  badge: 'Authorized ZKTeco agent in Qatar',
+  badge: 'Authorized ZKTeco distributor in Qatar',
   primary: { label: 'Request a Demo', href: '/contact-us/' },
 }
 

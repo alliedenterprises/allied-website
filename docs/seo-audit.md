@@ -1,5 +1,7 @@
 # SEO Audit — Allied Enterprises (alliedeprs.com)
 
+> **Newer audit:** `docs/seo-audit-2026-11-09.md` checks every page of the Next.js build against this document. Several "missing" items in §3 below have since been built.
+
 **Date:** 27 October 2026
 **Scope:** Audit only — no code was changed. Covers the live WordPress site, the new Next.js build, Qatar competitors, a keyword-to-URL map, and prioritized recommendations.
 **Status:** Draft for review. Items marked **NEEDS DATA** require Google Search Console, a keyword tool, or company confirmation before acting.

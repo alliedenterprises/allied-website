@@ -1,6 +1,9 @@
 // About page copy: kept word-for-word from the old alliedeprs.com/about-us/ page (requested),
 // split into sections. Only typos were fixed (e.g. "honed", "conforming", "These include:").
-// Section headings were added for structure. "Authorized agent" confirmed by the company.
+// Section headings were added for structure. ZKTeco role: "authorized distributor" per the 2026 ZKTeco
+// certificate (changed from "agent" on 2026-11-09). SEO audit 2026-11-09: the ZKTeco section heading no longer
+// repeats the /zkteco-qatar/ page's target phrase, and links to that page instead (avoids cannibalization);
+// "one of the leading professional vendors" and similar unverifiable claims were reworded as facts.
 // "3000 installations as of 2026": year updated by the company (old page said 2020).
 // VERIFY: "24/7" assistance and the "most trusted … in the world"
 // wording are the company's own claims; "Projects Delivered" in companyStats should not contradict them.
@@ -22,7 +25,7 @@ export const aboutHero = {
   heading: 'About Allied Enterprises',
   lead: 'Trust can only be earned by years of establishing standards and credibility. One such player holding the trust of many international firms at its bosom is “Allied Enterprises.”',
   text: [
-    'Allied Enterprises is one of the leading professional vendors in the arena of security systems and construction management. Allied Enterprises is a team of passionate young individuals who are committed to making a difference in the way businesses are run.',
+    'Allied Enterprises is a professional vendor of security systems and construction management services in Qatar. Allied Enterprises is a team of passionate young individuals who are committed to making a difference in the way businesses are run.',
     'The company offers a wide array of technical solutions for various needs of homes and businesses which help get better outcomes with strong operational focus.',
   ],
   image: {
@@ -32,19 +35,20 @@ export const aboutHero = {
     alt: 'Support staff with headsets working at computers in a bright office',
   },
   highlight: { value: '3000+', label: 'installations as of 2026' },
-  badge: 'Authorized ZKTeco agent in Qatar',
+  badge: 'Authorized ZKTeco distributor in Qatar',
   primary: { label: 'Request a Quote', href: '/contact-us/' },
 }
 
 export const aboutZkteco = {
-  heading: 'Authorized ZKTeco agent in Qatar',
+  heading: 'Our ZKTeco partnership',
   text: [
-    'Being the authorized ZKTeco agent in Qatar, Allied has done more than 3000 installations as of 2026.',
+    'As the authorized ZKTeco distributor in Qatar, Allied has done more than 3000 installations as of 2026.',
     'The firm believes that the slightest chance of a threat should be dealt away with as soon as possible, without leaving any scope for risk or security breach.',
     'We are consultants who offer expert advice on technical and functional specifications for various constructions. IT documentation has been a challenge for many companies across domains. The use of a pair of well-versed hands to guide in decision making related to system design and implementation would be handy in developing any new project.',
-    'Allied Enterprises is the authorized dealer for ZKTeco Products in Qatar mainly ZKTeco time attendance system and access control. Allied Enterprises is the authorized reseller for ZKTeco Qatar.',
+    'Allied Enterprises supplies and installs ZKTeco products across Qatar as a distributor and dealer, mainly ZKTeco time attendance and access control systems.',
   ],
   links: [
+    { label: 'ZKTeco products and services in Qatar', href: '/zkteco-qatar/' },
     { label: 'Time attendance systems', href: '/time-attendance-system-qatar/' },
     { label: 'Access control systems', href: '/access-control-system-qatar/' },
   ],
@@ -112,8 +116,8 @@ export const aboutQuality = {
 export const aboutTeam = {
   heading: 'Our team',
   text: [
-    'The team at Allied Enterprises consists of the best hands in the industry. This ensures that you have people with the best skillset to assist you in all your endeavors. The company employs young and vigorous people who are experts in the field of IT, marketing policy and customer service. All employees are trained and groomed in both domain knowledge and smart skills. Innovativeness and dynamism are traits which are well appreciated and nurtured within the walls of the organization.',
-    'Their expertise guarantees precise execution of orders, optimal prices and services of the highest possible quality. The company is not ready to compromise on the value given to customers at any cost and will place the power of the latest technological achievements in the best interests of the customers always.',
+    'The team at Allied Enterprises brings hands-on experience in time attendance, access control and IT infrastructure, so you have people with the right skills to assist you in all your endeavors. The company employs young and energetic people with expertise in IT, marketing and customer service. All employees are trained and groomed in both domain knowledge and smart skills. Innovativeness and dynamism are traits which are well appreciated and nurtured within the walls of the organization.',
+    'Their expertise helps us execute orders precisely, at fair prices and to a high standard of service. The company does not compromise on the value given to customers, and always puts the latest technology to work in their interest.',
   ],
 }
 
