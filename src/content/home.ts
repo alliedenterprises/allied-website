@@ -56,6 +56,32 @@ export const bannerSlides: BannerSlide[] = [
     },
     label: 'Time attendance & access control terminals',
   },
+  // ZKTeco award (added 2026-11-10). Facts from the company's trophy and certificate photos: trophy
+  // "Distinguished Project Leadership Award 2025"; certificate from ZKTeco Co., Ltd. to Allied Enterprises,
+  // "Distinguished Project Leadership", "Certificate of 2024 Achievement". Image: both photos combined; the trophy is cut out of its photo background (transparent).
+  {
+    eyebrow: 'ZKTeco Award 2025',
+    title: 'Distinguished Project',
+    highlight: 'Leadership',
+    subtitle:
+      'ZKTeco Co., Ltd. honoured Allied Enterprises with its Distinguished Project Leadership Award for our 2024 project achievements.',
+    features: [
+      { title: 'Award presented by ZKTeco Co., Ltd.' },
+      { title: 'Authorized ZKTeco distributor in Qatar' },
+      { title: '10000+ installations as of 2026' },
+      { title: 'Supply, installation and support from Doha' },
+    ],
+    featureStyle: 'list',
+    cta: { label: 'ZKTeco products in Qatar', href: '/zkteco-qatar/' },
+    secondary: { label: 'Get a quote', href: '/contact-us/' },
+    image: {
+      src: '/images/banners/zkteco-leadership-award-trophy.webp',
+      width: 1400,
+      height: 960,
+      alt: 'ZKTeco Distinguished Project Leadership Award 2025 trophy and ZKTeco certificate presented to Allied Enterprises',
+    },
+    label: 'ZKTeco Distinguished Project Leadership Award',
+  },
   {
     eyebrow: 'Attendance Software',
     title: 'BioTime',
