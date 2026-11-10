@@ -27,7 +27,7 @@ type HeroSliderProps = {
  *   (WCAG 2.2.2), not on hover/clicks (the hero is full-width).
  * - "Reduce motion": slides change instantly (CSS disables transitions).
  */
-export function HeroSlider({ slides, label, intervalMs = 3500 }: HeroSliderProps) {
+export function HeroSlider({ slides, label, intervalMs = 2000 }: HeroSliderProps) {
   const count = slides.length
   // `from` is kept until the next navigation, so re-renders never restart an animation
   const [nav, setNav] = useState({ index: 0, from: 0 })
