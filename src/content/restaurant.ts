@@ -16,7 +16,7 @@ export const restaurantHero = {
   text: [
     'The restaurant technology landscape in Qatar gets more complex every year, with many technologies that solve the challenges every restaurant faces. We offer all-in-one restaurant management software that helps you increase restaurant revenue. Implemented in the right way, restaurant management software is a sure way to support a restaurant’s success.',
   ],
-  highlight: { value: '3000+', label: 'installations as of 2026' },
+  highlight: { value: '10000+', label: 'installations as of 2026' },
   badge: 'Setup and support in Doha',
   primary: { label: 'Book a Demo', href: '/contact-us/' },
 }

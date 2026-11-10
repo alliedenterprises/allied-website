@@ -20,7 +20,7 @@ export const wialonHero = {
     'Wialon is a flexible fleet management system compatible with 2,300 device types. Wialon supports hardware for machinery, vehicles and stationary assets, so finding the right device for a task won’t be a problem. Additional sensors can measure weight, angle, temperature and many other tracking parameters for multi-faceted analytics.',
     'We offer GPS fleet tracking software and systems in Qatar at budget-friendly prices.',
   ],
-  highlight: { value: '3000+', label: 'installations as of 2026' },
+  highlight: { value: '10,000+', label: 'installations as of 2026' },
   badge: 'GPS fleet tracking in Qatar',
   primary: { label: 'Request a Demo', href: '/contact-us/' },
 }

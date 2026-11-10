@@ -15,7 +15,7 @@ export const biHero = {
     'Business intelligence brings that data together into dashboards and scheduled reports, so sales, operations and finance teams see the same up-to-date numbers instead of waiting for spreadsheets to be compiled.',
     'Allied, in partnership with Manthan, provides a complete solution for your needs.',
   ],
-  highlight: { value: '3000+', label: 'installations as of 2026' },
+  highlight: { value: '10000+', label: 'installations as of 2026' },
   badge: 'In partnership with Manthan',
   primary: { label: 'Book a Demo', href: '/contact-us/' },
 }

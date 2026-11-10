@@ -15,7 +15,7 @@ export const erpHero = {
   text: [
     'An ERP system gives businesses the ability to streamline all their workflows, with the flexibility to grow as the business expands.',
   ],
-  highlight: { value: '3000+', label: 'installations as of 2026' },
+  highlight: { value: '10000+', label: 'installations as of 2026' },
   badge: 'Customised ERP for your business',
   primary: { label: 'Request a Consultation', href: '/contact-us/' },
 }

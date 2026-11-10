@@ -13,7 +13,7 @@ export const intercomHero = {
   text: [
     'Residential areas require complete security nowadays because we cannot trust an unknown person. Use an intercom system to stop an unknown guest from entering your house, by watching them clearly through the video intercom first.',
   ],
-  highlight: { value: '3000+', label: 'installations as of 2026' },
+  highlight: { value: '10000+', label: 'installations as of 2026' },
   badge: 'Installation and support in Doha',
   primary: { label: 'Request a Quote', href: '/contact-us/' },
 }

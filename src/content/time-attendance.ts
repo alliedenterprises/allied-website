@@ -18,7 +18,7 @@ export const taHero = {
     'If you’re frustrated by manual time sheet systems and want to manage your workforce more effectively, it’s time to implement a time attendance system through Allied Enterprises, a time attendance system solution provider in Qatar with on site support and on shore software application programmers.',
     'No matter the size of your business or the industry you work in, if you have employees your business will benefit from a time and attendance system.',
   ],
-  highlight: { value: '3000+', label: 'installations as of 2026' },
+  highlight: { value: '10,000+', label: 'installations as of 2026' },
   badge: 'Authorized ZKTeco distributor in Qatar',
   primary: { label: 'Request a Quote', href: '/contact-us/' },
 }

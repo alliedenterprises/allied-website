@@ -16,7 +16,7 @@ export const hrmsHero = {
     'Allied Enterprises supplies and installs ZKTeco time attendance systems in Qatar and connects the attendance data to payroll through BioTime and the Sunbird Payroll Integrator. We help you plan an HR and payroll setup that fits your shifts, your leave rules and your monthly salary run.',
     'Tell us how many employees and sites you have and how you pay salaries today, and we will suggest a setup and arrange a demonstration.',
   ],
-  highlight: { value: '3000+', label: 'installations as of 2026' },
+  highlight: { value: '10000+', label: 'installations as of 2026' },
   badge: 'Authorized ZKTeco distributor in Qatar',
   primary: { label: 'Request a Demo', href: '/contact-us/' },
 }

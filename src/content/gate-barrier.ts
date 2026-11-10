@@ -20,7 +20,7 @@ export const gateHero = {
     'As the authorized ZKTeco distributor in Qatar, we offer a wide array of equipment that manages vehicle traffic and pedestrian crossings. Led by a group of innovative engineers and smart professionals, we make sure our gate barrier systems perform up to your expectations and meet your security requirements.',
     'From residential to industrial and commercial use, our automatic gate barrier systems deliver high performance and smoothly manage heavy vehicle movement at the entry and exit points of your premises.',
   ],
-  highlight: { value: '3000+', label: 'installations as of 2026' },
+  highlight: { value: '10000+', label: 'installations as of 2026' },
   badge: 'Authorized ZKTeco distributor in Qatar',
   primary: { label: 'Request a Quote', href: '/contact-us/' },
 }

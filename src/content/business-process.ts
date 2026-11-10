@@ -14,7 +14,7 @@ export const bpmHero = {
     'Instead of emails, paper forms and spreadsheets, each process runs in one system: the right person gets each task, nothing is lost, and managers can see where every request is and how long it took.',
     'Allied Enterprises implements Appian as a business process management platform, from mapping your current processes to building, launching and improving them.',
   ],
-  highlight: { value: '3000+', label: 'installations as of 2026' },
+  highlight: { value: '10000+', label: 'installations as of 2026' },
   badge: 'Appian BPM implementation',
   primary: { label: 'Request a Consultation', href: '/contact-us/' },
 }

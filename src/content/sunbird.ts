@@ -16,7 +16,7 @@ export const sunbirdHero = {
     'It applies even complex working policies with accuracy and gives managers real-time data, along with the tools to control human resources costs and improve productivity.',
     'Allied Enterprises supplies, sets up and supports Sunbird for companies in Qatar, alongside ZKTeco attendance devices and payroll integration.',
   ],
-  highlight: { value: '3000+', label: 'installations as of 2026' },
+  highlight: { value: '10000+', label: 'installations as of 2026' },
   badge: 'Setup and support in Doha',
   primary: { label: 'Book a Demo', href: '/contact-us/' },
 }

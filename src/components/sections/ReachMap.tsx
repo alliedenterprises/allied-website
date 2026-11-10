@@ -68,19 +68,21 @@ export function ReachMap({ eyebrow, heading, text, map, hub, destinations }: Rea
               const d = arcPath(hub, destination)
               return (
                 <g key={destination.code}>
+                  {/* faint dotted route, always visible */}
                   <path d={d} className={styles.route} />
+                  {/* bright dash travelling out from Qatar */}
                   <path
                     d={d}
                     pathLength={100}
                     className={styles.comet}
                     style={{ animationDelay: `${i * 0.7}s` } as CSSProperties}
                   />
-                  <circle cx={destination.x} cy={destination.y} r="6" className={styles.point} />
+                  <circle cx={destination.x} cy={destination.y} r="8" className={styles.point} />
                 </g>
               )
             })}
-            <circle cx={hub.x} cy={hub.y} r="9" className={styles.pulse} />
-            <circle cx={hub.x} cy={hub.y} r="7" className={styles.point} />
+            <circle cx={hub.x} cy={hub.y} r="12" className={styles.pulse} />
+            <circle cx={hub.x} cy={hub.y} r="10" className={styles.point} />
           </svg>
 
           <ul className={styles.labels}>

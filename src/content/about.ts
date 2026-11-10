@@ -4,9 +4,9 @@
 // certificate (changed from "agent" on 2026-11-09). SEO audit 2026-11-09: the ZKTeco section heading no longer
 // repeats the /zkteco-qatar/ page's target phrase, and links to that page instead (avoids cannibalization);
 // "one of the leading professional vendors" and similar unverifiable claims were reworded as facts.
-// "3000 installations as of 2026": year updated by the company (old page said 2020).
+// "10000 installations as of 2026": figure updated by the company on 2026-11-10 (was 3000; old page said 3000 as of 2020).
 // VERIFY: "24/7" assistance and the "most trusted … in the world"
-// wording are the company's own claims; "Projects Delivered" in companyStats should not contradict them.
+// wording are the company's own claims; "Installations" in companyStats (home.ts) should not contradict them.
 
 import type { PageImage } from './types'
 
@@ -34,7 +34,7 @@ export const aboutHero = {
     height: 1024,
     alt: 'Support staff with headsets working at computers in a bright office',
   },
-  highlight: { value: '3000+', label: 'installations as of 2026' },
+  highlight: { value: '10000+', label: 'installations as of 2026' },
   badge: 'Authorized ZKTeco distributor in Qatar',
   primary: { label: 'Request a Quote', href: '/contact-us/' },
 }
@@ -42,7 +42,7 @@ export const aboutHero = {
 export const aboutZkteco = {
   heading: 'Our ZKTeco partnership',
   text: [
-    'As the authorized ZKTeco distributor in Qatar, Allied has done more than 3000 installations as of 2026.',
+    'As the authorized ZKTeco distributor in Qatar, Allied has done more than 10000 installations as of 2026.',
     'The firm believes that the slightest chance of a threat should be dealt away with as soon as possible, without leaving any scope for risk or security breach.',
     'We are consultants who offer expert advice on technical and functional specifications for various constructions. IT documentation has been a challenge for many companies across domains. The use of a pair of well-versed hands to guide in decision making related to system design and implementation would be handy in developing any new project.',
     'Allied Enterprises supplies and installs ZKTeco products across Qatar as a distributor and dealer, mainly ZKTeco time attendance and access control systems.',

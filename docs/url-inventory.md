@@ -36,11 +36,11 @@ Status values: `rebuilt` | `redirected → <new URL>` | `dropped (404)` | `pendi
 | `/enterprise-resource-planning-qatar/` | rebuilt | Old copy kept; customer name "Mega Music" left out until approved (company to confirm ERP product) |
 | `/business-intelligence-qatar/` | rebuilt | Old copy kept; outbound businesswire.com link dropped (opening follows a 2019 press release; rewrite recommended; Manthan partnership to confirm) |
 | `/geographical-information-systems-qatar/` | rebuilt | Old copy kept; "unparalleled" claim removed; retired ArcIMS dropped from services list |
-| `/products/` | dropped (404) | Old page was an empty placeholder (heading only, checked 2026-11-09). Owner decided 2026-11-09: no page and no redirect |
-| `/team-allied/` | dropped (404) | Empty placeholder (heading only). Owner decided 2026-11-09: no redirect |
+| `/products/` | redirected → `/zkteco-qatar/` | Empty placeholder on the old site, but shown as a Google sitelink ("Products") under the brand search. Owner approved the 308 on 2026-11-10 |
+| `/team-allied/` | redirected → `/about-us/` | Shown as a Google sitelink ("Team Allied"); About has an "Our team" section. Owner approved the 308 on 2026-11-10 |
 | `/support/` | dropped (404) | Empty placeholder (heading only). Owner decided 2026-11-09: no redirect |
 | `/downloads/` | dropped (404) | Empty placeholder (heading only, no files). Owner decided 2026-11-09: no redirect |
-| `/vision/` | dropped (404) | Empty placeholder (heading only). Owner decided 2026-11-09: no redirect |
+| `/vision/` | redirected → `/about-us/` | Shown as a Google sitelink ("Vision"); About has a Vision section. Owner approved the 308 on 2026-11-10 |
 | `/quality-policy/` | dropped (404) | Empty placeholder (heading only). Owner decided 2026-11-09: no redirect |
 | `/blog/` | dropped (404) | Empty WordPress blog listing. Owner decided 2026-11-09: no redirect |
 | `/hello-world/` | dropped (404) | WordPress sample post. Owner decided 2026-11-09: no redirect |

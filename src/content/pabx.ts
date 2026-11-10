@@ -19,7 +19,7 @@ export const pabxHero = {
     'A business that uses either PBX or PABX has its own telephone exchange. PABX automates the switching tasks needed to connect calls between extensions.',
     'In a PABX system, there is a designated extension number for each device connected to the exchange. These devices include computer modems, desk phones and fax machines.',
   ],
-  highlight: { value: '3000+', label: 'installations as of 2026' },
+  highlight: { value: '10000+', label: 'installations as of 2026' },
   badge: 'Sales, installation and support across Qatar',
   primary: { label: 'Request a Quote', href: '/contact-us/' },
 }

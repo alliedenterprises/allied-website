@@ -15,7 +15,7 @@ export const gisHero = {
   text: [
     'Whether you need a commercial off-the-shelf solution or a custom-built product that calls for our programming expertise, we provide a complete, end-to-end software development service.',
   ],
-  highlight: { value: '3000+', label: 'installations as of 2026' },
+  highlight: { value: '10,000+', label: 'installations as of 2026' },
   badge: 'End-to-end GIS services',
   primary: { label: 'Request a Consultation', href: '/contact-us/' },
 }

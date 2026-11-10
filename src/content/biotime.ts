@@ -15,7 +15,7 @@ export const biotimeHero = {
   text: [
     'As the authorized ZKTeco distributor in Qatar, we install BioTime on your server, connect your devices, set up shifts and rules, and train your team. Prefer not to run a server? BioTime Cloud gives you the same core attendance features as a hosted subscription.',
   ],
-  highlight: { value: '3000+', label: 'installations as of 2026' },
+  highlight: { value: '10000+', label: 'installations as of 2026' },
   badge: 'Authorized ZKTeco distributor in Qatar',
   primary: { label: 'Book a Demo', href: '/contact-us/' },
 }

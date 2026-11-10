@@ -21,6 +21,16 @@ const nextConfig: NextConfig = {
   async headers() {
     return blockIndexing ? [{ source: '/:path*', headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }] }] : []
   },
+  // Old WordPress URLs that will not be rebuilt, sent straight to the closest new page (permanent, one hop).
+  // These three appear as Google sitelinks under the brand search (checked 2026-11-10), so they must not 404.
+  // Approved by the owner 2026-11-10. Never remove a redirect; record every change in docs/url-inventory.md.
+  async redirects() {
+    return [
+      { source: '/products/', destination: '/zkteco-qatar/', permanent: true },
+      { source: '/vision/', destination: '/about-us/', permanent: true },
+      { source: '/team-allied/', destination: '/about-us/', permanent: true },
+    ]
+  },
   images: {
     // 75 = default for normal images; 92 = high-quality homepage banners
     // (Next 16 requires every quality used by next/image to be listed here)

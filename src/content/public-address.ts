@@ -17,7 +17,7 @@ export const paHero = {
     'A sound system should not be confused with a public address system: a sound system is for live music, whereas a PA system reproduces recorded music and speech in buildings and institutions.',
     'With so many different products on the market, buying a PA system can be a tough choice for a first-time buyer, and the decision becomes harder still if you don’t understand the technical terms and requirements that manufacturers use.',
   ],
-  highlight: { value: '3000+', label: 'installations as of 2026' },
+  highlight: { value: '10000+', label: 'installations as of 2026' },
   badge: 'Design, supply and installation in Doha',
   primary: { label: 'Request a Quote', href: '/contact-us/' },
 }

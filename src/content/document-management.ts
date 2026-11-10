@@ -14,7 +14,7 @@ export const documentHero = {
   text: [
     'Instead of searching through filing cabinets and stacks of folders, you can run keyword searches that bring the information you need to your fingertips.',
   ],
-  highlight: { value: '3000+', label: 'installations as of 2026' },
+  highlight: { value: '10000+', label: 'installations as of 2026' },
   badge: 'Scanning, indexing and secure access',
   primary: { label: 'Request a Quote', href: '/contact-us/' },
 }

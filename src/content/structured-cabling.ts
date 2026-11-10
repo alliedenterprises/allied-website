@@ -17,7 +17,7 @@ export const cablingHero = {
     'Allied Enterprises is an end-to-end network cabling supplier with the resources to plan and develop structured cabling in Qatar. Providing a network cabling service throughout a business involves cable laying, installation of connectors and faceplates, network cabinets and testing of cables.',
     'Depending on the requirement, the cable will be unshielded twisted pair (UTP), screened (foil) unshielded twisted pair (F/UTP), shielded twisted pair (STP), or multimode or single mode fiber optics.',
   ],
-  highlight: { value: '3000+', label: 'installations as of 2026' },
+  highlight: { value: '10000+', label: 'installations as of 2026' },
   badge: 'ISO 9001:2015 certified company',
   primary: { label: 'Request a Quote', href: '/contact-us/' },
 }

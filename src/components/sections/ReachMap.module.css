@@ -61,6 +61,32 @@
   display: block;
 }
 
+/* oval fade: solid in the middle, dissolving gradually into the page towards every edge and corner,
+   so the map has no visible rectangle (a straight-edged fade still reads as a box) */
+.image {
+  /* eased stops: the fade starts early and tails off slowly, so there is no visible oval rim */
+  -webkit-mask-image: radial-gradient(
+    ellipse closest-side at 50% 50%,
+    #000 28%,
+    rgba(0, 0, 0, 0.88) 42%,
+    rgba(0, 0, 0, 0.66) 56%,
+    rgba(0, 0, 0, 0.42) 69%,
+    rgba(0, 0, 0, 0.2) 81%,
+    rgba(0, 0, 0, 0.06) 92%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    ellipse closest-side at 50% 50%,
+    #000 28%,
+    rgba(0, 0, 0, 0.88) 42%,
+    rgba(0, 0, 0, 0.66) 56%,
+    rgba(0, 0, 0, 0.42) 69%,
+    rgba(0, 0, 0, 0.2) 81%,
+    rgba(0, 0, 0, 0.06) 92%,
+    transparent 100%
+  );
+}
+
 .routes {
   position: absolute;
   inset: 0;
@@ -68,7 +94,9 @@
   height: 100%;
 }
 
-/* the faint dotted line stays when the comet is turned off (reduced motion) */
+/* ---------- Routes ----------
+   A faint dotted route, plus a bright dash travelling out from Qatar to each country (3.2s loop,
+   each country starting 0.7s after the previous one). */
 .route {
   stroke: var(--brand-accent);
   stroke-width: 2.5;
@@ -77,9 +105,8 @@
   opacity: 0.7;
 }
 
-/* the bright dash travelling out from Qatar.
-   The gap is longer than the whole route (pathLength 100), so the dash pattern
-   never repeats: only one dash is ever on the line, and none appears at the far end. */
+/* The gap is longer than the whole route (pathLength 100), so the dash pattern never repeats:
+   only one dash is ever on the line, and none appears at the far end. */
 .comet {
   stroke: var(--brand-accent);
   stroke-width: 4.5;
@@ -94,11 +121,10 @@
     stroke-dashoffset: -100;
   }
 }
-
 .point {
-  fill: var(--brand-accent);
-  stroke: var(--page-bg);
-  stroke-width: 2.5;
+  fill: var(--brand-2);
+  stroke: #fff;
+  stroke-width: 3.5;
 }
 
 .pulse {
@@ -211,13 +237,9 @@
   .map {
     width: 190%;
     max-width: none;
-    margin-left: -45%;
+    margin-left: -41%;
   }
 
-  .route {
-    stroke-width: 3.5;
-    stroke-dasharray: 0.5 9;
-  }
 
   .label {
     gap: 3px;
@@ -251,6 +273,7 @@
   }
 }
 
+/* reduced motion: just the dotted routes, without the travelling dash or hub pulse */
 @media (prefers-reduced-motion: reduce) {
   .comet,
   .pulse {

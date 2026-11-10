@@ -14,7 +14,7 @@ export const fiberHero = {
     'We measure loss, length and the quality of every connector and splice, locate breaks and bad bends, and hand over documented results for your records or your client.',
     'We also quote for new fiber optic test equipment, rental units, calibration and repair.',
   ],
-  highlight: { value: '3000+', label: 'installations as of 2026' },
+  highlight: { value: '10000+', label: 'installations as of 2026' },
   badge: 'ISO 9001:2015 certified company',
   primary: { label: 'Request a Quote', href: '/contact-us/' },
 }

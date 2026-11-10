@@ -15,7 +15,7 @@ export const walletHero = {
   text: [
     'Digital minimalist wallet systems enable the wide use of digital wallet transactions among diverse retail vendors, in the form of mobile payment systems and digital wallet applications. The current trend for minimalist, slim wallets comes from people wanting to carry less in an increasingly digital world. We provide digital minimalist wallet systems in Qatar.',
   ],
-  highlight: { value: '3000+', label: 'installations as of 2026' },
+  highlight: { value: '10000+', label: 'installations as of 2026' },
   badge: 'Supplied in Qatar by Allied Enterprises',
   primary: { label: 'Enquire Now', href: '/contact-us/' },
 }

@@ -13,7 +13,7 @@ export const queueHero = {
   text: [
     'Our solutions include a Queue Management System, Self-Service Kiosks, a Customer Feedback System and Digital Signage.',
   ],
-  highlight: { value: '3000+', label: 'installations as of 2026' },
+  highlight: { value: '10000+', label: 'installations as of 2026' },
   badge: 'Setup and support in Doha',
   primary: { label: 'Book a Demo', href: '/contact-us/' },
 }

@@ -3,7 +3,7 @@
 // articles and used unverifiable "leading" / "best … supplier in Qatar" claims. Section structure, topics
 // (what access control is, why doors alone are not enough, anti-tailgating / anti-passback, choosing
 // readers and entrances) and contact details were kept. Facts used: ZKTeco distributor status (2026
-// certificate), 3000+ installations as of 2026, products already named on the site (ZKTeco face, palm,
+// certificate), 10000+ installations as of 2026, products already named on the site (ZKTeco face, palm,
 // fingerprint and card devices; turnstiles, flap and swing barriers on the gate barrier page).
 // VERIFY: integration with CCTV, alarm systems and intercoms is the company's own statement (old page).
 import { company } from './company'
@@ -17,7 +17,7 @@ export const acHero = {
     'When someone leaves or loses a card, you remove their access in the software in seconds, with no locks to change.',
     'Allied Enterprises designs, supplies and installs access control for offices, warehouses, schools and residential buildings across Qatar, from a single door to multi-site systems connected to turnstiles and barriers.',
   ],
-  highlight: { value: '3000+', label: 'installations as of 2026' },
+  highlight: { value: '10000+', label: 'installations as of 2026' },
   badge: 'Authorized ZKTeco distributor in Qatar',
   primary: { label: 'Request a Quote', href: '/contact-us/' },
 }

@@ -4,7 +4,7 @@
 //   and the home page) names Allied Enterprises "Authorized Distributor" for the territory of Qatar. The wording
 //   was changed from "agent/dealer" to "distributor" sitewide on 2026-11-09 (SEO audit). "Dealer" is kept as a
 //   search term. VERIFY each January that the certificate was renewed.
-// - 3000+ installations as of 2026, stock and support staff in Qatar, consultation → no-obligation quote →
+// - 10000+ installations as of 2026, stock and support staff in Qatar, consultation → no-obligation quote →
 //   site visit if required → installation → software demonstration (time-attendance.ts).
 // - Product families and models already named on the home banners and the gate barrier page.
 // FAQ structured data is intentionally not added (Google limits FAQ rich results to a few site types).
@@ -28,7 +28,7 @@ export const zktecoHero = {
   methods: ['Face', 'Palm', 'Fingerprint', 'Card'],
   // facts already confirmed elsewhere on the site (home.ts companyStats, time-attendance.ts, company.ts)
   stats: [
-    { value: '3000+', label: 'Installations as of 2026' },
+    { value: '10,000+', label: 'Installations as of 2026' },
     { value: '10+', label: 'Years in business' },
     { value: '2', label: 'Offices in Doha' },
     { value: 'End-to-end', label: 'Supply, install & support' },
@@ -126,7 +126,12 @@ export const zktecoCertificate = {
     'ZKTeco Co., Ltd. has issued Allied Enterprises its Authorized Distributor certificate for the territory of Qatar, valid from 1 January to 31 December 2026.',
     'Buying through the authorized distributor means genuine ZKTeco products supplied through the official channel, with installation, configuration and support from our team in Doha.',
   ],
-  links: [{ label: 'View the full certificate', href: '/images/certifications/zkteco-authorized-distributor-qatar-2026.webp' }],
+  links: [
+    {
+      label: 'View the full certificate',
+      href: '/images/certifications/zkteco-authorized-distributor-qatar-2026.webp',
+    },
+  ],
   image: {
     src: '/images/certifications/zkteco-authorized-distributor-qatar-2026.webp',
     width: 1360,
@@ -139,7 +144,7 @@ export const zktecoWhy = {
   heading: 'Why buy ZKTeco from Allied Enterprises',
   items: [
     'Authorized ZKTeco distributor in Qatar',
-    'More than 3000 installations as of 2026',
+    'More than 10000 installations as of 2026',
     'Product stock and support staff in Qatar',
     'Advice on the right models for your site',
     'Installation and configuration by our technicians',
@@ -162,7 +167,8 @@ export type ProcessStep = {
 
 export const zktecoProcess = {
   heading: 'How to Buy ZKTeco in Qatar',
-  intro: 'From your first message to after-sales support, buying ZKTeco through Allied Enterprises takes four simple steps.',
+  intro:
+    'From your first message to after-sales support, buying ZKTeco through Allied Enterprises takes four simple steps.',
   steps: [
     {
       title: 'Tell us what you need',
@@ -198,7 +204,7 @@ export const zktecoFaq = {
     {
       question: 'Is Allied Enterprises an authorized ZKTeco distributor in Qatar?',
       answer: [
-        'Yes. ZKTeco Co., Ltd. has certified Allied Enterprises WLL as its authorized distributor for the territory of Qatar (2026 certificate shown on this page). We supply ZKTeco time attendance, access control and entrance control products as a distributor and dealer, and have completed more than 3000 installations as of 2026.',
+        'Yes. ZKTeco Co., Ltd. has certified Allied Enterprises WLL as its authorized distributor for the territory of Qatar (2026 certificate shown on this page). We supply ZKTeco time attendance, access control and entrance control products as a distributor and dealer, and have completed more than 10000 installations as of 2026.',
       ],
     },
     {
