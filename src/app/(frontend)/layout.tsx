@@ -37,6 +37,11 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     images: [shareImage.url],
   },
+  // Google Search Console ownership (HTML tag method) for https://alliedeprs.com/.
+  // Keep it: removing the tag makes Search Console drop the verification.
+  verification: {
+    google: '0rXeykwnvFECT3CgrJon2tfSjXpxk3Oeyave9ihHZE4',
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
