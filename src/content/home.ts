@@ -75,7 +75,7 @@ export const bannerSlides: BannerSlide[] = [
     cta: { label: 'ZKTeco products in Qatar', href: '/zkteco-qatar/' },
     secondary: { label: 'Get a quote', href: '/contact-us/' },
     image: {
-      src: '/images/banners/zkteco-leadership-award-trophy.webp',
+      src: '/images/banners/zkteco-leadership-award-level.webp',
       width: 1400,
       height: 960,
       alt: 'ZKTeco Distinguished Project Leadership Award 2025 trophy and ZKTeco certificate presented to Allied Enterprises',

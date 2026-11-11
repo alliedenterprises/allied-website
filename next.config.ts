@@ -11,6 +11,7 @@ const dirname = path.dirname(__filename)
 const blockIndexing = process.env.VERCEL === '1' && process.env.ALLOW_INDEXING !== 'true'
 
 const nextConfig: NextConfig = {
+  output: 'standalone',
   // every old WordPress URL ends in a slash; they must keep their exact paths
   trailingSlash: true,
   experimental: {
