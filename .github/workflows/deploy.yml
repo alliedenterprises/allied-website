@@ -112,6 +112,8 @@ jobs:
           Write-Host "Robocopy exit code: $copyExitCode"
           Write-Host "Files: $((Get-ChildItem $destination -Recurse -File).Count)"
 
+          exit 0
+
       - name: Test scheduled task permissions
         shell: powershell
         run: |
@@ -123,4 +125,4 @@ jobs:
 
           Write-Host "Scheduled task trigger accepted."
           
-          exit 0
+          
