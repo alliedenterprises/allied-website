@@ -122,3 +122,5 @@ jobs:
           }
 
           Write-Host "Scheduled task trigger accepted."
+          
+          exit 0
