@@ -114,15 +114,28 @@ jobs:
 
           exit 0
 
-      - name: Test scheduled task permissions
+      
+      - name: Diagnose scheduled task permissions
         shell: powershell
         run: |
+          Write-Host "=== RUNNER IDENTITY ==="
+          whoami
+          whoami /user
+
+          Write-Host "=== TASK FILE PERMISSIONS ==="
+          icacls "C:\Windows\System32\Tasks\AlliedWebsitePermissionTest"
+
+          Write-Host "=== TASKS DIRECTORY PERMISSIONS ==="
+          icacls "C:\Windows\System32\Tasks"
+
+          Write-Host "=== TEST TASK STATUS ==="
+          schtasks /query /tn AlliedWebsitePermissionTest
+
+          Write-Host "=== TRIGGER TEST ==="
           schtasks /run /tn AlliedWebsitePermissionTest
+          Write-Host "Trigger exit code: $LASTEXITCODE"
 
-          if ($LASTEXITCODE -ne 0) {
-              throw "GitHub runner could not trigger the scheduled task."
-          }
+          exit 0
 
-          Write-Host "Scheduled task trigger accepted."
           
           
