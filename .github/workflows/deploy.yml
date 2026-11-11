@@ -115,27 +115,52 @@ jobs:
           exit 0
 
       
-      - name: Diagnose scheduled task permissions
+      
+      - name: Deploy website using Blue-Green controller
         shell: powershell
         run: |
-          Write-Host "=== RUNNER IDENTITY ==="
-          whoami
-          whoami /user
+          $ErrorActionPreference = "Stop"
 
-          Write-Host "=== TASK FILE PERMISSIONS ==="
-          icacls "C:\Windows\System32\Tasks\AlliedWebsitePermissionTest"
+          $resultFile = "C:\DO NOT DELETE\Allied-web\deployment\controller-result.txt"
 
-          Write-Host "=== TASKS DIRECTORY PERMISSIONS ==="
-          icacls "C:\Windows\System32\Tasks"
+          # Remove the previous deployment result.
+          if (Test-Path $resultFile) {
+              Remove-Item $resultFile -Force
+          }
 
-          Write-Host "=== TEST TASK STATUS ==="
-          schtasks /query /tn AlliedWebsitePermissionTest
+          Write-Host "Triggering AlliedWebsiteDeployment..."
 
-          Write-Host "=== TRIGGER TEST ==="
-          schtasks /run /tn AlliedWebsitePermissionTest
-          Write-Host "Trigger exit code: $LASTEXITCODE"
+          schtasks /run /tn AlliedWebsiteDeployment
 
-          exit 0
+          if ($LASTEXITCODE -ne 0) {
+              throw "Could not trigger the deployment task."
+          }
 
-          
-          
+          Write-Host "Deployment task triggered. Waiting for result..."
+
+          $timeout = 600
+          $elapsed = 0
+          $result = ""
+
+          while ($elapsed -lt $timeout) {
+
+              Start-Sleep -Seconds 3
+              $elapsed += 3
+
+              if (Test-Path $resultFile) {
+                  $result = Get-Content $resultFile -Raw
+
+                  if ($result -match "^SUCCESS:") {
+                      Write-Host "DEPLOYMENT SUCCESSFUL" -ForegroundColor Green
+                      Write-Host $result
+                      exit 0
+                  }
+
+                  if ($result -match "^FAILED:") {
+                      Write-Host $result
+                      throw "Blue-Green deployment failed."
+                  }
+              }
+          }
+
+          throw "Deployment timed out after 10 minutes. Last result: $result"
