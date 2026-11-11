@@ -74,7 +74,7 @@ jobs:
           path: ${{ runner.temp }}\allied-website-artifact
 
       - name: Transfer artifact to staging directory
-        shell: pwsh
+        shell: powershell
         run: |
           $source = "${{ runner.temp }}\allied-website-artifact"
           $destination = "C:\DO NOT DELETE\Allied-web\deployment\incoming"
