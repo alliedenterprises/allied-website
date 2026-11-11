@@ -1,0 +1,61 @@
+name: Allied Website - Build
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build Next.js Standalone
+    runs-on: windows-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24.22.1
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build application
+        run: npm run build
+
+      - name: Prepare standalone deployment package
+        shell: pwsh
+        run: |
+          if (!(Test-Path ".next/standalone/server.js")) {
+            throw "Standalone server.js was not generated."
+          }
+
+          New-Item -ItemType Directory -Force -Path "deploy-package" | Out-Null
+
+          Copy-Item ".next/standalone/*" "deploy-package/" -Recurse -Force
+
+          New-Item -ItemType Directory -Force -Path "deploy-package/.next/static" | Out-Null
+
+          Copy-Item ".next/static/*" "deploy-package/.next/static/" -Recurse -Force
+
+          if (Test-Path "public") {
+            Copy-Item "public" "deploy-package/public" -Recurse -Force
+          }
+
+          Write-Host "Standalone deployment package prepared."
+
+      - name: Upload deployment artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: allied-website-standalone
+          path: deploy-package/
+          if-no-files-found: error
+          retention-days: 7
