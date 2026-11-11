@@ -77,29 +77,38 @@ jobs:
       - name: Transfer artifact to staging directory
         shell: powershell
         run: |
+          $ErrorActionPreference = "Stop"
+
           $source = "${{ runner.temp }}\allied-website-artifact"
           $destination = "C:\DO NOT DELETE\Allied-web\deployment\incoming"
 
           if (!(Test-Path "$source\server.js")) {
-            throw "Standalone server.js not found in downloaded artifact."
+            throw "Standalone server.js not found."
           }
 
           if (!(Test-Path "$source\.next\static")) {
             throw "Next.js static files not found."
           }
 
+          New-Item -ItemType Directory -Force -Path $destination | Out-Null
+
           Get-ChildItem -LiteralPath $destination -Force |
             Remove-Item -Recurse -Force
 
           robocopy $source $destination /E /COPY:DAT /R:2 /W:2
 
-          if ($LASTEXITCODE -ge 8) {
-            throw "Artifact transfer failed. Robocopy exit code: $LASTEXITCODE"
+          $copyExitCode = $LASTEXITCODE
+
+          if ($copyExitCode -ge 8) {
+            throw "Robocopy failed with exit code $copyExitCode"
           }
 
           if (!(Test-Path "$destination\server.js")) {
-            throw "Artifact transfer verification failed."
+            throw "Artifact verification failed."
           }
 
-          Write-Host "Artifact successfully transferred to EC2 staging."
+          Write-Host "Artifact successfully transferred."
+          Write-Host "Robocopy exit code: $copyExitCode"
           Write-Host "Files: $((Get-ChildItem $destination -Recurse -File).Count)"
+
+          exit 0
