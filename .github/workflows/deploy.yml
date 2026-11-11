@@ -58,6 +58,7 @@ jobs:
           name: allied-website-standalone
           path: deploy-package/
           if-no-files-found: error
+          include-hidden-files: true
           retention-days: 7
 
   transfer-to-ec2:
