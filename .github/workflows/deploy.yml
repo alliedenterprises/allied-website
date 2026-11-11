@@ -112,4 +112,13 @@ jobs:
           Write-Host "Robocopy exit code: $copyExitCode"
           Write-Host "Files: $((Get-ChildItem $destination -Recurse -File).Count)"
 
-          exit 0
+      - name: Test scheduled task permissions
+        shell: powershell
+        run: |
+          schtasks /run /tn AlliedWebsitePermissionTest
+
+          if ($LASTEXITCODE -ne 0) {
+              throw "GitHub runner could not trigger the scheduled task."
+          }
+
+          Write-Host "Scheduled task trigger accepted."
