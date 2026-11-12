@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   // Google Search Console ownership (HTML tag method) for https://alliedeprs.com/.
   // Keep it: removing the tag makes Search Console drop the verification.
   verification: {
-    google: '0rXeykwnvFECT3CgrJon2tfSjXpxk3Oeyave9ihHZE4',
+    google: 'FsKWIF972d1K5eEm_QF3r-rpW-AV8BH5UgNXnZW01Yg',
   },
 }
 
