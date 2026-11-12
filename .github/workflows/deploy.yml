@@ -1,4 +1,3 @@
-
 name: Allied Website - Build
 
 on:
@@ -65,7 +64,7 @@ jobs:
   transfer-to-ec2:
     name: Transfer Artifact to EC2
     needs: build
-    runs-on: [self-hosted, windows, allied-production]
+    runs-on: [self-hosted, windows, Alliedproduction]
     timeout-minutes: 10
 
     steps:
@@ -114,8 +113,6 @@ jobs:
 
           exit 0
 
-      
-      
       - name: Deploy website using Blue-Green controller
         shell: powershell
         run: |
