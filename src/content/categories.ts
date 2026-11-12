@@ -124,8 +124,8 @@ export const applicationsHub: CategoryHub = {
       href: '/business-process-management/',
     },
     {
-      title: 'Wialon Platform for GPS Tracking',
-      text: 'Real-time fleet and asset tracking with geofences, fuel and driver management, alerts and reports.',
+      title: 'GPS Vehicle Tracking (Wialon)',
+      text: 'Teltonika GPS trackers installed in your vehicles, with Wialon for live tracking, geofences, driver reports and alerts.',
       href: '/wialon-plaftform-for-gps-tracking/',
     },
     {

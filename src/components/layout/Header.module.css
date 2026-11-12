@@ -153,16 +153,37 @@
   height: 20px;
 }
 
-.hasDropdown:hover .dropdown,
-.hasDropdown:focus-within .dropdown {
+.hasDropdown:hover .dropdown {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
 }
 
-.hasDropdown:hover .chev,
-.hasDropdown:focus-within .chev {
+/* Keyboard focus only (:focus-visible), so a mouse click doesn't keep the menu open on the next page.
+   Separate rule: a browser without :has() drops just this rule, not the hover one above. */
+.hasDropdown:has(:focus-visible) .dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.hasDropdown:hover .chev {
   transform: rotate(180deg);
+}
+
+.hasDropdown:has(:focus-visible) .chev {
+  transform: rotate(180deg);
+}
+
+/* Set by NavDropdown after a link inside is clicked, until the pointer leaves */
+.hasDropdown.dropdownClosed .dropdown {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+}
+
+.hasDropdown.dropdownClosed .chev {
+  transform: none;
 }
 
 .dropdownLink {

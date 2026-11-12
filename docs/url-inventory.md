@@ -17,7 +17,7 @@ Status values: `rebuilt` | `redirected → <new URL>` | `dropped (404)` | `pendi
 | `/biotime-time-attendance-system-qatar/` | rebuilt | Old copy kept; "BioTime 8.5" made version-neutral (home shows 9.5); old support number replaced |
 | `/sunbirdtime-time-management-system-qatar/` | rebuilt | Old page had a title only; new original content from facts already on the site (company to confirm Sunbird details) |
 | `/hrms-payroll-management-qatar/` | rebuilt | Old page had a title only; new original content (company to confirm HRMS features) |
-| `/payroll-integration-qatar/` | rebuilt | Old copy kept; thin (about 200 words) |
+| `/payroll-integration-qatar/` | rebuilt | Old copy kept. 2026-11-12: expanded to about 700 words (integration options, WPS SIF, process, FAQs); H1/title now "Payroll & WPS Integration in Qatar" |
 | `/it-infrastructure-qatar/` | rebuilt | Old page had a title only; now the menu section hub (H1 + intro + cards linking its 6 pages) |
 | `/structured-cabling-data-voice-qatar/` | rebuilt | Old copy kept; machine-reworded wording corrected; old helpline +974 3002 9868 replaced |
 | `/audio-video-intercom-qatar/` | rebuilt | Old copy kept; grammar tidied; old helpline replaced |
@@ -28,7 +28,7 @@ Status values: `rebuilt` | `redirected → <new URL>` | `dropped (404)` | `pendi
 | `/applications/` | rebuilt | Menu section hub (H1 + intro + cards linking its 6 pages) |
 | `/digital-minimalist-wallet/` | rebuilt | Old copy kept (FuzeCard); other brands' leather-wallet sentences dropped |
 | `/business-process-management/` | rebuilt | Old copy kept; machine-reworded wording corrected (follows a BPM vendor's article; rewrite recommended) |
-| `/wialon-plaftform-for-gps-tracking/` | rebuilt | Keep the typo in the slug. Old copy kept; "clunky and outdated" review line and out-of-date 2010 figures removed |
+| `/wialon-plaftform-for-gps-tracking/` | rebuilt | Keep the typo in the slug. Old copy kept; "clunky and outdated" review line and out-of-date 2010 figures removed. 2026-11-12: refocused on "GPS Vehicle Tracking System in Qatar" (H1, title, menu label), Teltonika supply/installation section and FAQs added; URL unchanged |
 | `/restaurant-management-software-qatar/` | rebuilt | Old copy kept; machine-reworded wording corrected |
 | `/solutions/` | rebuilt | Menu section hub (H1 + intro + cards linking its 9 pages) |
 | `/document-management-scanning-qatar/` | rebuilt | Old copy kept; grammar tidied; "guarantee" of record access softened |

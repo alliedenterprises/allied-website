@@ -4,6 +4,7 @@ import { company } from '@/content/company'
 import type { NavLink, NavItem } from '@/content/navigation'
 import { HeaderScrollState } from './HeaderScrollState'
 import { MobileMenu } from './MobileMenu'
+import { NavDropdown } from './NavDropdown'
 import { ActiveLink } from './ActiveLink'
 import { Logo } from './Logo'
 import { ThemeToggle } from './ThemeToggle'
@@ -31,7 +32,7 @@ export function Header({ navItems, cta }: HeaderProps) {
           <ul className={styles.navList}>
             {navItems.map((item) =>
               item.children ? (
-                <li key={item.href} className={styles.hasDropdown}>
+                <NavDropdown key={item.href}>
                   <ActiveLink
                     href={item.href}
                     className={styles.navLink}
@@ -49,7 +50,7 @@ export function Header({ navItems, cta }: HeaderProps) {
                       </li>
                     ))}
                   </ul>
-                </li>
+                </NavDropdown>
               ) : (
                 <li key={item.href}>
                   <ActiveLink href={item.href} className={styles.navLink}>

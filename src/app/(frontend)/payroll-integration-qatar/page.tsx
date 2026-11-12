@@ -4,15 +4,17 @@ import { pageMetadata } from '@/lib/seo'
 
 import { CheckGrid } from '@/components/sections/CheckGrid'
 import { CtaBanner } from '@/components/sections/CtaBanner'
+import { FaqList } from '@/components/sections/FaqList'
 import { PageHero } from '@/components/sections/PageHero'
+import { SplitFeature } from '@/components/sections/SplitFeature'
 import { company } from '@/content/company'
 import { ctaBanner } from '@/content/home'
-import { piBenefits, piHero } from '@/content/payroll-integration'
+import { piBenefits, piFaq, piHero, piOptions, piProcess } from '@/content/payroll-integration'
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Payroll Integration System in Qatar | Allied Enterprises',
+  title: 'Payroll & WPS Integration in Qatar | Allied Enterprises',
   description:
-    'Connect BioTime and Sunbird time attendance data to your payroll system in Qatar to reduce payroll errors and calculate overtime, vacation and sick pay.',
+    'Connect ZKTeco attendance to your payroll in Qatar: export to your ERP, or use our payroll software to calculate overtime and generate the WPS SIF salary file.',
   path: '/payroll-integration-qatar/',
 })
 
@@ -29,12 +31,15 @@ export default function PayrollIntegrationPage() {
         primary={piHero.primary}
         phone={company.phone}
       />
+      <SplitFeature id="options-heading" heading={piOptions.heading} text={piOptions.text} tinted />
+      <SplitFeature id="process-heading" heading={piProcess.heading} text={piProcess.text} links={piProcess.links} />
       <CheckGrid
         id="benefits-heading"
         heading={piBenefits.heading}
         items={piBenefits.items}
         links={piBenefits.links}
       />
+      <FaqList heading={piFaq.heading} items={piFaq.items} />
       <CtaBanner
         eyebrow={ctaBanner.eyebrow}
         heading={ctaBanner.heading}

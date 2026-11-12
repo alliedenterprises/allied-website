@@ -42,7 +42,7 @@ export const mainNav: NavItem[] = [
       { label: 'Sunbirdtime Time Management System', href: '/sunbirdtime-time-management-system-qatar/' },
       { label: 'Digital Minimalist Wallet', href: '/digital-minimalist-wallet/' },
       { label: 'Business Process Management', href: '/business-process-management/' },
-      { label: 'Wialon Platform for GPS Tracking', href: '/wialon-plaftform-for-gps-tracking/' },
+      { label: 'GPS Vehicle Tracking (Wialon)', href: '/wialon-plaftform-for-gps-tracking/' },
       { label: 'Restaurant Management Software', href: '/restaurant-management-software-qatar/' },
     ],
   },
