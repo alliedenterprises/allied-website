@@ -20,3 +20,5 @@ Built on a dev machine and run on the Windows server with PM2 on port 3002 behin
 npm run build
 npm run start -- -p 3002
 ```
+
+Image resizing in production needs sharp's Windows DLLs in the standalone build (see `outputFileTracingIncludes` in `next.config.ts`).
