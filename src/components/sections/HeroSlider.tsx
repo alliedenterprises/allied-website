@@ -26,24 +26,50 @@ type HeroSliderProps = {
  * - Auto-rotation pauses only for the pause button and keyboard focus
  *   (WCAG 2.2.2), not on hover/clicks (the hero is full-width).
  * - "Reduce motion": slides change instantly (CSS disables transitions).
+ * - Performance: only the first slide's image is in the server HTML (it is the page's LCP image).
+ *   The other images are added once the page has finished loading, so they do not compete with it
+ *   for bandwidth on phones; a same-size placeholder holds their space (no layout shift).
+ *   Autoplay starts only after that, so a slide never appears without its image.
  */
-export function HeroSlider({ slides, label, intervalMs = 2000 }: HeroSliderProps) {
+export function HeroSlider({ slides, label, intervalMs = 3000 }: HeroSliderProps) {
   const count = slides.length
   // `from` is kept until the next navigation, so re-renders never restart an animation
   const [nav, setNav] = useState({ index: 0, from: 0 })
   const [paused, setPaused] = useState(false)
   const [keyboardFocus, setKeyboardFocus] = useState(false)
+  const [loadAll, setLoadAll] = useState(false)
   const touchStartX = useRef<number | null>(null)
   const { index, from } = nav
 
+  useEffect(() => {
+    const onLoad = () => setLoadAll(true)
+    // client-side navigation back to the homepage: the window has already loaded
+    if (document.readyState === 'complete') {
+      const id = window.setTimeout(onLoad, 0)
+      return () => window.clearTimeout(id)
+    }
+    window.addEventListener('load', onLoad, { once: true })
+    return () => window.removeEventListener('load', onLoad)
+  }, [])
+
+  // manual navigation before the page has loaded still shows the chosen slide's image
   const goTo = useCallback(
-    (i: number) => setNav((n) => ({ index: ((i % count) + count) % count, from: n.index })),
+    (i: number) => {
+      setLoadAll(true)
+      setNav((n) => ({ index: ((i % count) + count) % count, from: n.index }))
+    },
     [count],
   )
-  const next = useCallback(() => setNav((n) => ({ index: (n.index + 1) % count, from: n.index })), [count])
-  const prev = useCallback(() => setNav((n) => ({ index: (n.index - 1 + count) % count, from: n.index })), [count])
+  const next = useCallback(() => {
+    setLoadAll(true)
+    setNav((n) => ({ index: (n.index + 1) % count, from: n.index }))
+  }, [count])
+  const prev = useCallback(() => {
+    setLoadAll(true)
+    setNav((n) => ({ index: (n.index - 1 + count) % count, from: n.index }))
+  }, [count])
 
-  const autoplay = count > 1 && !paused && !keyboardFocus
+  const autoplay = count > 1 && loadAll && !paused && !keyboardFocus
 
   // Timer restarts on every slide change; ticks are skipped while the tab is hidden
   useEffect(() => {
@@ -139,7 +165,7 @@ export function HeroSlider({ slides, label, intervalMs = 2000 }: HeroSliderProps
               aria-hidden={!active}
               inert={!active}
             >
-              <Slide slide={slide} priority={i === 0} />
+              <Slide slide={slide} priority={i === 0} showImage={i === 0 || loadAll} />
             </div>
           )
         })}
@@ -198,7 +224,7 @@ export function HeroSlider({ slides, label, intervalMs = 2000 }: HeroSliderProps
 
 /* ---------------------------------------------------------------- */
 
-function Slide({ slide, priority }: { slide: BannerSlide; priority: boolean }) {
+function Slide({ slide, priority, showImage }: { slide: BannerSlide; priority: boolean; showImage: boolean }) {
   return (
     <div className={styles.inner}>
       <div className={styles.copy}>
@@ -241,17 +267,27 @@ function Slide({ slide, priority }: { slide: BannerSlide; priority: boolean }) {
 
       <div className={styles.visual}>
         <span className={styles.glow} aria-hidden="true" />
-        <Image
-          src={slide.image.src}
-          alt={slide.image.alt}
-          width={slide.image.width}
-          height={slide.image.height}
-          sizes="(max-width: 900px) 92vw, 50vw"
-          quality={92}
-          preload={priority}
-          loading={priority ? 'eager' : 'lazy'}
-          className={styles.image}
-        />
+        {showImage ? (
+          <Image
+            src={slide.image.src}
+            alt={slide.image.alt}
+            width={slide.image.width}
+            height={slide.image.height}
+            sizes="(max-width: 900px) 92vw, 50vw"
+            quality={80}
+            preload={priority}
+            loading="eager"
+            fetchPriority={priority ? 'high' : 'low'}
+            className={styles.image}
+          />
+        ) : (
+          // same box as the image (width 100%, height from the aspect ratio, same max-height)
+          <span
+            className={`${styles.image} ${styles.placeholder}`}
+            style={{ aspectRatio: `${slide.image.width} / ${slide.image.height}` }}
+            aria-hidden="true"
+          />
+        )}
       </div>
     </div>
   )

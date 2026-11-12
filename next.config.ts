@@ -12,6 +12,12 @@ const blockIndexing = process.env.VERCEL === '1' && process.env.ALLOW_INDEXING !
 
 const nextConfig: NextConfig = {
   output: 'standalone',
+  // The standalone build copies sharp's .node binary but not the libvips DLLs it loads on Windows.
+  // Without them sharp fails to load and next/image silently serves every image at full size
+  // (found 2026-11-12: a 1100px logo was sent for a 190px slot). On Linux this glob matches nothing.
+  outputFileTracingIncludes: {
+    '/*': ['./node_modules/@img/sharp-win32-x64/lib/*'],
+  },
   // every old WordPress URL ends in a slash; they must keep their exact paths
   trailingSlash: true,
   experimental: {
@@ -33,9 +39,10 @@ const nextConfig: NextConfig = {
     ]
   },
   images: {
-    // 75 = default for normal images; 92 = high-quality homepage banners
+    // 75 = default for normal images; 80 = homepage banners and partner logos
+    // 92 = no longer used, kept so image URLs in already-cached HTML keep working
     // (Next 16 requires every quality used by next/image to be listed here)
-    qualities: [75, 92],
+    qualities: [75, 80, 92],
     localPatterns: [
       {
         pathname: '/api/media/file/**',
@@ -61,4 +68,29 @@ const nextConfig: NextConfig = {
   },
 }
 
-export default withPayload(nextConfig, { devBundleServerPackages: false })
+const config = withPayload(nextConfig, { devBundleServerPackages: false })
+
+// withPayload sends `Accept-CH`, `Critical-CH` and `Vary: Sec-CH-Prefers-Color-Scheme` on every path so the
+// admin panel can open in the OS colour scheme. On the public site `Critical-CH` makes Chrome request each
+// page twice on a first visit (~0.8 s on mobile in Lighthouse) for a hint nothing there reads (the site
+// has its own theme script). Keep those headers on the admin panel only; everything else is unchanged.
+const CLIENT_HINT_KEYS = new Set(['accept-ch', 'critical-ch', 'vary'])
+const payloadHeaders = config.headers
+
+export default {
+  ...config,
+  async headers() {
+    const rules = (await payloadHeaders?.()) ?? []
+    return rules.flatMap((rule) => {
+      const isPayloadHintRule =
+        rule.source === '/:path*' && rule.headers.some((h) => h.key.toLowerCase() === 'critical-ch')
+      if (!isPayloadHintRule) return [rule]
+      const hints = rule.headers.filter((h) => CLIENT_HINT_KEYS.has(h.key.toLowerCase()))
+      const rest = rule.headers.filter((h) => !CLIENT_HINT_KEYS.has(h.key.toLowerCase()))
+      return [
+        ...(rest.length ? [{ ...rule, headers: rest }] : []),
+        { ...rule, source: '/admin/:path*', headers: hints },
+      ]
+    })
+  },
+} satisfies NextConfig

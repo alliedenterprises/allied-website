@@ -356,6 +356,11 @@
   filter: drop-shadow(0 24px 34px rgba(0, 0, 0, 0.5));
 }
 
+/* reserves a not-yet-loaded slide image's space (see HeroSlider) */
+.placeholder {
+  display: block;
+}
+
 /* ---------- Entrance animation for the active slide ---------- */
 .slide[data-active='true'] .copy > * {
   animation: rise 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) both;
