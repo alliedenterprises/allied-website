@@ -48,3 +48,8 @@ node_modules/
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+
+# AI assistant files (kept locally, not published)
+/CLAUDE.md
+/AGENTS.md
+/.claude/

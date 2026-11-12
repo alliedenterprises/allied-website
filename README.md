@@ -2,8 +2,6 @@
 
 Company website for Allied Enterprises WLL (Doha, Qatar) — Next.js + Payload CMS 3 + PostgreSQL.
 
-See [CLAUDE.md](CLAUDE.md) for architecture, conventions, SEO and performance rules.
-
 ## Local development
 
 1. `cp .env.example .env` and set `DATABASE_URL` (PostgreSQL) and `PAYLOAD_SECRET`
