@@ -33,6 +33,8 @@ const business = {
   geo: { '@type': 'GeoCoordinates', latitude: company.map.lat, longitude: company.map.lng },
   hasMap: mapUrl,
   areaServed: { '@type': 'Country', name: 'Qatar' },
+  // shown on the home page banner and /zkteco-qatar/ (zkteco.ts zktecoAward)
+  award: 'ZKTeco Distinguished Project Leadership Award 2025',
   openingHoursSpecification: company.hours
     .filter((h) => h.opens && h.closes)
     .map((h) => ({

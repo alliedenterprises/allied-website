@@ -140,10 +140,38 @@ export const zktecoCertificate = {
   },
 }
 
+// Same award as the home page banner (home.ts bannerSlides, "ZKTeco Award 2025"). Facts from the company's
+// trophy and certificate photos only: trophy "Distinguished Project Leadership Award 2025"; certificate from
+// ZKTeco Co., Ltd. to Allied Enterprises, "Distinguished Project Leadership", "Certificate of 2024 Achievement",
+// "In honor of your outstanding excellence". Do not add a ranking or "best dealer" claim the award doesn't make.
+export const zktecoAward = {
+  heading: 'ZKTeco Distinguished Project Leadership Award',
+  text: [
+    'ZKTeco Co., Ltd. has honoured Allied Enterprises with its Distinguished Project Leadership Award 2025, presented with a Certificate of 2024 Achievement in recognition of our outstanding excellence in ZKTeco projects.',
+    {
+      list: [
+        'Award: Distinguished Project Leadership Award 2025',
+        'Certificate: Certificate of 2024 Achievement',
+        'Presented by: ZKTeco Co., Ltd.',
+        'Presented to: Allied Enterprises, Doha, Qatar',
+      ],
+    },
+    'Together with our Authorized Distributor certificate, it means that when you look for a ZKTeco dealer in Qatar, you work with a partner recognised by ZKTeco itself. Our team handles each project from start to finish: choosing the right attendance terminals, access control and entrance control for your site, installation and configuration, BioTime software setup and after-sales support from Doha.',
+  ],
+  links: [{ label: 'Discuss your ZKTeco project with us', href: '/contact-us/' }],
+  image: {
+    src: '/images/banners/zkteco-leadership-award-level.webp',
+    width: 1400,
+    height: 960,
+    alt: 'ZKTeco Distinguished Project Leadership Award 2025 trophy and ZKTeco certificate presented to Allied Enterprises',
+  },
+}
+
 export const zktecoWhy = {
   heading: 'Why buy ZKTeco from Allied Enterprises',
   items: [
     'Authorized ZKTeco distributor in Qatar',
+    'ZKTeco Distinguished Project Leadership Award 2025',
     'More than 10000 installations as of 2026',
     'Product stock and support staff in Qatar',
     'Advice on the right models for your site',
@@ -204,7 +232,7 @@ export const zktecoFaq = {
     {
       question: 'Is Allied Enterprises an authorized ZKTeco distributor in Qatar?',
       answer: [
-        'Yes. ZKTeco Co., Ltd. has certified Allied Enterprises WLL as its authorized distributor for the territory of Qatar (2026 certificate shown on this page). We supply ZKTeco time attendance, access control and entrance control products as a distributor and dealer, and have completed more than 10000 installations as of 2026.',
+        'Yes. ZKTeco Co., Ltd. has certified Allied Enterprises WLL as its authorized distributor for the territory of Qatar (2026 certificate shown on this page). We supply ZKTeco time attendance, access control and entrance control products as a distributor and dealer, and have completed more than 10000 installations as of 2026. ZKTeco also presented us with its Distinguished Project Leadership Award 2025.',
       ],
     },
     {

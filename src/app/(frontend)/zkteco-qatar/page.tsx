@@ -12,6 +12,7 @@ import { ZktecoHero } from '@/components/sections/ZktecoHero'
 import { company } from '@/content/company'
 import { ctaBanner } from '@/content/home'
 import {
+  zktecoAward,
   zktecoCertificate,
   zktecoFaq,
   zktecoHero,
@@ -21,7 +22,7 @@ import {
 } from '@/content/zkteco'
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Authorized ZKTeco Distributor in Qatar | Allied Enterprises',
+  title: 'ZKTeco Qatar: Authorized Distributor & Dealer | Allied Enterprises',
   description:
     'Authorized ZKTeco distributor and dealer in Qatar: attendance terminals, BioTime, access control and barriers, installed and supported by Allied Enterprises in Doha.',
   path: '/zkteco-qatar/',
@@ -58,6 +59,15 @@ export default function ZktecoPage() {
         image={zktecoCertificate.image}
         imageStyle="document"
         tinted
+      />
+      <SplitFeature
+        id="award-heading"
+        heading={zktecoAward.heading}
+        text={zktecoAward.text}
+        links={zktecoAward.links}
+        image={zktecoAward.image}
+        imageStyle="product"
+        imageSide="right"
       />
       <CheckGrid id="why-heading" heading={zktecoWhy.heading} items={zktecoWhy.items} links={zktecoWhy.links} />
       <ProcessSteps
