@@ -4,6 +4,7 @@ import { pageMetadata } from '@/lib/seo'
 
 import { AudienceGrid } from '@/components/sections/AudienceGrid'
 import { CtaBanner } from '@/components/sections/CtaBanner'
+import { IsoCertificates } from '@/components/sections/IsoCertificates'
 import { PageHero } from '@/components/sections/PageHero'
 import { PrincipleQuote } from '@/components/sections/PrincipleQuote'
 import { QualityPolicy } from '@/components/sections/QualityPolicy'
@@ -13,6 +14,7 @@ import {
   aboutAudience,
   aboutCulture,
   aboutHero,
+  aboutIso,
   aboutPrinciple,
   aboutQuality,
   aboutTeam,
@@ -42,6 +44,11 @@ export default function AboutPage() {
         badge={aboutHero.badge}
         primary={aboutHero.primary}
         phone={company.phone}
+      />
+      <IsoCertificates
+        heading={aboutIso.heading}
+        intro={aboutIso.intro}
+        items={aboutIso.items}
       />
       <SplitFeature
         id="zkteco-heading"

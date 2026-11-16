@@ -39,6 +39,59 @@ export const aboutHero = {
   primary: { label: 'Request a Quote', href: '/contact-us/' },
 }
 
+// ISO certificates (added 2026-11-16). Facts only from the three company-supplied certificates (PDFs rendered
+// to webp): issued by Globus Certifications Private Limited (GCPL), accredited by United Accreditation
+// Foundation Inc. (UAF); issued to "Allied Enterprises Trading and Services", Office No. 204, Doha; scope
+// "Trading in Computers & their Accessories, Maintenance of software and designing web pages and IT Networking";
+// issued 29 Oct 2026, valid period 29 Oct 2026 – 28 Oct 2029, subject to yearly surveillance audits.
+// Do not widen the scope wording beyond what the certificates state.
+// VERIFY: the next surveillance audit is due on or before 28 Oct 2027. Remove a certificate that lapses.
+export type IsoCertificate = {
+  standard: string
+  title: string
+  image: PageImage
+}
+
+export const aboutIso = {
+  heading: 'ISO certified for quality, environment and safety',
+  intro:
+    'Allied Enterprises has been independently assessed and certified to three international management system standards.',
+  items: [
+    {
+      standard: 'ISO 9001:2015',
+      title: 'Quality Management System',
+      image: {
+        src: '/images/certifications/iso-9001-2015-certificate-allied-enterprises.webp',
+        width: 1200,
+        height: 1696,
+        alt: 'ISO 9001:2015 Quality Management System certificate of registration issued to Allied Enterprises, Doha, Qatar',
+      },
+    },
+    {
+      standard: 'ISO 14001:2015',
+      title: 'Environmental Management System',
+      image: {
+        src: '/images/certifications/iso-14001-2015-certificate-allied-enterprises.webp',
+        width: 1200,
+        height: 1696,
+        alt: 'ISO 14001:2015 Environmental Management System certificate of registration issued to Allied Enterprises, Doha, Qatar',
+      },
+    },
+    {
+      standard: 'ISO 45001:2018',
+      title: 'Occupational Health & Safety Management System',
+      image: {
+        src: '/images/certifications/iso-45001-2018-certificate-allied-enterprises.webp',
+        width: 1200,
+        height: 1696,
+        alt: 'ISO 45001:2018 Occupational Health and Safety Management System certificate of registration issued to Allied Enterprises, Doha, Qatar',
+      },
+    },
+  ] as IsoCertificate[],
+  // The card descriptions, Reg. No. lines and the issuer / scope / validity paragraph were removed on request (2026-11-16);
+  // those details remain readable on the certificate images.
+}
+
 export const aboutZkteco = {
   heading: 'Our ZKTeco partnership',
   text: [

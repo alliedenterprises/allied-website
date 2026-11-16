@@ -1,0 +1,166 @@
+.section {
+  /* same content edge as the other sections (96px inside the 1440px column) */
+  --edge: max(96px, calc((100% - 1440px) / 2 + 96px));
+  /* small top padding: the hero above already ends with its own space */
+  padding: 16px var(--edge) 72px;
+}
+
+.top {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 64px;
+  align-items: end;
+  margin-bottom: 40px;
+}
+
+.heading {
+  margin: 0;
+  font-size: clamp(28px, 2.8vw, 40px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.6px;
+  color: var(--text);
+}
+
+.intro {
+  margin: 0;
+  font-size: 16.5px;
+  line-height: 1.75;
+  color: var(--text-muted);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+  text-align: center;
+}
+
+/* the certificate itself, with a soft shadow (no white card or frame behind it) */
+.frame {
+  display: block;
+  width: min(100%, 260px);
+  overflow: hidden;
+  border-radius: 6px;
+  box-shadow: 0 14px 32px rgba(19, 48, 122, 0.18);
+  transition:
+    transform 0.25s,
+    box-shadow 0.25s;
+}
+
+.frame:hover {
+  box-shadow: 0 20px 40px rgba(19, 48, 122, 0.26);
+  transform: translateY(-3px);
+}
+
+.frame:focus-visible {
+  outline: 3px solid var(--brand-accent);
+  outline-offset: 3px;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.title {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--text);
+}
+
+.standard {
+  display: block;
+  margin-bottom: 2px;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  color: var(--brand-accent);
+}
+
+@media (max-width: 1180px) {
+  .section {
+    --edge: 32px;
+    padding-top: 16px;
+    padding-bottom: 64px;
+  }
+
+  .top {
+    gap: 40px;
+  }
+
+  .grid {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 900px) {
+  .top {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* certificate beside its text */
+  .card {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+  }
+
+  .frame {
+    flex-shrink: 0;
+    width: 200px;
+  }
+}
+
+@media (max-width: 600px) {
+  .section {
+    --edge: 20px;
+    padding-top: 8px;
+    padding-bottom: 48px;
+  }
+
+  .top {
+    margin-bottom: 28px;
+  }
+
+  .intro {
+    font-size: 15px;
+  }
+
+  .card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .frame {
+    width: min(100%, 220px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .frame {
+    transition: none;
+  }
+
+  .frame:hover {
+    transform: none;
+  }
+}
