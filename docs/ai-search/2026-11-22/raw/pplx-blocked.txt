@@ -1,0 +1,3 @@
+engine=perplexity surface=perplexity-search locale=en-QA observed_at=2026-11-22T13:00:00Z access=signed-out
+prompt: Who is the authorized ZKTeco distributor in Qatar?
+result: page returned "Sign up and repeat your request." No answer shown. Not signed in (no credentials used).

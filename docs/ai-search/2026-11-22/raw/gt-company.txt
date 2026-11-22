@@ -1,0 +1,6 @@
+source: repo src/content/company.ts and src/content/zkteco.ts, read 2026-11-22
+- legal name: Allied Enterprises WLL
+- ZKTeco status: Authorized ZKTeco Distributor in Qatar (2026 certificate shown on /zkteco-qatar/; valid 2026-01-01..2026-12-31 per ChatGPT reading of the certificate; site wording "authorized distributor", older "agent" wording retired 2026-11-09)
+- hours: Sunday–Thursday 08:00–17:30; Saturday 08:00–13:00; Friday closed
+- phone +974 4471 8845; helpline/WhatsApp +974 3333 8964
+- offices: 204 Retaj Business Building, B Ring Road; 108 Fereej Bin Dirhem, B Ring Road (Doha)

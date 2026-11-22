@@ -73,6 +73,33 @@ export const biotimeVersions = {
   links: [{ label: 'Ask which version suits you', href: '/contact-us/' }],
 }
 
+// 2026-11-22 (AI search research, docs/ai-search/2026-11-22/): AI answers to "BioTime installation and support
+// in Qatar" credit competitors for install, training, AMC and service areas, and cite /zkteco-qatar/ instead of
+// this page. Facts used are already confirmed on the site: install/connect/rules/enrol/train (FAQ below),
+// free demo, AMC contracts and installation all over Qatar (time-attendance.ts, confirmed 2026-11-12).
+// Not included until the company confirms them: licence types and counts, fixing/migrating existing installs.
+export const biotimeSupport = {
+  heading: 'BioTime installation and support in Qatar',
+  text: [
+    'We install and support ZKTeco BioTime for companies all over Qatar, from a single office to multi-site operations. A typical setup includes:',
+    {
+      list: [
+        'A free demo of BioTime and the ZKTeco devices before you buy.',
+        'Installing BioTime 9.5 on your Windows server or PC, or helping you choose BioTime Cloud instead.',
+        'Connecting your ZKTeco attendance devices at every site.',
+        'Setting up shifts, overtime and leave rules to match your company policy.',
+        'Enrolling your employees and training your HR and admin team.',
+        'An annual maintenance contract (AMC) for the software and devices, with support from our two offices in Doha.',
+      ],
+    },
+    'Tell us how many employees, devices and sites you have, and we will send a clear quotation for the software, devices and installation.',
+  ] as ContentBlock[],
+  links: [
+    { label: 'Request a BioTime quotation', href: '/contact-us/' },
+    { label: 'Payroll & WPS integration', href: '/payroll-integration-qatar/' },
+  ],
+}
+
 export const biotimeRequirements = {
   heading: 'BioTime 9.5 server requirements',
   items: [

@@ -13,6 +13,7 @@ import {
   biotimeFeatures,
   biotimeHero,
   biotimeRequirements,
+  biotimeSupport,
   biotimeVersions,
 } from '@/content/biotime'
 import { company } from '@/content/company'
@@ -47,6 +48,12 @@ export default function BioTimePage() {
         text={biotimeVersions.text}
         links={biotimeVersions.links}
         tinted
+      />
+      <SplitFeature
+        id="support-heading"
+        heading={biotimeSupport.heading}
+        text={biotimeSupport.text}
+        links={biotimeSupport.links}
       />
       <CheckGrid id="requirements-heading" heading={biotimeRequirements.heading} items={biotimeRequirements.items} />
       <FaqList heading={biotimeFaq.heading} items={biotimeFaq.items} />

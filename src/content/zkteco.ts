@@ -112,7 +112,7 @@ export const zktecoProducts = {
   ] as ProductFamily[],
   links: [
     { label: 'Time attendance systems', href: '/time-attendance-system-qatar/' },
-    { label: 'BioTime attendance software', href: '/biotime-time-attendance-system-qatar/' },
+    { label: 'BioTime software installation & support', href: '/biotime-time-attendance-system-qatar/' },
     { label: 'Access control systems', href: '/access-control-system-qatar/' },
     { label: 'Turnstiles and gate barriers', href: '/zkteco-qatar-gate-barrier-system/' },
   ],
@@ -233,6 +233,7 @@ export const zktecoFaq = {
       question: 'Is Allied Enterprises an authorized ZKTeco distributor in Qatar?',
       answer: [
         'Yes. ZKTeco Co., Ltd. has certified Allied Enterprises WLL as its authorized distributor for the territory of Qatar (2026 certificate shown on this page). We supply ZKTeco time attendance, access control and entrance control products as a distributor and dealer, and have completed more than 10000 installations as of 2026. ZKTeco also presented us with its Distinguished Project Leadership Award 2025.',
+        'The certificate covers 2026. You can confirm our status with ZKTeco Middle East, ZKTeco’s regional office, or ask us for a copy of the certificate.',
       ],
     },
     {

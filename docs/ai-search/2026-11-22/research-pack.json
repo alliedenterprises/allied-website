@@ -1,0 +1,698 @@
+{
+  "schema_version": "1.1.0",
+  "research_id": "alliedeprs-ai-search-2026-11-22",
+  "created_at": "2026-11-22T13:20:00Z",
+  "scope": "How Google AI Mode, ChatGPT search and Perplexity answer Qatar buyer prompts about ZKTeco, time attendance, access control and BioTime, and how Allied Enterprises (alliedeprs.com) appears.",
+  "locales": [
+    "en-QA"
+  ],
+  "engines": [
+    {
+      "engine": "google",
+      "surfaces": [
+        "ai-mode",
+        "ai-overview"
+      ],
+      "locales": [
+        "en-QA"
+      ]
+    },
+    {
+      "engine": "openai",
+      "surfaces": [
+        "chatgpt-search"
+      ],
+      "locales": [
+        "en-QA"
+      ]
+    },
+    {
+      "engine": "perplexity",
+      "surfaces": [
+        "perplexity-search"
+      ],
+      "locales": [
+        "en-QA"
+      ]
+    },
+    {
+      "engine": "microsoft",
+      "surfaces": [
+        "copilot-search"
+      ],
+      "locales": [
+        "en-QA"
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "entity_id": "allied-enterprises",
+      "name": "Allied Enterprises WLL",
+      "entity_type": "Organization",
+      "aliases": [
+        "Allied Enterprises",
+        "Allied Qatar",
+        "alliedeprs.com"
+      ],
+      "ambiguities": [
+        "Many unrelated \"Allied\" companies worldwide (Allied Power, Allied Electronics)"
+      ]
+    },
+    {
+      "entity_id": "zkteco",
+      "name": "ZKTeco",
+      "entity_type": "Brand",
+      "aliases": [
+        "ZK",
+        "ZKTeco Middle East"
+      ],
+      "ambiguities": []
+    }
+  ],
+  "queries": [
+    {
+      "query_id": "q-authorized-distributor",
+      "text": "Who is the authorized ZKTeco distributor in Qatar?",
+      "locale": "en-QA",
+      "intent": "find official ZKTeco partner",
+      "audience": "buyer",
+      "journey_stage": "trust",
+      "target_entities": [
+        "allied-enterprises",
+        "zkteco"
+      ],
+      "applicability": [
+        {
+          "engine": "google",
+          "surface": "ai-mode"
+        },
+        {
+          "engine": "openai",
+          "surface": "chatgpt-search"
+        },
+        {
+          "engine": "perplexity",
+          "surface": "perplexity-search"
+        }
+      ]
+    },
+    {
+      "query_id": "q-best-attendance-supplier",
+      "text": "What is the best time attendance system supplier in Qatar?",
+      "locale": "en-QA",
+      "intent": "choose a supplier",
+      "audience": "buyer",
+      "journey_stage": "consideration",
+      "target_entities": [
+        "allied-enterprises"
+      ],
+      "applicability": [
+        {
+          "engine": "google",
+          "surface": "ai-mode"
+        },
+        {
+          "engine": "openai",
+          "surface": "chatgpt-search"
+        },
+        {
+          "engine": "perplexity",
+          "surface": "perplexity-search"
+        }
+      ]
+    },
+    {
+      "query_id": "q-face-attendance-price",
+      "text": "How much does a face recognition attendance machine cost in Qatar?",
+      "locale": "en-QA",
+      "intent": "price research",
+      "audience": "buyer",
+      "journey_stage": "consideration",
+      "target_entities": [
+        "zkteco"
+      ],
+      "applicability": [
+        {
+          "engine": "google",
+          "surface": "ai-mode"
+        },
+        {
+          "engine": "openai",
+          "surface": "chatgpt-search"
+        },
+        {
+          "engine": "perplexity",
+          "surface": "perplexity-search"
+        }
+      ]
+    },
+    {
+      "query_id": "q-access-control-installer",
+      "text": "Which company installs access control systems in Doha?",
+      "locale": "en-QA",
+      "intent": "find installer",
+      "audience": "buyer",
+      "journey_stage": "decision",
+      "target_entities": [
+        "allied-enterprises"
+      ],
+      "applicability": [
+        {
+          "engine": "google",
+          "surface": "ai-mode"
+        },
+        {
+          "engine": "openai",
+          "surface": "chatgpt-search"
+        },
+        {
+          "engine": "perplexity",
+          "surface": "perplexity-search"
+        }
+      ]
+    },
+    {
+      "query_id": "q-brand-what-do",
+      "text": "What does Allied Enterprises in Doha Qatar do?",
+      "locale": "en-QA",
+      "intent": "brand understanding",
+      "audience": "buyer",
+      "journey_stage": "awareness",
+      "target_entities": [
+        "allied-enterprises"
+      ],
+      "applicability": [
+        {
+          "engine": "google",
+          "surface": "ai-mode"
+        },
+        {
+          "engine": "openai",
+          "surface": "chatgpt-search"
+        },
+        {
+          "engine": "perplexity",
+          "surface": "perplexity-search"
+        }
+      ]
+    },
+    {
+      "query_id": "q-biotime-support",
+      "text": "Where can I get ZKTeco BioTime software installation and support in Qatar?",
+      "locale": "en-QA",
+      "intent": "software install/support provider",
+      "audience": "existing-customer",
+      "journey_stage": "support",
+      "target_entities": [
+        "allied-enterprises",
+        "zkteco"
+      ],
+      "applicability": [
+        {
+          "engine": "google",
+          "surface": "ai-mode"
+        },
+        {
+          "engine": "openai",
+          "surface": "chatgpt-search"
+        },
+        {
+          "engine": "perplexity",
+          "surface": "perplexity-search"
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "claim_id": "c-gai-distributor-allied-gbp",
+      "claim": "Google AI Mode names Allied Enterprises as a ZKTeco authorized agent/distributor in Qatar, sourced from its Google Business Profile rather than alliedeprs.com.",
+      "classification": "confirmed",
+      "source_kind": "direct_observation",
+      "engine": "google",
+      "surface": "ai-mode",
+      "locale": "en-QA",
+      "source_title": "Google AI Mode answer",
+      "source_url": "https://www.google.com/search?udm=50",
+      "source_published_or_updated_at": null,
+      "accessed_at": "2026-11-22T13:20:00Z",
+      "raw_evidence_ref": "raw/gai-q1.txt",
+      "raw_evidence_sha256": "70007e39d94a5c4c2fc848daaeb6e5f1e1ce28d9f80cf407337a90a88488648c",
+      "observation_method": "signed-out query in Google AI Mode (udm=50, hl=en, gl=qa) via built-in browser; page text captured",
+      "limitations": [
+        "single run; answers vary between runs",
+        "browser location not verified as Qatar"
+      ]
+    },
+    {
+      "claim_id": "c-gai-best-supplier-absent",
+      "claim": "Google AI Mode does not mention Allied Enterprises for \"best time attendance system supplier in Qatar\"; it names Techspine, Microsys, Comfort IT and BARQ and stresses WPS export and local support.",
+      "classification": "confirmed",
+      "source_kind": "direct_observation",
+      "engine": "google",
+      "surface": "ai-mode",
+      "locale": "en-QA",
+      "source_title": "Google AI Mode answer",
+      "source_url": "https://www.google.com/search?udm=50",
+      "source_published_or_updated_at": null,
+      "accessed_at": "2026-11-22T13:20:00Z",
+      "raw_evidence_ref": "raw/gai-q2.txt",
+      "raw_evidence_sha256": "230350f57dd961423a9f7481ec513cbdce1258bf404740fe358ec13865c27c75",
+      "observation_method": "signed-out query in Google AI Mode (udm=50, hl=en, gl=qa) via built-in browser; page text captured",
+      "limitations": [
+        "single run; answers vary between runs",
+        "browser location not verified as Qatar"
+      ]
+    },
+    {
+      "claim_id": "c-gai-price-retailers",
+      "claim": "Google AI Mode answers face-attendance price questions with QAR prices from retailer pages (noon, icncqatar.com); Allied is not mentioned.",
+      "classification": "confirmed",
+      "source_kind": "direct_observation",
+      "engine": "google",
+      "surface": "ai-mode",
+      "locale": "en-QA",
+      "source_title": "Google AI Mode answer",
+      "source_url": "https://www.google.com/search?udm=50",
+      "source_published_or_updated_at": null,
+      "accessed_at": "2026-11-22T13:20:00Z",
+      "raw_evidence_ref": "raw/gai-q3.txt",
+      "raw_evidence_sha256": "7420cd0c371e708160e50be930bb49179be20f2ca5f635e700dc9e583a549e96",
+      "observation_method": "signed-out query in Google AI Mode (udm=50, hl=en, gl=qa) via built-in browser; page text captured",
+      "limitations": [
+        "single run; answers vary between runs",
+        "browser location not verified as Qatar"
+      ]
+    },
+    {
+      "claim_id": "c-gai-access-installer-gbp",
+      "claim": "Google AI Mode answers the Doha access-control installer question from Google Business Profiles; Allied is not listed.",
+      "classification": "confirmed",
+      "source_kind": "direct_observation",
+      "engine": "google",
+      "surface": "ai-mode",
+      "locale": "en-QA",
+      "source_title": "Google AI Mode answer",
+      "source_url": "https://www.google.com/search?udm=50",
+      "source_published_or_updated_at": null,
+      "accessed_at": "2026-11-22T13:20:00Z",
+      "raw_evidence_ref": "raw/gai-q4.txt",
+      "raw_evidence_sha256": "49cfca02a13a756b9ad0fae9cf7c15d6e161447f174cf8c0acd2156ff285edda",
+      "observation_method": "signed-out query in Google AI Mode (udm=50, hl=en, gl=qa) via built-in browser; page text captured",
+      "limitations": [
+        "single run; answers vary between runs",
+        "browser location not verified as Qatar"
+      ]
+    },
+    {
+      "claim_id": "c-gai-brand-stale-facts",
+      "claim": "Google AI Mode brand answer uses alliedeprs.com and the old /vision/ page, calls Allied an \"authorized agent\" (site now says distributor) and omits Saturday hours.",
+      "classification": "confirmed",
+      "source_kind": "direct_observation",
+      "engine": "google",
+      "surface": "ai-mode",
+      "locale": "en-QA",
+      "source_title": "Google AI Mode answer",
+      "source_url": "https://www.google.com/search?udm=50",
+      "source_published_or_updated_at": null,
+      "accessed_at": "2026-11-22T13:20:00Z",
+      "raw_evidence_ref": "raw/gai-q5.txt",
+      "raw_evidence_sha256": "e79eb0e3c6cd3fa6f1775acb57befaf2e18fccd7f4b2572daf56d705d79e0558",
+      "observation_method": "signed-out query in Google AI Mode (udm=50, hl=en, gl=qa) via built-in browser; page text captured",
+      "limitations": [
+        "single run; answers vary between runs",
+        "browser location not verified as Qatar"
+      ]
+    },
+    {
+      "claim_id": "c-gai-biotime-absent",
+      "claim": "Google AI Mode does not mention Allied for BioTime installation/support in Qatar; Techspine is cited for site survey, install, training, AMC and service areas.",
+      "classification": "confirmed",
+      "source_kind": "direct_observation",
+      "engine": "google",
+      "surface": "ai-mode",
+      "locale": "en-QA",
+      "source_title": "Google AI Mode answer",
+      "source_url": "https://www.google.com/search?udm=50",
+      "source_published_or_updated_at": null,
+      "accessed_at": "2026-11-22T13:20:00Z",
+      "raw_evidence_ref": "raw/gai-q6.txt",
+      "raw_evidence_sha256": "c0164c18c626204e5023a8e0740c956f414fc018cc2319f91c1fbfb084bc6497",
+      "observation_method": "signed-out query in Google AI Mode (udm=50, hl=en, gl=qa) via built-in browser; page text captured",
+      "limitations": [
+        "single run; answers vary between runs",
+        "browser location not verified as Qatar"
+      ]
+    },
+    {
+      "claim_id": "c-gpt-distributor-cert",
+      "claim": "ChatGPT search cites alliedeprs.com/zkteco-qatar/ and the 2026 certificate, but presents Adept Tech as \"authorized national distributor\" first.",
+      "classification": "confirmed",
+      "source_kind": "direct_observation",
+      "engine": "openai",
+      "surface": "chatgpt-search",
+      "locale": "en-QA",
+      "source_title": "ChatGPT answer",
+      "source_url": "https://chatgpt.com/",
+      "source_published_or_updated_at": null,
+      "accessed_at": "2026-11-22T13:20:00Z",
+      "raw_evidence_ref": "raw/gpt-q1.txt",
+      "raw_evidence_sha256": "07e613f00c986ee72f9f0c8313a85fb9f6ece1bbaf5d562949ffcd67497aa777",
+      "observation_method": "signed-out ChatGPT with search hint, new conversation per prompt; answer text and cited links captured",
+      "limitations": [
+        "single run; answers vary between runs",
+        "browser location not verified as Qatar",
+        "signed-out ChatGPT; location set by IP"
+      ]
+    },
+    {
+      "claim_id": "c-gpt-best-supplier-allied",
+      "claim": "ChatGPT search recommends Allied Enterprises first for best time attendance supplier in Qatar, citing alliedeprs.com and its 4.9/236-review profile.",
+      "classification": "confirmed",
+      "source_kind": "direct_observation",
+      "engine": "openai",
+      "surface": "chatgpt-search",
+      "locale": "en-QA",
+      "source_title": "ChatGPT answer",
+      "source_url": "https://chatgpt.com/",
+      "source_published_or_updated_at": null,
+      "accessed_at": "2026-11-22T13:20:00Z",
+      "raw_evidence_ref": "raw/gpt-q2.txt",
+      "raw_evidence_sha256": "4d8a94c750a9e23c228c2832bd846a04a3231d0e593dd11cc939bbee756a81c4",
+      "observation_method": "signed-out ChatGPT with search hint, new conversation per prompt; answer text and cited links captured",
+      "limitations": [
+        "single run; answers vary between runs",
+        "browser location not verified as Qatar"
+      ]
+    },
+    {
+      "claim_id": "c-gpt-biotime-zkteco-page",
+      "claim": "ChatGPT search recommends Allied for BioTime support but cites /zkteco-qatar/, not the dedicated /biotime-time-attendance-system-qatar/ page.",
+      "classification": "confirmed",
+      "source_kind": "direct_observation",
+      "engine": "openai",
+      "surface": "chatgpt-search",
+      "locale": "en-QA",
+      "source_title": "ChatGPT answer",
+      "source_url": "https://chatgpt.com/",
+      "source_published_or_updated_at": null,
+      "accessed_at": "2026-11-22T13:20:00Z",
+      "raw_evidence_ref": "raw/gpt-q6.txt",
+      "raw_evidence_sha256": "0235c9fa0ff4002db88b8b7d596f3297a4153dc4e06a54f44a1c342fecc41c56",
+      "observation_method": "signed-out ChatGPT with search hint, new conversation per prompt; answer text and cited links captured",
+      "limitations": [
+        "single run; answers vary between runs",
+        "browser location not verified as Qatar"
+      ]
+    },
+    {
+      "claim_id": "c-robots-open",
+      "claim": "The production robots rules allow all user agents (including AI search crawlers) except /admin/ and /api/.",
+      "classification": "confirmed",
+      "source_kind": "direct_observation",
+      "engine": "not_applicable",
+      "surface": "not_applicable",
+      "locale": "not_applicable",
+      "source_title": "robots.ts",
+      "source_url": "https://alliedeprs.com/robots.txt",
+      "source_published_or_updated_at": null,
+      "accessed_at": "2026-11-22T13:20:00Z",
+      "raw_evidence_ref": "raw/site-robots.txt",
+      "raw_evidence_sha256": "a495738c843bd6551c3d3a3c6beb03b07f41107ada7bbde3766ca877b246539c",
+      "observation_method": "read repository source",
+      "limitations": [
+        "repository source, not the live response"
+      ]
+    }
+  ],
+  "competitor_observations": [
+    {
+      "observation_id": "o-gpt-distributor",
+      "raw_observation_ref": "raw/gpt-q1.txt",
+      "raw_observation_sha256": "07e613f00c986ee72f9f0c8313a85fb9f6ece1bbaf5d562949ffcd67497aa777",
+      "engine": "openai",
+      "surface": "chatgpt-search",
+      "locale": "en-QA",
+      "observed_at": "2026-11-22T13:12:00Z",
+      "mentioned_entities": [
+        "Adept Tech",
+        "Allied Enterprises",
+        "ZKTeco Middle East"
+      ],
+      "cited_urls": [
+        "https://www.adepttech.me/zkteco?utm_source=chatgpt.com",
+        "https://alliedeprs.com/zkteco-qatar/?utm_source=chatgpt.com",
+        "https://www.zkteco.me/contact-us?utm_source=chatgpt.com"
+      ]
+    },
+    {
+      "observation_id": "o-gpt-best-supplier",
+      "raw_observation_ref": "raw/gpt-q2.txt",
+      "raw_observation_sha256": "4d8a94c750a9e23c228c2832bd846a04a3231d0e593dd11cc939bbee756a81c4",
+      "engine": "openai",
+      "surface": "chatgpt-search",
+      "locale": "en-QA",
+      "observed_at": "2026-11-22T13:14:00Z",
+      "mentioned_entities": [
+        "Allied Enterprises",
+        "Digital Zone Trading Qatar",
+        "Adax Business & Security Systems",
+        "IProtek"
+      ],
+      "cited_urls": [
+        "https://alliedeprs.com/?utm_source=chatgpt.com",
+        "https://digitalzone.qa/pages/zkteco?utm_source=chatgpt.com"
+      ]
+    },
+    {
+      "observation_id": "o-gpt-biotime",
+      "raw_observation_ref": "raw/gpt-q6.txt",
+      "raw_observation_sha256": "0235c9fa0ff4002db88b8b7d596f3297a4153dc4e06a54f44a1c342fecc41c56",
+      "engine": "openai",
+      "surface": "chatgpt-search",
+      "locale": "en-QA",
+      "observed_at": "2026-11-22T13:16:00Z",
+      "mentioned_entities": [
+        "Allied Enterprises",
+        "Adept Tech",
+        "Digital Zone Qatar"
+      ],
+      "cited_urls": [
+        "https://alliedeprs.com/zkteco-qatar/?utm_source=chatgpt.com",
+        "https://www.adepttech.me/zkteco?utm_source=chatgpt.com",
+        "https://digitalzone.qa/pages/zkteco?utm_source=chatgpt.com"
+      ]
+    },
+    {
+      "observation_id": "o-gai-distributor",
+      "raw_observation_ref": "raw/gai-q1.txt",
+      "raw_observation_sha256": "70007e39d94a5c4c2fc848daaeb6e5f1e1ce28d9f80cf407337a90a88488648c",
+      "engine": "google",
+      "surface": "ai-mode",
+      "locale": "en-QA",
+      "observed_at": "2026-11-22T13:01:00Z",
+      "mentioned_entities": [
+        "Allied Enterprises",
+        "Adept Tech Group",
+        "Microsys"
+      ],
+      "cited_urls": []
+    },
+    {
+      "observation_id": "o-gai-best-supplier",
+      "raw_observation_ref": "raw/gai-q2.txt",
+      "raw_observation_sha256": "230350f57dd961423a9f7481ec513cbdce1258bf404740fe358ec13865c27c75",
+      "engine": "google",
+      "surface": "ai-mode",
+      "locale": "en-QA",
+      "observed_at": "2026-11-22T13:03:00Z",
+      "mentioned_entities": [
+        "Techspine Qatar",
+        "Microsys",
+        "Comfort IT Solutions",
+        "BARQ Group"
+      ],
+      "cited_urls": []
+    },
+    {
+      "observation_id": "o-gai-price",
+      "raw_observation_ref": "raw/gai-q3.txt",
+      "raw_observation_sha256": "7420cd0c371e708160e50be930bb49179be20f2ca5f635e700dc9e583a549e96",
+      "engine": "google",
+      "surface": "ai-mode",
+      "locale": "en-QA",
+      "observed_at": "2026-11-22T13:05:00Z",
+      "mentioned_entities": [
+        "noon",
+        "Infocenter Networks"
+      ],
+      "cited_urls": []
+    },
+    {
+      "observation_id": "o-gai-access",
+      "raw_observation_ref": "raw/gai-q4.txt",
+      "raw_observation_sha256": "49cfca02a13a756b9ad0fae9cf7c15d6e161447f174cf8c0acd2156ff285edda",
+      "engine": "google",
+      "surface": "ai-mode",
+      "locale": "en-QA",
+      "observed_at": "2026-11-22T13:06:00Z",
+      "mentioned_entities": [
+        "Premier Infotech",
+        "Adax",
+        "Profile Corporation",
+        "Axle Systems",
+        "Al Mashriq Systems"
+      ],
+      "cited_urls": []
+    },
+    {
+      "observation_id": "o-gai-brand",
+      "raw_observation_ref": "raw/gai-q5.txt",
+      "raw_observation_sha256": "e79eb0e3c6cd3fa6f1775acb57befaf2e18fccd7f4b2572daf56d705d79e0558",
+      "engine": "google",
+      "surface": "ai-mode",
+      "locale": "en-QA",
+      "observed_at": "2026-11-22T13:08:00Z",
+      "mentioned_entities": [
+        "Allied Enterprises"
+      ],
+      "cited_urls": []
+    },
+    {
+      "observation_id": "o-gai-biotime",
+      "raw_observation_ref": "raw/gai-q6.txt",
+      "raw_observation_sha256": "c0164c18c626204e5023a8e0740c956f414fc018cc2319f91c1fbfb084bc6497",
+      "engine": "google",
+      "surface": "ai-mode",
+      "locale": "en-QA",
+      "observed_at": "2026-11-22T13:10:00Z",
+      "mentioned_entities": [
+        "Adept Tech",
+        "Techspine Qatar",
+        "Zkteco Dealer in Qatar"
+      ],
+      "cited_urls": []
+    }
+  ],
+  "ground_truth": [
+    {
+      "fact_id": "f-zkteco-status",
+      "accepted_value": "Authorized ZKTeco Distributor in Qatar (2026 certificate)",
+      "provenance_ref": "raw/gt-company.txt",
+      "provenance_sha256": "d34569ccb8c6594f8618511a316524fa115d01f89b3f2388920ffbb792f02bc6",
+      "valid_from": "2026-01-01T00:00:00Z",
+      "valid_until": "2026-12-31T23:59:59Z"
+    },
+    {
+      "fact_id": "f-hours",
+      "accepted_value": "Sun–Thu 08:00–17:30; Sat 08:00–13:00; Fri closed",
+      "provenance_ref": "raw/gt-company.txt",
+      "provenance_sha256": "d34569ccb8c6594f8618511a316524fa115d01f89b3f2388920ffbb792f02bc6",
+      "valid_from": "2026-01-01T00:00:00Z",
+      "valid_until": null
+    },
+    {
+      "fact_id": "f-phone",
+      "accepted_value": "+974 4471 8845; helpline/WhatsApp +974 3333 8964",
+      "provenance_ref": "raw/gt-company.txt",
+      "provenance_sha256": "d34569ccb8c6594f8618511a316524fa115d01f89b3f2388920ffbb792f02bc6",
+      "valid_from": "2026-01-01T00:00:00Z",
+      "valid_until": null
+    },
+    {
+      "fact_id": "f-offices",
+      "accepted_value": "204 Retaj Business Building, B Ring Road; 108 Fereej Bin Dirhem, B Ring Road, Doha",
+      "provenance_ref": "raw/gt-company.txt",
+      "provenance_sha256": "d34569ccb8c6594f8618511a316524fa115d01f89b3f2388920ffbb792f02bc6",
+      "valid_from": "2026-01-01T00:00:00Z",
+      "valid_until": null
+    }
+  ],
+  "gaps": [
+    {
+      "gap_id": "g-perplexity-signup",
+      "gap_type": "inaccessible_surface",
+      "engine": "perplexity",
+      "surface": "perplexity-search",
+      "locale": "en-QA",
+      "description": "Perplexity asked to sign up before answering; no answer captured.",
+      "limitations": [
+        "no credentials used"
+      ],
+      "related_claim_ids": []
+    },
+    {
+      "gap_id": "g-gai-cited-urls",
+      "gap_type": "missing_evidence",
+      "engine": "google",
+      "surface": "ai-mode",
+      "locale": "en-QA",
+      "description": "Google AI Mode source links sit behind opaque /goto redirects; exact cited URLs not resolved.",
+      "limitations": [
+        "source titles recorded instead"
+      ],
+      "related_claim_ids": []
+    },
+    {
+      "gap_id": "g-gpt-uncovered-prompts",
+      "gap_type": "missing_evidence",
+      "engine": "openai",
+      "surface": "chatgpt-search",
+      "locale": "en-QA",
+      "description": "ChatGPT was not run for the price, access-control installer and brand prompts.",
+      "limitations": [
+        "time-boxed run"
+      ],
+      "related_claim_ids": []
+    },
+    {
+      "gap_id": "g-ai-overview",
+      "gap_type": "missing_evidence",
+      "engine": "google",
+      "surface": "ai-overview",
+      "locale": "en-QA",
+      "description": "Google AI Overviews (standard results page) not captured separately from AI Mode.",
+      "limitations": [
+        "AI Mode and AI Overviews are different surfaces"
+      ],
+      "related_claim_ids": []
+    },
+    {
+      "gap_id": "g-copilot",
+      "gap_type": "missing_evidence",
+      "engine": "microsoft",
+      "surface": "copilot-search",
+      "locale": "en-QA",
+      "description": "Microsoft Copilot not tested.",
+      "limitations": [
+        "time-boxed run"
+      ],
+      "related_claim_ids": []
+    },
+    {
+      "gap_id": "g-referrals",
+      "gap_type": "missing_evidence",
+      "engine": "not_applicable",
+      "surface": "not_applicable",
+      "locale": "not_applicable",
+      "description": "No analytics or server-log data on AI referral traffic (chatgpt.com utm_source, etc.).",
+      "limitations": [
+        "analytics access not available"
+      ],
+      "related_claim_ids": []
+    },
+    {
+      "gap_id": "g-demand",
+      "gap_type": "missing_evidence",
+      "engine": "not_applicable",
+      "surface": "not_applicable",
+      "locale": "not_applicable",
+      "description": "No prompt or search demand data; prompts are editorial hypotheses.",
+      "limitations": [
+        "no keyword or prompt-volume tool"
+      ],
+      "related_claim_ids": []
+    }
+  ]
+}

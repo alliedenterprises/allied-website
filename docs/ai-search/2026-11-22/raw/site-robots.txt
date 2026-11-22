@@ -1,0 +1,2 @@
+source: repo src/app/robots.ts (production branch), read 2026-11-22
+rules: userAgent '*' allow '/' disallow ['/admin/','/api/']; sitemap https://alliedeprs.com/sitemap.xml. No AI-crawler-specific blocks (GPTBot, OAI-SearchBot, Google-Extended, PerplexityBot all fall under '*').

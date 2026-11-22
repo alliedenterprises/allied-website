@@ -1,0 +1,4 @@
+engine=google surface=ai-mode locale=en-QA observed_at=2026-11-22T13:10:00Z access=signed-out
+prompt: Where can I get ZKTeco BioTime software installation and support in Qatar?
+answer (excerpt): providers: Adept Tech ("authorized distributor/partner"); Techspine Qatar (site surveys, BioTime/ZKBio install, training, AMC; Doha, Lusail, Al Wakrah, Industrial Area); "ZKTeco Dealer in Qatar" (Al Khaleej St). Allied Enterprises NOT mentioned.
+visible sources: Techspine Qatar "ZKTeco Dealer in Qatar | Authorized Supplier & Installer"; GBP "Zkteco Dealer in Qatar"; GBP "Adept Tech".

@@ -1,0 +1,4 @@
+engine=google surface=ai-mode locale=en-QA observed_at=2026-11-22T13:06:00Z access=signed-out
+prompt: Which company installs access control systems in Doha?
+answer (excerpt): local-pack style list from Google Business Profiles: Premier Infotech Security Services (4.9, 44 reviews); Adax Business & Security Systems (4.8, 15); Profile Corporation (4.9, 26); Axle Systems (4.5, 25); Al Mashriq Systems. Allied Enterprises NOT mentioned.
+visible sources: Google Business Profiles of the listed firms.

@@ -36,6 +36,15 @@ const nextConfig: NextConfig = {
       { source: '/products/', destination: '/zkteco-qatar/', permanent: true },
       { source: '/vision/', destination: '/about-us/', permanent: true },
       { source: '/team-allied/', destination: '/about-us/', permanent: true },
+      // WordPress shortlink of the old access control page; Google still lists it (search checked 2026-11-22).
+      // Without this it serves the homepage with canonical `/`. Query strings pass through, so the target is
+      // /access-control-system-qatar/?p=65, whose canonical is the clean URL.
+      {
+        source: '/',
+        has: [{ type: 'query', key: 'p', value: '65' }],
+        destination: '/access-control-system-qatar/',
+        permanent: true,
+      },
     ]
   },
   images: {

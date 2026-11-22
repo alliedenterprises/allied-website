@@ -1,0 +1,4 @@
+engine=google surface=ai-mode locale=en-QA observed_at=2026-11-22T13:08:00Z access=signed-out
+prompt: What does Allied Enterprises in Doha Qatar do?
+answer (excerpt): "technical solutions provider and telecommunication contractor"; services: time attendance ("Official/authorized agents for ZKTeco Products in Qatar"), access control, HRMS & payroll, structured cabling/intercom/fiber OTDR-OLTS, GPS vehicle tracking, Teltonika networking. Address Office 204 Retaj Business Building, B Ring Road. Hours: "Sunday to Thursday (8:00 AM – 5:30 PM)" (Saturday hours omitted).
+visible sources: alliedeprs.com page titled "Allied Enterprises: ZKTeco Attendance & Access Control in Qatar"; alliedeprs.com "Vision - Allied Enterprises" (old WordPress /vision/ page, now redirected to /about-us/); Google Business Profile.

@@ -1,0 +1,8 @@
+engine=google surface=ai-mode locale=en-QA (hl=en gl=qa) observed_at=2026-11-22T13:01:00Z access=signed-out, built-in browser on user's device
+prompt: Who is the authorized ZKTeco distributor in Qatar?
+answer (excerpt): Several companies ... authorized agents, partners, or prominent suppliers:
+- Allied Enterprises – Listed as an authorized agent/distributor for ZKTeco products in Qatar ...
+- Adept Tech Group – ELV and security solutions provider in Doha that lists ZKTeco among its official brand distributions.
+- Microsys (ZKTeco Qatar) – regional supplier ... ZKTeco access control, smart locks, attendance hardware.
+visible sources: "Zkteco Qatar" (site card, URL behind google /goto redirect, not resolved); Google Business Profile "Allied Enterprises" (Rawdat Al-Khail Street 204, Doha); Google Business Profile "Adept Tech".
+note: the Allied line is sourced from the Google Business Profile, not alliedeprs.com.

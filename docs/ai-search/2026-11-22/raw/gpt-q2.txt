@@ -1,0 +1,4 @@
+engine=openai surface=chatgpt-search locale=en-QA observed_at=2026-11-22T13:14:00Z access=signed-out
+prompt: What is the best time attendance system supplier in Qatar?
+answer (excerpt): first recommendation Allied Enterprises WLL (4.9/5, 236 reviews, "Security system supplier"): authorized ZKTeco distributor; fingerprint/face/palm/card; BioTime; installation & local support; payroll integration. Others: Digital Zone Trading Qatar, Adax Business & Security Systems, IProtek (FingerTec).
+cited URLs (raw): https://alliedeprs.com/?utm_source=chatgpt.com ; https://digitalzone.qa/pages/zkteco?utm_source=chatgpt.com

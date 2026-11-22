@@ -1,0 +1,5 @@
+engine=google surface=ai-mode locale=en-QA observed_at=2026-11-22T13:03:00Z access=signed-out
+prompt: What is the best time attendance system supplier in Qatar?
+answer (excerpt): suppliers named: Techspine Qatar; Microsys (ZKTeco Qatar); Comfort IT Solutions; BARQ Group. Allied Enterprises NOT mentioned.
+selection criteria stated by the answer: verification type; payroll & WPS compliance (export for Qatar WPS); local support (on-site install, warranty, Doha).
+visible sources: "Zkteco Qatar" (Microsys); Techspine Qatar "Time Attendance Machine Qatar | Biometric Systems & Support" (mentions Hikvision, ZKTeco, Suprema; Doha, Mesaieed, Al Wakrah); Comfort IT Solutions "Top Biometric Solutions and Mobile Time Attendance System Qatar".

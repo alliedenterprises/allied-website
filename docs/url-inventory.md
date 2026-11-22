@@ -47,6 +47,7 @@ Status values: `rebuilt` | `redirected → <new URL>` | `dropped (404)` | `pendi
 | `/project/` | dropped (404) | Empty theme archive ("No Results Found"). Owner decided 2026-11-09: no redirect |
 | `/category/uncategorized/` | dropped (404) | Empty WordPress category archive. Owner decided 2026-11-09: no redirect |
 | `/author/admin/` | dropped (404) | WordPress author archive (exposed the admin user name). Owner decided 2026-11-09: no redirect |
+| `/?p=65` | redirected → `/access-control-system-qatar/` | WordPress shortlink of the old access control page, not in the Yoast sitemap. Google still listed it on 2026-11-22 with the old title "Leading Access Control System provider in Qatar"; the new site served the homepage there with canonical `/`. 308 added 2026-11-22 (implements the approved research doc). Other `?p=` / `?page_id=` IDs are unknown: check Search Console |
 
 ## New pages (no old WordPress URL)
 

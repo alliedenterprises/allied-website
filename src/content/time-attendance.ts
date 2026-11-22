@@ -19,8 +19,12 @@ import type { ContentBlock, FaqItem } from './types'
 export const taHero = {
   eyebrow: 'Biometric time attendance supplier in Qatar',
   heading: 'Time Attendance System in Qatar',
-  lead: 'Have you been looking for a reliable and efficient time and attendance system in Qatar to streamline the amount of time spent on payroll each month?',
+  // 2026-11-22 (AI search research): direct answer first so answer engines can quote it; every fact is already
+  // confirmed on this page (devices, software, installation all over Qatar, WPS salary file, AMC). The old
+  // WordPress lead is kept as the first paragraph below.
+  lead: 'Allied Enterprises, the authorized ZKTeco distributor in Qatar, supplies and installs fingerprint, face, palm and card attendance machines with BioTime or Sunbird software. We connect attendance to your payroll, including the WPS salary file, and support the system under an annual maintenance contract anywhere in Qatar.',
   text: [
+    'Have you been looking for a reliable and efficient time and attendance system in Qatar to streamline the amount of time spent on payroll each month?',
     'If you’re frustrated by manual time sheet systems and want to manage your workforce more effectively, it’s time to implement a time attendance system through Allied Enterprises, a time attendance system solution provider in Qatar with on site support and on shore software application programmers.',
     'No matter the size of your business or the industry you work in, if you have employees your business will benefit from a time and attendance system.',
   ],

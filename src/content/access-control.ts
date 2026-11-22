@@ -110,7 +110,7 @@ export const acWhichEntrance = {
 export const acContact = {
   heading: 'Access Control Installation in Doha, Qatar',
   text: [
-    'Not sure which readers or entrances you need? Our team will visit your site, recommend a layout and send a no-obligation quotation.',
+    'We supply and install ZKTeco face, palm, fingerprint and card readers on doors, and turnstiles, flap and swing barriers at building entrances. Not sure which readers or entrances you need? Our team will visit your site, recommend a layout and send a no-obligation quotation.',
     `Call ${company.phone.display}, WhatsApp ${company.helpline.display} or email ${company.email}.`,
     'We can connect access control with systems you already have, such as CCTV, alarm systems and intercoms, and with time attendance, so the same face or card is used for both.',
     'After installation we enrol your users, train your administrators and support the system from our offices in Doha.',
@@ -118,5 +118,6 @@ export const acContact = {
   links: [
     { label: 'Contact our team', href: '/contact-us/' },
     { label: 'Time attendance systems', href: '/time-attendance-system-qatar/' },
+    { label: 'Turnstiles and gate barriers', href: '/zkteco-qatar-gate-barrier-system/' },
   ],
 }

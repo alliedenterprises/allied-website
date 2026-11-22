@@ -1,0 +1,5 @@
+engine=openai surface=chatgpt-search locale=en-QA observed_at=2026-11-22T13:16:00Z access=signed-out
+prompt: Where can I get ZKTeco BioTime software installation and support in Qatar?
+answer (excerpt): 1. Allied Enterprises (recommended; authorized ZKTeco distributor; BioTime 9.5 install/config, device integration, payroll/HRMS integration, enrolment & training, after-sales support, two Doha offices). 2. Adept Tech ("authorized national distributor"). 3. Digital Zone Qatar.
+cited URLs (raw): https://alliedeprs.com/zkteco-qatar/?utm_source=chatgpt.com ; https://www.adepttech.me/zkteco?utm_source=chatgpt.com ; https://digitalzone.qa/pages/zkteco?utm_source=chatgpt.com
+note: the dedicated page /biotime-time-attendance-system-qatar/ was NOT cited; /zkteco-qatar/ was.
