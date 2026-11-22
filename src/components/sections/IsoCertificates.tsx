@@ -39,10 +39,13 @@ export function IsoCertificates({ heading, intro, items }: IsoCertificatesProps)
                 className={styles.image}
               />
             </a>
-            <h3 className={styles.title}>
-              <span className={styles.standard}>{item.standard}</span>
-              {item.title}
-            </h3>
+            <div className={styles.body}>
+              <h3 className={styles.title}>
+                <span className={styles.standard}>{item.standard}</span>
+                {item.title}
+              </h3>
+              <p className={styles.text}>{item.text}</p>
+            </div>
           </li>
         ))}
       </ul>

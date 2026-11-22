@@ -13,13 +13,7 @@ import type { PageImage } from './types'
 export type AboutImage = PageImage
 
 export type AudienceIcon =
-  | 'building'
-  | 'government'
-  | 'vendor'
-  | 'startup'
-  | 'home'
-  | 'recreation'
-  | 'person'
+  'building' | 'government' | 'vendor' | 'startup' | 'home' | 'recreation' | 'person'
 
 export const aboutHero = {
   heading: 'About Allied Enterprises',
@@ -39,6 +33,24 @@ export const aboutHero = {
   primary: { label: 'Request a Quote', href: '/contact-us/' },
 }
 
+// In-Country Value (ICV) band, above the ISO certificates (added 2026-11-22). Logo and wording supplied by the
+// company (logo cropped from their design screenshot; replace with the original artwork if available).
+// Tawteen is QatarEnergy's In-Country Value programme.
+// VERIFY: ICV certificate issuer, score and expiry date were not supplied; do not add them until confirmed.
+export const aboutIcv = {
+  eyebrow: 'Local value',
+  heading: 'Committed to Qatar.',
+  text: [
+    'Supporting local value through the products, services and expertise we bring to our customers.',
+  ],
+  image: {
+    src: '/images/certifications/icv-tawteen-in-country-value-certified.webp',
+    width: 432,
+    height: 216,
+    alt: 'Tawteen In-Country Value (ICV) certified logo',
+  },
+}
+
 // ISO certificates (added 2026-11-16). Facts only from the three company-supplied certificates (PDFs rendered
 // to webp): issued by Globus Certifications Private Limited (GCPL), accredited by United Accreditation
 // Foundation Inc. (UAF); issued to "Allied Enterprises Trading and Services", Office No. 204, Doha; scope
@@ -49,17 +61,21 @@ export const aboutHero = {
 export type IsoCertificate = {
   standard: string
   title: string
+  text: string
   image: PageImage
 }
 
+// Card notes (added 2026-11-22 for SEO, on request) describe what each standard covers in general terms;
+// they make no claim beyond holding the certificate.
 export const aboutIso = {
   heading: 'ISO certified for quality, environment and safety',
   intro:
-    'Allied Enterprises has been independently assessed and certified to three international management system standards.',
+    'Allied Enterprises has been independently assessed and certified to three international management system standards: ISO 9001:2015, ISO 14001:2015 and ISO 45001:2018.',
   items: [
     {
       standard: 'ISO 9001:2015',
       title: 'Quality Management System',
+      text: 'Sets out how we manage quality, from understanding customer requirements to supply, support and continual improvement.',
       image: {
         src: '/images/certifications/iso-9001-2015-certificate-allied-enterprises.webp',
         width: 1200,
@@ -70,6 +86,7 @@ export const aboutIso = {
     {
       standard: 'ISO 14001:2015',
       title: 'Environmental Management System',
+      text: 'Covers how we identify, control and reduce the environmental impact of our operations and meet applicable requirements.',
       image: {
         src: '/images/certifications/iso-14001-2015-certificate-allied-enterprises.webp',
         width: 1200,
@@ -80,6 +97,7 @@ export const aboutIso = {
     {
       standard: 'ISO 45001:2018',
       title: 'Occupational Health & Safety Management System',
+      text: 'Covers how we manage health and safety risks for our staff, including technicians working on customer sites.',
       image: {
         src: '/images/certifications/iso-45001-2018-certificate-allied-enterprises.webp',
         width: 1200,
@@ -88,8 +106,9 @@ export const aboutIso = {
       },
     },
   ] as IsoCertificate[],
-  // The card descriptions, Reg. No. lines and the issuer / scope / validity paragraph were removed on request (2026-11-16);
-  // those details remain readable on the certificate images.
+  // The Reg. No. lines and the issuer / validity paragraph were removed on request (2026-11-16); those details remain
+  // readable on the certificate images. Card notes were added back on 2026-11-22;
+  // the certified-scope sentence was removed again on request the same day.
 }
 
 export const aboutZkteco = {
@@ -130,7 +149,8 @@ export const aboutAudience = {
 
 export const aboutPrinciple = {
   label: 'The principle behind Allied Enterprises is,',
-  quote: 'to not wait for a security issue to arise, but to be sufficiently proactive to prevent it.',
+  quote:
+    'to not wait for a security issue to arise, but to be sufficiently proactive to prevent it.',
 }
 
 export const aboutVision = {

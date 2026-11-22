@@ -91,6 +91,17 @@
   color: var(--brand-accent);
 }
 
+.body {
+  max-width: 320px;
+}
+
+.text {
+  margin: 10px 0 0;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-muted);
+}
+
 @media (max-width: 1180px) {
   .section {
     --edge: 32px;
@@ -127,6 +138,10 @@
   .frame {
     flex-shrink: 0;
     width: 200px;
+  }
+
+  .body {
+    max-width: none;
   }
 }
 

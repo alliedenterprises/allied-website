@@ -5,6 +5,7 @@ import { pageMetadata } from '@/lib/seo'
 import { AudienceGrid } from '@/components/sections/AudienceGrid'
 import { CtaBanner } from '@/components/sections/CtaBanner'
 import { IsoCertificates } from '@/components/sections/IsoCertificates'
+import { LocalValue } from '@/components/sections/LocalValue'
 import { PageHero } from '@/components/sections/PageHero'
 import { PrincipleQuote } from '@/components/sections/PrincipleQuote'
 import { QualityPolicy } from '@/components/sections/QualityPolicy'
@@ -14,6 +15,7 @@ import {
   aboutAudience,
   aboutCulture,
   aboutHero,
+  aboutIcv,
   aboutIso,
   aboutPrinciple,
   aboutQuality,
@@ -27,7 +29,7 @@ import { ctaBanner } from '@/content/home'
 export const metadata: Metadata = pageMetadata({
   title: 'About Allied Enterprises | IT & Security Solutions in Doha',
   description:
-    'Allied Enterprises WLL is the authorized ZKTeco distributor in Qatar, supplying and installing time attendance, access control and IT infrastructure from Doha.',
+    'Authorized ZKTeco distributor in Qatar, ISO 9001, 14001 & 45001 and ICV certified. Allied Enterprises supplies time attendance, access control and IT infrastructure in Doha.',
   path: '/about-us/',
 })
 
@@ -45,11 +47,13 @@ export default function AboutPage() {
         primary={aboutHero.primary}
         phone={company.phone}
       />
-      <IsoCertificates
-        heading={aboutIso.heading}
-        intro={aboutIso.intro}
-        items={aboutIso.items}
+      <LocalValue
+        eyebrow={aboutIcv.eyebrow}
+        heading={aboutIcv.heading}
+        text={aboutIcv.text}
+        image={aboutIcv.image}
       />
+      <IsoCertificates heading={aboutIso.heading} intro={aboutIso.intro} items={aboutIso.items} />
       <SplitFeature
         id="zkteco-heading"
         heading={aboutZkteco.heading}

@@ -1,3 +1,4 @@
+import { aboutIso } from '@/content/about'
 import { company } from '@/content/company'
 import { shareImage } from '@/lib/seo'
 
@@ -35,6 +36,15 @@ const business = {
   areaServed: { '@type': 'Country', name: 'Qatar' },
   // shown on the home page banner and /zkteco-qatar/ (zkteco.ts zktecoAward)
   award: 'ZKTeco Distinguished Project Leadership Award 2025',
+  // shown on /about-us/ (about.ts aboutIso, aboutIcv); the ISO issuer is printed on the certificates
+  hasCertification: [
+    ...aboutIso.items.map((item) => ({
+      '@type': 'Certification',
+      name: `${item.standard} ${item.title}`,
+      issuedBy: { '@type': 'Organization', name: 'Globus Certifications Private Limited' },
+    })),
+    { '@type': 'Certification', name: 'In-Country Value (ICV) certified – Tawteen' },
+  ],
   openingHoursSpecification: company.hours
     .filter((h) => h.opens && h.closes)
     .map((h) => ({
